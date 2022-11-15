@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace GUI_Module
 {
-    public partial class Form1 : Form
+    public partial class RMS : Form
     {
-        public Form1()
+        public RMS()
         {
             InitializeComponent();
+        }
+
+        private void RMS_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
