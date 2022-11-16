@@ -81,6 +81,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Dishes.txt" />
     <Content Include="drink.txt" />
     <Content Include="main.txt" />
     <Content Include="side.txt" />
