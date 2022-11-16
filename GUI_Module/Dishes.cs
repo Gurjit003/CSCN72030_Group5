@@ -8,5 +8,9 @@ namespace GUI_Module
 {
     internal class Dishes
     {
+        public static void recieveNumOfDishes(int numOfDishes)
+        {
+
+        }
     }
 }
