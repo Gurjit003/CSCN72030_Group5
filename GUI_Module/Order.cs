@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+using GUI_Module;
+
 namespace GUI_Module
 {
     internal class Order
@@ -35,8 +37,9 @@ namespace GUI_Module
             getSide(order, numOrders);
             getDrink(order, numOrders);
 
-            sendKitchenOrder(order);
+            bool isReady = sendKitchenOrder(order);
             sendBOHOrder(order, numOrders);
+            tellDishesOfOrder(numOrders);
 
             return ready;
         }
@@ -154,7 +157,7 @@ namespace GUI_Module
         {
             bool orderRecievedAndMade = true;
 
-           //orderRecievedAndMade = recieveOrder(order);  //this will send the orders to the kitchen class and will return a boolean when the order is ready
+           orderRecievedAndMade = Kitchen.recieveOrder(order);  //this will send the orders to the kitchen class and will return a boolean when the order is ready 
 
            return orderRecievedAndMade; 
         }
@@ -165,7 +168,7 @@ namespace GUI_Module
         {
             for(int i = 0; i < numOfOrder; i++)
             {
-                //getGrossRevenue(order[i]); //this will call the gross revenue function  
+                BackOfHouse.getGrossRevenue(order[i]); //this will call the gross revenue function  
             }
         }
         //-----------------------------------------------------------------------------------------------------------------
@@ -180,7 +183,7 @@ namespace GUI_Module
         //this will let the dishes module the amount of orders made
         private static void tellDishesOfOrder(int numOfOrder)
         {
-
+            Dishes.recieveNumOfDishes(numOfOrder);
         }
         //-----------------------------------------------------------------------------------------------------------------
     }
