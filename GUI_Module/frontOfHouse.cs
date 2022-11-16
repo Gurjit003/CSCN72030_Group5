@@ -46,9 +46,6 @@ namespace GUI_Module
             // New list for all the tables (easier access)
             table[] arrayOfTables = new table[6];
 
-            // Starting table to check if empty
-            int tableNum = minimumTableOccupants;
-
             // Create 4 empty tables, add tables to list
             table table1 = new table(1); arrayOfTables[1] = table1;
             table table2 = new table(2); arrayOfTables[2] = table2;
@@ -60,8 +57,11 @@ namespace GUI_Module
             return arrayOfTables;
         }
 
-        table findEmptyTable(table[] arrayOfTables) // Method to find next empty table
+        int findEmptyTableNumber(table[] arrayOfTables) // Method to find next empty table (returns table number)
         {
+            // Starting table to check if empty
+            int tableNum = minimumTableOccupants;
+
             // Loop until an unoccupied table is found
             while (true)
             {
@@ -76,6 +76,8 @@ namespace GUI_Module
                 else
                     break; // Exit loop when empty table is found
             }
+
+            return tableNum;
         }
 
         int generateNumberOfCustomers()
@@ -83,12 +85,13 @@ namespace GUI_Module
             // Choose random (1-4) occupants
             Random random = new Random();
             int numberOfOccupants = random.Next(minimumTableOccupants, maximumTableOccupants);
+            return numberOfOccupants;
         }
 
-        void assignCustomersToTable(table[] arrayOfTables)
+        void assignCustomersToTable(table[] arrayOfTables, int tableNumberToOccupy, int numberOfOccupants)
         {
             // Assign generated number of occupants to the empty table
-            arrayOfTables[tableNum].setOccupants(numberOfOccupants);
+            arrayOfTables[tableNumberToOccupy].setOccupants(numberOfOccupants);                             
         }
 
         void createOrder()
