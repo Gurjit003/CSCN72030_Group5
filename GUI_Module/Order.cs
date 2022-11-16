@@ -35,6 +35,9 @@ namespace GUI_Module
             getSide(order, numOrders);
             getDrink(order, numOrders);
 
+            sendKitchenOrder(order);
+            sendBOHOrder(order, numOrders);
+
             return ready;
         }
         //-----------------------------------------------------------------------------------------------------------------
@@ -143,6 +146,41 @@ namespace GUI_Module
             {
                 order[i].drink = Drink[i];
             }
+        }
+        //-----------------------------------------------------------------------------------------------------------------
+
+        //this will send the kitchen module the order
+        static private bool sendKitchenOrder(Order[] order)
+        {
+            bool orderRecievedAndMade = true;
+
+           //orderRecievedAndMade = recieveOrder(order);  //this will send the orders to the kitchen class and will return a boolean when the order is ready
+
+           return orderRecievedAndMade; 
+        }
+        //-----------------------------------------------------------------------------------------------------------------
+
+       //this will send the back or house the order
+       static private void sendBOHOrder(Order[] order, int numOfOrder)
+        {
+            for(int i = 0; i < numOfOrder; i++)
+            {
+                //getGrossRevenue(order[i]); //this will call the gross revenue function  
+            }
+        }
+        //-----------------------------------------------------------------------------------------------------------------
+
+        //this will send to the GUI ehat has been made
+        public static void sendWhatHasbeenMade(Order[] order)
+        {
+
+        }
+        //-----------------------------------------------------------------------------------------------------------------
+
+        //this will let the dishes module the amount of orders made
+        private static void tellDishesOfOrder(int numOfOrder)
+        {
+
         }
         //-----------------------------------------------------------------------------------------------------------------
     }
