@@ -16,11 +16,12 @@ namespace GUI_Module
         double orderPrice;
         int itemQuantity;
 
-        public item(int itemID, string itemName, double price, int quantity) // Base constructor
+        public item(int itemID, string itemName, double itemPrice, double orderPrice, int quantity) // Base constructor
         {
             setItemID(itemID);
             setItemName(itemName);
-            setItemPrice(price);
+            setItemPrice(itemPrice);
+            setOrderPrice(orderPrice);
             setQuantity(quantity);
         }
 
@@ -46,9 +47,13 @@ namespace GUI_Module
         {
             item[] arrayOfItems= new item[numberOfItems]; // Array to store all items
 
-            // Example - Create item and add to array
-            item hamburger = new item(1, "hamburger", 2.99, 5); arrayOfItems[1] = hamburger;
-            item pop = new item(2, "pop", 0.99, 5); arrayOfItems[2] = pop;
+            // Create items and add to array
+            item hamburger = new item(1, "Hamburger", 6.79, 2.49, 10); arrayOfItems[1] = hamburger;
+            item chickenBurger = new item(2, "Chicken Burger", 5.59, 1.99, 10); arrayOfItems[2] = chickenBurger;
+            item salad = new item(3, "Salad", 3.99, 1.20, 10); arrayOfItems[3] = salad;
+            item fries = new item(4, "Fries", 1.99, 0.60, 10); arrayOfItems[4] = fries;
+            item pop = new item(5, "Pop", 1.99, 0.50, 10); arrayOfItems[5] = pop;
+            item water = new item(6, "Water", 1.49, 0.10, 10); arrayOfItems[6] = water;
         }
 
         int[] getAllItemStock()
@@ -66,3 +71,21 @@ namespace GUI_Module
         }
     }
 }
+
+/* 
+Customer prices: 
+Hamburger: $6.79
+Chicken burger: $5.59
+Salad: $3.99
+Fries: $1.99
+Pop: $1.99
+Water: $1.49
+
+Inventory/order prices: 
+Hamburger: $2.49
+Chicken burger: $1.99
+Salad: $1.20
+Fries: $0.60
+Pop: $0.50
+Water: $0.10
+*/ 
