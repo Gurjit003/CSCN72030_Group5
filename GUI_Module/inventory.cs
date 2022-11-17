@@ -27,11 +27,13 @@ namespace GUI_Module
         void setItemID(int itemID) { this.itemID = itemID; } // Set itemID
         void setItemName(string itemName) { this.itemName = itemName; } // Set itemName
         void setItemPrice(double price) { this.itemPrice = price; } // Set itemPrice
+        void setOrderPrice(double orderPrice) { this.orderPrice = orderPrice; } // Set orderPrice
         void setQuantity(int quantity) { this.itemQuantity = quantity; } // Set quantity
 
         public int getItemID() { return this.itemID; } // Get itemID
         public string getItemName() { return this.itemName; } // Get itemName
         public double getItemPrice() { return this.itemPrice; } // Get itemPrice
+        public double getOrderPrice() { return this.orderPrice; } // Get orderPrice
         public int getQuantity() { return this.itemQuantity; } // Get quantity
     }
 
