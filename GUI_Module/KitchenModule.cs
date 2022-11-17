@@ -8,7 +8,17 @@ namespace GUI_Module
 {
     internal class KitchenModule
     {
+        internal class Kitchen
+        {
+            bool powerStatus;
+            float temperature;
 
+            public Kitchen()
+            {
+                powerStatus = false;
+                temperature = 0;
+            }
+        }
 
     }
 }
