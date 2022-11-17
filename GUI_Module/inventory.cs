@@ -13,6 +13,7 @@ namespace GUI_Module
         int itemID;
         string itemName;
         double itemPrice;
+        double orderPrice;
         int itemQuantity;
 
         public item(int itemID, string itemName, double price, int quantity) // Base constructor
