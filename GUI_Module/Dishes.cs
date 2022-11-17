@@ -11,6 +11,10 @@ namespace GUI_Module
 {
     internal class Dishes
     {
+        public static int cleanDishesCount = 20;
+        public static int dirtyDishesCount = 0;
+        public static int beenUsedDishesCount = 0;
+
         int clean = 20;
         int dirty = 0;
         int beenUsed = 0;
@@ -72,6 +76,7 @@ namespace GUI_Module
         public static void recieveNumOfDishes(int numOfDishes)
         {
             getDishes();
+            setNumOfDishes(allDishes);
             sendCurrentDishesNum();
 
             bool isOkToContinue = checkNumOfDishes();
@@ -95,6 +100,7 @@ namespace GUI_Module
             }
 
             reWriteDishes();
+            setNumOfDishes(allDishes); 
             sendCurrentDishesNum();
         }
         //-------------------------------------------------------------------------------------
@@ -135,6 +141,7 @@ namespace GUI_Module
             temp = 0;
 
             reWriteDishes();
+            setNumOfDishes(allDishes);
             sendCurrentDishesNum();
         }
         //-------------------------------------------------------------------------------------
@@ -153,7 +160,15 @@ namespace GUI_Module
             allDishes.beenUsed = allDishes.beenUsed + leavingCus;
 
             reWriteDishes();
+            setNumOfDishes(allDishes);
             sendCurrentDishesNum();
+        }
+
+        private static void setNumOfDishes(Dishes dishes)
+        {
+            cleanDishesCount = dishes.clean;
+            dirtyDishesCount = dishes.dirty;
+            beenUsedDishesCount = dishes.beenUsed;
         }
     }
 }
