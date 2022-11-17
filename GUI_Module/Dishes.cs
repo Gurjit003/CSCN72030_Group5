@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 
 namespace GUI_Module
 {
-    //this will be the new number of dishers from the file
     internal class Dishes
     {
         int clean = 20;
@@ -18,6 +17,7 @@ namespace GUI_Module
 
         public static Dishes allDishes = new Dishes();
 
+        //this function will get the number of dishes from the file 
         private static void getDishes()
         {
             int counter = 0;
@@ -52,7 +52,9 @@ namespace GUI_Module
             allDishes.dirty = newDirty;
             allDishes.beenUsed = newBeenUsed;
         }
+        //-------------------------------------------------------------------------------------
 
+        //this function will write the number of dishes to the file 
         private static void reWriteDishes()
         {
             string cleanString = allDishes.clean.ToString();
@@ -95,6 +97,7 @@ namespace GUI_Module
             reWriteDishes();
             sendCurrentDishesNum();
         }
+        //-------------------------------------------------------------------------------------
 
         //this will check the number of clean dishes we have
         private static bool checkNumOfDishes()
@@ -108,16 +111,18 @@ namespace GUI_Module
 
             return isEnough;
         }
+        //-------------------------------------------------------------------------------------
 
         // this will tell the GUI to display that the clean dishes is running low
         private static bool tellToClean()
         {
             bool isOkToContinue = true;
 
-            //tell to clean
-           
+            //KitchenControl k = new KitchenControl;
+
             return isOkToContinue;
         }
+        //-------------------------------------------------------------------------------------
 
         //this will clean all the dirty dishes
         private static void cleanDishes()
@@ -132,13 +137,16 @@ namespace GUI_Module
             reWriteDishes();
             sendCurrentDishesNum();
         }
+        //-------------------------------------------------------------------------------------
 
         //this will send to the GUI the current amount of Dishes
         public static void sendCurrentDishesNum()
         {
-
+            //KitchenControl k = new KitchenControl;
         }
+        //-------------------------------------------------------------------------------------
 
+        //this function will adjust the number of beenUsed and clean dishes according to the amount of customers that leave
         public static void recieveNumOfLeavingCus(int leavingCus)
         {
             allDishes.beenUsed = allDishes.beenUsed - leavingCus;

@@ -11,6 +11,13 @@ namespace GUI_Module
 {
     internal class Order
     {
+        public static int hambuger = 0;
+        public static int chickenBurger = 0;
+        public static int fries = 0;
+        public static int salad = 0;
+        public static int water = 0;
+        public static int pop = 0;
+
         string main = "Nothing";
         string side = "Nothing";
         string drink = "Nothing";
@@ -37,9 +44,15 @@ namespace GUI_Module
             getSide(order, numOrders);
             getDrink(order, numOrders);
 
+            setNumOfMaking(order, numOrders);
+            sendWhatHasbeenMade();
+
             bool isReady = sendKitchenOrder(order);
             sendBOHOrder(order, numOrders);
             tellDishesOfOrder(numOrders);
+
+            deduceNumOfMaking(order, numOrders);
+            sendWhatHasbeenMade();
 
             return ready;
         }
@@ -174,9 +187,9 @@ namespace GUI_Module
         //-----------------------------------------------------------------------------------------------------------------
 
         //this will send to the GUI ehat has been made
-        public static void sendWhatHasbeenMade(Order[] order)
+        public static void sendWhatHasbeenMade()
         {
-
+            //KitchenControl k = new KitchenControl;
         }
         //-----------------------------------------------------------------------------------------------------------------
 
@@ -186,5 +199,91 @@ namespace GUI_Module
             Dishes.recieveNumOfDishes(numOfOrder);
         }
         //-----------------------------------------------------------------------------------------------------------------
+
+        private static void setNumOfMaking(Order[] order, int numOrders)
+        {
+            string ham = "Hamburger";
+            string chic = "chicken burger";
+            string fri = "Fries";
+            string sal = "Salad";
+            string wat = "Water";
+            string POP = "Pop";
+
+            for (int i = 0; i < numOrders; i++)
+            {
+                if (order[i].main == ham)
+                {
+                    hambuger++;
+                }
+
+                if(order[i].main == chic)
+                {
+                    chickenBurger++;
+                }
+
+                if (order[i].side == fri)
+                {
+                    fries++;
+                }
+
+                if (order[i].side == sal)
+                {
+                    salad++;
+                }
+
+                if (order[i].drink == wat)
+                {
+                    water++;
+                }
+
+                if (order[i].drink == POP)
+                {
+                    pop++;
+                }
+            }
+        }
+
+        private static void deduceNumOfMaking(Order[] order, int numOrders)
+        {
+            string ham = "Hamburger";
+            string chic = "chicken burger";
+            string fri = "Fries";
+            string sal = "Salad";
+            string wat = "Water";
+            string POP = "Pop";
+
+            for (int i = 0; i < numOrders; i++)
+            {
+                if (order[i].main == ham)
+                {
+                    hambuger--;
+                }
+
+                if (order[i].main == chic)
+                {
+                    chickenBurger--;
+                }
+
+                if (order[i].side == fri)
+                {
+                    fries++;
+                }
+
+                if (order[i].side == sal)
+                {
+                    salad--;
+                }
+
+                if (order[i].drink == wat)
+                {
+                    water--;
+                }
+
+                if (order[i].drink == POP)
+                {
+                    pop--;
+                }
+            }
+        }
     }
 }
