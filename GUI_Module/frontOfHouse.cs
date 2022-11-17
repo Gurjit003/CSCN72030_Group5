@@ -94,29 +94,29 @@ namespace GUI_Module
             arrayOfTables[tableNumberToOccupy].setOccupants(numberOfOccupants);                             
         }
 
-        void createOrder()
+        bool createOrder(int numberOfOccupants)
         {
             // Send to order
             // boolean getNumOfCustomers(int numberOfOccupants); -- Function in order module
 
-            // if getNumOfCustomers(numberOfOccupants) == 1
-            // Order is complete
-            // delay
-            // arrayOfTables[tableNum].setOccupants(emptyTable);
-
-            // else
-            // order failed
-            // delay
-            // re-order
-
-            // Get reply when complete 
-
-
-            // Set table occupancy to 0
-
-
             // Delay 10 seconds
-
+            return true; // Temp return statement 
         }
+
+
+        // if getNumOfCustomers(numberOfOccupants) == 1
+        // Order is complete
+        // delay
+        // arrayOfTables[tableNum].setOccupants(emptyTable);
+
+        // else
+        // order failed
+        // delay
+        // re-order
+
+        // Get reply when complete 
+
+
+        // Set table occupancy to 0
     }
 }
