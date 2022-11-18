@@ -41,19 +41,19 @@ namespace GUI_Module
     public class inventory
     {
         string textFileName = "inventoryCount.txt";
-        int numberOfItems = 8;
+        int numberOfItems = 6;
 
         public item[] createDefaultItems() // Create an instance of all menu items
         {
             item[] arrayOfItems= new item[numberOfItems]; // Array to store all items
 
             // Create items and add to array
-            item hamburger = new item(1, "Hamburger", 6.79, 2.49, 10); arrayOfItems[1] = hamburger;
-            item chickenBurger = new item(2, "Chicken Burger", 5.59, 1.99, 10); arrayOfItems[2] = chickenBurger;
-            item salad = new item(3, "Salad", 3.99, 1.20, 10); arrayOfItems[3] = salad;
-            item fries = new item(4, "Fries", 1.99, 0.60, 10); arrayOfItems[4] = fries;
-            item pop = new item(5, "Pop", 1.99, 0.50, 10); arrayOfItems[5] = pop;
-            item water = new item(6, "Water", 1.49, 0.10, 10); arrayOfItems[6] = water;
+            item hamburger = new item(1, "Hamburger", 6.79, 2.49, 10); arrayOfItems[0] = hamburger;
+            item chickenBurger = new item(2, "Chicken Burger", 5.59, 1.99, 10); arrayOfItems[1] = chickenBurger;
+            item salad = new item(3, "Salad", 3.99, 1.20, 10); arrayOfItems[2] = salad;
+            item fries = new item(4, "Fries", 1.99, 0.60, 10); arrayOfItems[3] = fries;
+            item pop = new item(5, "Pop", 1.99, 0.50, 10); arrayOfItems[4] = pop;
+            item water = new item(6, "Water", 1.49, 0.10, 10); arrayOfItems[5] = water;
 
             return arrayOfItems;
         }

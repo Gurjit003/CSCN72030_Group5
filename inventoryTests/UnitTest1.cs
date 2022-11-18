@@ -46,9 +46,7 @@ namespace inventoryTests
             Assert.AreEqual(arrayOfDefaultItems[3].getOrderPrice(), friesOrderPrice);
             Assert.AreEqual(arrayOfDefaultItems[4].getQuantity(), popQuantity);
             Assert.AreEqual(arrayOfDefaultItems[5].getItemID(), waterID);
-
         }
-
         
         [TestMethod]
         public void getAllItemStock_verifyStock()
@@ -69,6 +67,5 @@ namespace inventoryTests
             Assert.AreEqual(itemQuantityArray[4], itemQuantity);
             Assert.AreEqual(itemQuantityArray[5], itemQuantity);
         }
-        
     }
 }
