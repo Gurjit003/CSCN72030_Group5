@@ -8,8 +8,8 @@ namespace GUI_Module
 {
     public class Appliance
     {
-        public bool powerStatus { get; set; }
-        float temperature { get; set; }
+        bool powerStatus;
+        int temperature;
 
         public Appliance()
         {
@@ -17,12 +17,20 @@ namespace GUI_Module
             temperature = 0;
         }
 
+        
+
         //GUI Calls this method when a power button is pressed
         public void PowerSwitch()
         {
             this.powerStatus = !powerStatus; //Flips the power switch bool to represent power on/off
-        }
 
+            if (this.powerStatus == false)
+            {
+                this.temperature = 0;
+
+            }
+        }
+        
 
     }
 

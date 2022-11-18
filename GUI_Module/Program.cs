@@ -18,8 +18,11 @@ namespace GUI_Module
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
 
-
+            Grill grill = new Grill();
         }
+        
+
+
         
     }
     
