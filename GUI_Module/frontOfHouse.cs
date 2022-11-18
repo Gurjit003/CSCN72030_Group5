@@ -6,15 +6,27 @@ using System.Threading.Tasks;
 
 namespace GUI_Module
 {
-    internal class table
+    public class table
     {
         int tableID;
         int seatsOccupied;
         
-        public table(int tableID) // Base constructor
+        public table() // Base contructor
+        {
+            setTableID(0);
+            setOccupants(0);
+        }
+
+        public table(int tableID) // Constructor with tableID
         {
             setTableID(tableID);
-            seatsOccupied = 0;
+            setOccupants(0);
+        }
+
+        public table(int tableID, int seatsOccupied) // Constructor with tableID and seatsOccupied
+        {
+            setTableID(tableID);
+            setOccupants(seatsOccupied);
         }
 
         public void setTableID(int tableID) // Set tableID
@@ -34,30 +46,31 @@ namespace GUI_Module
 
     }
 
-    internal class frontOfHouse
+    public class frontOfHouse
     {
+        // These values are not modifiable 
         int minimumTableOccupants = 1;
         int maximumTableOccupants = 4;
         int numberOfTables = 6;
         int emptyTable = 0;
 
-        table[] createArrayOfEmptyTables() // Method to create 6 empty tables
+        public table[] createArrayOfEmptyTables() // Method to create 6 empty tables
         {
             // New list for all the tables (easier access)
-            table[] arrayOfTables = new table[6];
+            table[] arrayOfTables = new table[numberOfTables];
 
             // Create 4 empty tables, add tables to list
-            table table1 = new table(1); arrayOfTables[1] = table1;
-            table table2 = new table(2); arrayOfTables[2] = table2;
-            table table3 = new table(3); arrayOfTables[3] = table3;
-            table table4 = new table(4); arrayOfTables[4] = table4;
-            table table5 = new table(5); arrayOfTables[5] = table5;
-            table table6 = new table(6); arrayOfTables[6] = table6;
+            table table1 = new table(1); arrayOfTables[0] = table1;
+            table table2 = new table(2); arrayOfTables[1] = table2;
+            table table3 = new table(3); arrayOfTables[2] = table3;
+            table table4 = new table(4); arrayOfTables[3] = table4;
+            table table5 = new table(5); arrayOfTables[4] = table5;
+            table table6 = new table(6); arrayOfTables[5] = table6;
 
             return arrayOfTables;
         }
 
-        int findEmptyTableNumber(table[] arrayOfTables) // Method to find next empty table (returns table number)
+        public int findEmptyTableNumber(table[] arrayOfTables) // Method to find next empty table (returns table number)
         {
             // Starting table to check if empty
             int tableNum = minimumTableOccupants;
@@ -80,7 +93,7 @@ namespace GUI_Module
             return tableNum;
         }
 
-        int generateNumberOfCustomers()
+        public int generateNumberOfCustomers()
         {
             // Choose random (1-4) occupants
             Random random = new Random();
@@ -88,13 +101,13 @@ namespace GUI_Module
             return numberOfOccupants;
         }
 
-        void assignCustomersToTable(table[] arrayOfTables, int tableNumberToOccupy, int numberOfOccupants)
+        public void assignCustomersToTable(table[] arrayOfTables, int tableNumberToOccupy, int numberOfOccupants)
         {
             // Assign generated number of occupants to the empty table
             arrayOfTables[tableNumberToOccupy].setOccupants(numberOfOccupants);                             
         }
 
-        bool createOrder(int numberOfOccupants)
+        public bool createOrder(int numberOfOccupants)
         {
             // Send to order
             // boolean getNumOfCustomers(int numberOfOccupants); -- Function in order module
