@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace GUI_Module
 {
-    internal class item
+    public class item
     {
         int itemID;
         string itemName;
@@ -25,11 +25,11 @@ namespace GUI_Module
             setQuantity(quantity);
         }
 
-        void setItemID(int itemID) { this.itemID = itemID; } // Set itemID
-        void setItemName(string itemName) { this.itemName = itemName; } // Set itemName
-        void setItemPrice(double price) { this.itemPrice = price; } // Set itemPrice
-        void setOrderPrice(double orderPrice) { this.orderPrice = orderPrice; } // Set orderPrice
-        void setQuantity(int quantity) { this.itemQuantity = quantity; } // Set quantity
+        public void setItemID(int itemID) { this.itemID = itemID; } // Set itemID
+        public void setItemName(string itemName) { this.itemName = itemName; } // Set itemName
+        public void setItemPrice(double price) { this.itemPrice = price; } // Set itemPrice
+        public void setOrderPrice(double orderPrice) { this.orderPrice = orderPrice; } // Set orderPrice
+        public void setQuantity(int quantity) { this.itemQuantity = quantity; } // Set quantity
 
         public int getItemID() { return this.itemID; } // Get itemID
         public string getItemName() { return this.itemName; } // Get itemName
@@ -38,12 +38,12 @@ namespace GUI_Module
         public int getQuantity() { return this.itemQuantity; } // Get quantity
     }
 
-    internal class inventory
+    public class inventory
     {
         string textFileName = "inventoryCount.txt";
         int numberOfItems = 8;
 
-        void createItems() // Create an instance of all menu items
+        public item[] createDefaultItems() // Create an instance of all menu items
         {
             item[] arrayOfItems= new item[numberOfItems]; // Array to store all items
 
@@ -54,11 +54,12 @@ namespace GUI_Module
             item fries = new item(4, "Fries", 1.99, 0.60, 10); arrayOfItems[4] = fries;
             item pop = new item(5, "Pop", 1.99, 0.50, 10); arrayOfItems[5] = pop;
             item water = new item(6, "Water", 1.49, 0.10, 10); arrayOfItems[6] = water;
+
+            return arrayOfItems;
         }
 
-        int[] getAllItemStock()
+        public int[] getAllItemStock(item[] itemArray)
         {
-            item[] itemArray = new item[numberOfItems]; // Create array to hold items in stock
             int[] itemStockArray = new int[numberOfItems]; // Create array to hold item stock values
 
             for (int x = 0; x < itemArray.Length; x++) // For all items
