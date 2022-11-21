@@ -10,11 +10,15 @@ namespace GUI_Module
     {
         bool powerStatus;
         int temperature;
+        int cookingSpace;
+        int usedCookingSpace;
 
         public Appliance()
         {
             powerStatus = false;
+            cookingSpace = 4;
             temperature = 0;
+            usedCookingSpace = 0;
         }
 
         
