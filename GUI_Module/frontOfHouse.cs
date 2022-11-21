@@ -51,7 +51,7 @@ namespace GUI_Module
         // These values are not modifiable 
         int minimumTableOccupants = 1;
         int maximumTableOccupants = 4;
-        int numberOfTables = 6;
+        int numberOfTables = 8;
         int emptyTable = 0;
 
         public table[] createArrayOfEmptyTables() // Method to create 6 empty tables
@@ -66,6 +66,8 @@ namespace GUI_Module
             table table4 = new table(4); arrayOfTables[3] = table4;
             table table5 = new table(5); arrayOfTables[4] = table5;
             table table6 = new table(6); arrayOfTables[5] = table6;
+            table table7 = new table(7); arrayOfTables[6] = table7;
+            table table8 = new table(8); arrayOfTables[7] = table8;
 
             return arrayOfTables;
         }
@@ -93,7 +95,7 @@ namespace GUI_Module
             return tableNum;
         }
 
-        public int generateNumberOfCustomers()
+        public int generateNumberOfCustomers() // Method to generate random number of customer (1-4)
         {
             // Choose random (1-4) occupants
             Random random = new Random();
@@ -101,21 +103,28 @@ namespace GUI_Module
             return numberOfOccupants;
         }
 
-        public void assignCustomersToTable(table[] arrayOfTables, int tableNumberToOccupy, int numberOfOccupants)
+        public bool sendOrder(table tableOrdering) // Method to send the number of occupants to the Order module 
         {
-            // Assign generated number of occupants to the empty table
-            arrayOfTables[tableNumberToOccupy].setOccupants(numberOfOccupants);                             
-        }
+            bool orderConfirmation = false; // Order starts as incomplete
+            
+            // Send to order module
+            while (orderConfirmation != true)
+            {
+                orderConfirmation = dummyGetNumOfCustomers(tableOrdering.getOccupants()); // Continue ordering until complete
+            }
 
-        public bool createOrder(int numberOfOccupants)
+            // After ordering is complete, empty the table 
+            tableOrdering.setOccupants(emptyTable); 
+
+            return orderConfirmation; // Temp return statement 
+        }
+        
+        public bool dummyGetNumOfCustomers(int numberOfOrders)
         {
-            // Send to order
-            // boolean getNumOfCustomers(int numberOfOccupants); -- Function in order module
+            // Ordering stuff...
 
-            // Delay 10 seconds
-            return true; // Temp return statement 
+            return true;
         }
-
 
         // if getNumOfCustomers(numberOfOccupants) == 1
         // Order is complete

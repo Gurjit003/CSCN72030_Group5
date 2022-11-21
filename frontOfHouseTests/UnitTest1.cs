@@ -22,7 +22,7 @@ namespace frontOfHouseTests
         public void createArrayOfEmptyTables_verifyNumberOfTables()
         {
             // Arrage
-            int numberOFTables = 6;
+            int numberOFTables = 8;
 
             // Act
             // Create array of empty tables 
@@ -68,20 +68,20 @@ namespace frontOfHouseTests
         }
 
         [TestMethod]
-        public void assignGeneratedNumberOfCustomersToTable_verifyAssignedCustomers()
+        public void sendTableOrder_VerifyTableIsEmptied()
         {
             // Arrage
-            int numberOfCustomers = 2;
-            int tableToOccupy = 1;
+            int emptyTableOccupants = 0;
+            int tableID = 1;
+            int seatsOccupied = 2;
+            frontOfHouse frontOfHouse = new frontOfHouse();
+            table tableOrdering = new table(tableID, seatsOccupied);
 
             // Act
-            frontOfHouse frontOfHouse = new frontOfHouse();
-            table[] arrayOfEmptyTables = frontOfHouse.createArrayOfEmptyTables();
-            frontOfHouse.assignCustomersToTable(arrayOfEmptyTables, 
-                tableToOccupy, numberOfCustomers);
+            frontOfHouse.sendOrder(tableOrdering);
 
             // Assert
-            Assert.AreEqual(arrayOfEmptyTables[tableToOccupy].getOccupants(), numberOfCustomers);
+            Assert.AreEqual(tableOrdering.getOccupants(), emptyTableOccupants);
         }
 
     }
