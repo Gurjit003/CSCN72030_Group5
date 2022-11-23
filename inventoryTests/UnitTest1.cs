@@ -67,5 +67,26 @@ namespace inventoryTests
             Assert.AreEqual(itemQuantityArray[4], itemQuantity);
             Assert.AreEqual(itemQuantityArray[5], itemQuantity);
         }
+
+        [TestMethod]
+        public void removeItemFromStock_verifyStockRecudedByOne()
+        {
+            // Arrange
+            int itemQuantityAfterReduced = 9;
+
+            // Act
+            inventory testInventory = new inventory();
+            item[] arrayOfDefaultItems = testInventory.createDefaultItems();
+            testInventory.removeItemFromStock(arrayOfDefaultItems);
+
+
+            // Assert
+            Assert.AreEqual(arrayOfDefaultItems[0].getQuantity(), itemQuantityAfterReduced);
+            Assert.AreEqual(arrayOfDefaultItems[1].getQuantity(), itemQuantityAfterReduced);
+            Assert.AreEqual(arrayOfDefaultItems[2].getQuantity(), itemQuantityAfterReduced);
+            Assert.AreEqual(arrayOfDefaultItems[3].getQuantity(), itemQuantityAfterReduced);
+            Assert.AreEqual(arrayOfDefaultItems[4].getQuantity(), itemQuantityAfterReduced);
+            Assert.AreEqual(arrayOfDefaultItems[5].getQuantity(), itemQuantityAfterReduced);
+        }
     }
 }

@@ -58,7 +58,7 @@ namespace GUI_Module
             return arrayOfItems;
         }
 
-        public int[] getAllItemStock(item[] itemArray)
+        public int[] getAllItemStock(item[] itemArray) // Returns an array of quantity of items 
         {
             int[] itemStockArray = new int[numberOfItems]; // Create array to hold item stock values
 
@@ -70,6 +70,16 @@ namespace GUI_Module
 
             return itemStockArray; // Return array of stock values
         }
+
+        public void removeItemFromStock(item[] itemsOrdered) // Method to decrement an item's stock by 1
+        {
+            for (int x = 0; x < itemsOrdered.Length; x++) // For all items ordered
+            {
+                int currentItemStock = itemsOrdered[x].getQuantity(); // Get current quantity
+                itemsOrdered[x].setQuantity(--currentItemStock); // Set quantity to current - 1
+            }
+        }
+
     }
 }
 
