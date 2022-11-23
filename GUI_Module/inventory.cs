@@ -27,13 +27,34 @@ namespace GUI_Module
             setItemPrice(itemPrice);
             setOrderPrice(orderPrice);
             setQuantity(quantity);
+
+            this.updateDataFile();
         }
 
-        public void setItemID(int itemID) { this.itemID = itemID; } // Set itemID
-        public void setItemName(string itemName) { this.itemName = itemName; } // Set itemName
-        public void setItemPrice(double price) { this.itemPrice = price; } // Set itemPrice
-        public void setOrderPrice(double orderPrice) { this.orderPrice = orderPrice; } // Set orderPrice
-        public void setQuantity(int quantity) { this.itemQuantity = quantity; } // Set quantity
+        public void setItemID(int itemID) 
+        { 
+            this.itemID = itemID; // Set itemID
+            this.updateDataFile();
+        } 
+        public void setItemName(string itemName)
+        {
+            this.itemName = itemName; // Set itemName
+            this.updateDataFile();
+        } 
+        public void setItemPrice(double price) { 
+            this.itemPrice = price; // Set itemPrice
+            this.updateDataFile();
+        } 
+        public void setOrderPrice(double orderPrice)
+        {
+            this.orderPrice = orderPrice; // Set orderPrice
+            this.updateDataFile();
+        }
+        public void setQuantity(int quantity) 
+        { 
+            this.itemQuantity = quantity; // Set quantity
+            this.updateDataFile();
+        } 
 
         public int getItemID() { return this.itemID; } // Get itemID
         public string getItemName() { return this.itemName; } // Get itemName
@@ -55,8 +76,6 @@ namespace GUI_Module
 
                 // Write updated info
                 File.WriteAllLines(dataFileName, fileLines);
-
-                
             }
             else
             {

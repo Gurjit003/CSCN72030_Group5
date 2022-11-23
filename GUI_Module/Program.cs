@@ -15,7 +15,7 @@ namespace GUI_Module
         static void Main()
         {
             inventory inventory= new inventory();
-            inventory.createDefaultItems();
+            item[] defaults = inventory.createDefaultItems();
         }
     }
 }
