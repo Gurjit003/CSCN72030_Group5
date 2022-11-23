@@ -5,16 +5,20 @@ using System.Linq;
 using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace GUI_Module
 {
     public class item
     {
+        int numberOfItems = 6;
+
         int itemID;
         string itemName;
         double itemPrice;
         double orderPrice;
         int itemQuantity;
+        string dataFileName = "itemQuantities.txt";
 
         public item(int itemID, string itemName, double itemPrice, double orderPrice, int quantity) // Base constructor
         {
@@ -36,11 +40,38 @@ namespace GUI_Module
         public double getItemPrice() { return this.itemPrice; } // Get itemPrice
         public double getOrderPrice() { return this.orderPrice; } // Get orderPrice
         public int getQuantity() { return this.itemQuantity; } // Get quantity
+
+        public void updateDataFile() // Method to update item info in text file
+        {
+            // Read data file into string 1 line per index
+            if (File.Exists(dataFileName))
+            {
+                // Store each line in array of strings
+                string[] fileLines = File.ReadAllLines(dataFileName);
+
+                // Replace line that corresponds with this item ID with any new info
+                fileLines[this.getItemID() - 1] = this.getItemID().ToString() + ',' + this.getItemName() + ',' +
+                    this.getItemPrice().ToString() + ',' + this.getOrderPrice().ToString() + ',' + this.getQuantity().ToString();
+
+                // Write updated info
+                File.WriteAllLines(dataFileName, fileLines);
+
+                
+            }
+            else
+            {
+                // Create empty data file
+                string[] emptyDataFile = { "0", "0", "0", "0", "0", "0" };
+
+                File.WriteAllLines(dataFileName, emptyDataFile);    
+
+                this.updateDataFile();
+            }
+        }
     }
 
     public class inventory
     {
-        string textFileName = "inventoryCount.txt";
         int numberOfItems = 6;
 
         public item[] createDefaultItems() // Create an instance of all menu items
@@ -54,6 +85,11 @@ namespace GUI_Module
             item fries = new item(4, "Fries", 1.99, 0.60, 10); arrayOfItems[3] = fries;
             item pop = new item(5, "Pop", 1.99, 0.50, 10); arrayOfItems[4] = pop;
             item water = new item(6, "Water", 1.49, 0.10, 10); arrayOfItems[5] = water;
+
+            for (int x = 0; x < numberOfItems; x++) // For all items
+            {
+                arrayOfItems[x].updateDataFile(); // Update the text file
+            }
 
             return arrayOfItems;
         }
@@ -79,7 +115,6 @@ namespace GUI_Module
                 itemsOrdered[x].setQuantity(--currentItemStock); // Set quantity to current - 1
             }
         }
-
     }
 }
 

@@ -14,9 +14,8 @@ namespace GUI_Module
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            inventory inventory= new inventory();
+            inventory.createDefaultItems();
         }
     }
 }
