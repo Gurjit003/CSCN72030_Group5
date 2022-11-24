@@ -13,7 +13,22 @@ namespace ApplianceUnitTests
             grill.PowerSwitch();
 
             //Assert
-            Assert.IsTrue(grill.powerStatus);
+            Assert.IsTrue(grill.getPowerStatus());
+        }
+
+        [TestMethod]
+        public void SetTemperature_equal10()
+        {
+            //Arrange
+            Grill grill = new Grill();
+            int result = 10;
+
+            //Act
+            grill.setTemp(10);
+
+            //Assert
+            Assert.AreEqual(result, grill.getTemperature());
+
         }
     }
 }

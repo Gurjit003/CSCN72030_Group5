@@ -6,12 +6,48 @@ using System.Threading.Tasks;
 
 namespace GUI_Module
 {
-    internal class KitchenModule
+    public class Order
     {
-        internal class Kitchen
-        {
+        public string main;
+        public string side;
+        public string drink;
 
-            
+        public Order()
+        {
+            main = "Hamburger";
+            side = "Frys";
+            drink = "Water";
         }
+        public string getMain() { return this.main; }
     }
+
+
+    public class Kitchen
+    {
+        int[] parsedArray = {0,0};
+        
+        
+        bool reciveOrder(Order[] order)
+        {
+            int numberOfMeals = order.Length;
+            for(int i = 0; i < numberOfMeals; i++)
+            {
+                if (order[i].main == "Hamburger" )
+                {
+                    parsedArray[0] += parsedArray[0]; 
+                }
+                else
+                {
+                    parsedArray[1] += parsedArray[1];
+                }
+            }
+            
+
+            return true;
+        }
+
+    }
+
+
+
 }
