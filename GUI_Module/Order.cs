@@ -174,7 +174,7 @@ namespace GUI_Module
         {
             bool orderRecievedAndMade = true;
 
-           orderRecievedAndMade = Kitchen.recieveOrder(order);  //this will send the orders to the kitchen class and will return a boolean when the order is ready 
+           //orderRecievedAndMade = Kitchen.recieveOrder(order);  //this will send the orders to the kitchen class and will return a boolean when the order is ready 
 
            return orderRecievedAndMade; 
         }
@@ -185,7 +185,7 @@ namespace GUI_Module
         {
             for(int i = 0; i < numOfOrder; i++)
             {
-                BackOfHouse.getGrossRevenue(order[i]); //this will call the gross revenue function  
+                //BackOfHouse.getGrossRevenue(order[i]); //this will call the gross revenue function  
             }
         }
         //-----------------------------------------------------------------------------------------------------------------
