@@ -67,23 +67,6 @@ namespace GUI_Module
 
             File.AppendAllText(filePath, orderPriceTemp + Environment.NewLine);
         }
-
-
-        /* public static void Main()
-        {
-            //Main() 
-
-            int numOrders = 1;
-            Order[] order = new Order[numOrders];
-
-            for (int i = 0; i < numOrders; i++)
-            {
-                Order newOrder = new Order("Chicken burger", "Fries", "Pop");
-                order[i] = newOrder;
-
-                setGrossRevenue(order[i]);
-            }
-        } */ 
     }
 
 
@@ -190,17 +173,5 @@ namespace GUI_Module
 
             return Math.Round(netRevenue, 2);
         }
-
-
-        /* public static void Main() 
-        {
-            double grossRevenue = getGrossRevenue();
-            double expenses = getExpenses();
-            double netRevenue = getNetRevenue(grossRevenue, expenses);
-
-            Console.WriteLine("Gross Revenue: $" + grossRevenue);
-            Console.WriteLine("Total expenses: $" + expenses);
-            Console.WriteLine("Net Revenue: $" + netRevenue);
-        } */ 
     }
 }
