@@ -88,5 +88,57 @@ namespace inventoryTests
             Assert.AreEqual(arrayOfDefaultItems[4].getQuantity(), itemQuantityAfterReduced);
             Assert.AreEqual(arrayOfDefaultItems[5].getQuantity(), itemQuantityAfterReduced);
         }
+
+
+        [TestMethod]
+        public void createDefaultItemsAndModify_verifyTextFileAccuracy()
+        {
+            // Arrange
+            string newBurgerName = "Burger2.0";
+            int newChickenBurgerQuantity = 25;
+            double newPopPrice = 0.99;
+            string fileBurgerName;
+            int fileChickenBurgerQuantity;
+            double filePopPrice;
+
+            // Act
+            inventory testInventory = new inventory();
+            item[] arrayOfDefaultItems = testInventory.createDefaultItems();
+            arrayOfDefaultItems[testInventory.burgerIndex].setItemName(newBurgerName);
+            arrayOfDefaultItems[testInventory.chickenBurgerIndex].setQuantity(newChickenBurgerQuantity);
+            arrayOfDefaultItems[testInventory.popIndex].setItemPrice(newPopPrice);
+
+            while (true)
+            {
+                if (File.Exists(arrayOfDefaultItems[0].dataFileName))
+                {
+                    // Store each line in array of strings
+                    string[] fileLines = File.ReadAllLines(arrayOfDefaultItems[0].dataFileName);
+
+                    string fileBurger = String.Join(",", fileLines[testInventory.burgerIndex]);
+                    fileBurgerName = fileBurger.Split(',')[testInventory.nameIndex];
+
+                    string fileChickenBurger = String.Join(",", fileLines[testInventory.chickenBurgerIndex]);
+                    fileChickenBurgerQuantity = int.Parse(fileChickenBurger.Split(',')[testInventory.quantityIndex]);
+                    
+
+                    string filePop = String.Join(",", fileLines[testInventory.popIndex]);
+                    filePopPrice = double.Parse(filePop.Split(',')[testInventory.priceIndex]);
+
+                    break;
+                }
+                else
+                {
+                    // Create empty data file
+                    string[] emptyDataFile = { "0", "0", "0", "0", "0", "0" };
+                    File.WriteAllLines(arrayOfDefaultItems[0].dataFileName, emptyDataFile);
+                }
+            }
+
+            // Assert
+            Assert.AreEqual(fileBurgerName, newBurgerName);
+            Assert.AreEqual(fileChickenBurgerQuantity, newChickenBurgerQuantity);
+            Assert.AreEqual(filePopPrice, newPopPrice);
+        }
     }
 }

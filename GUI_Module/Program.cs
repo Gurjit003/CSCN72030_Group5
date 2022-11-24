@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace GUI_Module
 {
@@ -14,8 +15,6 @@ namespace GUI_Module
         [STAThread]
         static void Main()
         {
-            inventory inventory= new inventory();
-            item[] defaults = inventory.createDefaultItems();
         }
     }
 }

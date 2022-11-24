@@ -12,13 +12,14 @@ namespace GUI_Module
     public class item
     {
         int numberOfItems = 6;
+        public string dataFileName = "itemQuantities.txt";
 
         int itemID;
         string itemName;
         double itemPrice;
         double orderPrice;
         int itemQuantity;
-        string dataFileName = "itemQuantities.txt";
+        
 
         public item(int itemID, string itemName, double itemPrice, double orderPrice, int quantity) // Base constructor
         {
@@ -91,24 +92,35 @@ namespace GUI_Module
 
     public class inventory
     {
-        int numberOfItems = 6;
+        // Number of menu items
+        public int numberOfItems = 6;
+
+        // Menu item indexes (file and default array)
+        public int burgerIndex = 0;
+        public int chickenBurgerIndex = 1;
+        public int saladIndex = 2;
+        public int friesIndex = 3;
+        public int popIndex = 4;
+        public int waterIndex = 5;
+
+        // Item attribute index (file and default array)
+        public int idIndex = 0;
+        public int nameIndex = 1;
+        public int priceIndex = 2;
+        public int orderPriceIndex = 3;
+        public int quantityIndex = 4;
 
         public item[] createDefaultItems() // Create an instance of all menu items
         {
             item[] arrayOfItems= new item[numberOfItems]; // Array to store all items
 
             // Create items and add to array
-            item hamburger = new item(1, "Hamburger", 6.79, 2.49, 10); arrayOfItems[0] = hamburger;
-            item chickenBurger = new item(2, "Chicken Burger", 5.59, 1.99, 10); arrayOfItems[1] = chickenBurger;
-            item salad = new item(3, "Salad", 3.99, 1.20, 10); arrayOfItems[2] = salad;
-            item fries = new item(4, "Fries", 1.99, 0.60, 10); arrayOfItems[3] = fries;
-            item pop = new item(5, "Pop", 1.99, 0.50, 10); arrayOfItems[4] = pop;
-            item water = new item(6, "Water", 1.49, 0.10, 10); arrayOfItems[5] = water;
-
-            for (int x = 0; x < numberOfItems; x++) // For all items
-            {
-                arrayOfItems[x].updateDataFile(); // Update the text file
-            }
+            item hamburger = new item(1, "Hamburger", 6.79, 2.49, 10); arrayOfItems[burgerIndex] = hamburger;
+            item chickenBurger = new item(2, "Chicken Burger", 5.59, 1.99, 10); arrayOfItems[chickenBurgerIndex] = chickenBurger;
+            item salad = new item(3, "Salad", 3.99, 1.20, 10); arrayOfItems[saladIndex] = salad;
+            item fries = new item(4, "Fries", 1.99, 0.60, 10); arrayOfItems[friesIndex] = fries;
+            item pop = new item(5, "Pop", 1.99, 0.50, 10); arrayOfItems[popIndex] = pop;
+            item water = new item(6, "Water", 1.49, 0.10, 10); arrayOfItems[waterIndex] = water;
 
             return arrayOfItems;
         }
