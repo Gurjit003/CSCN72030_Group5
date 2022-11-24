@@ -10,14 +10,14 @@ using System.Windows.Forms;
 
 namespace GUI_Module
 {
-    public partial class RMS : Form
+    public partial class DishesPopUp2 : Form
     {
-        public RMS()
+        public DishesPopUp2()
         {
             InitializeComponent();
         }
 
-        private void RMS_Load(object sender, EventArgs e)
+        private void DishesPopUp2_Load(object sender, EventArgs e)
         {
 
         }

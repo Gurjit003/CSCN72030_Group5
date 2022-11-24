@@ -1,6 +1,6 @@
 ﻿namespace GUI_Module
 {
-    partial class RMS
+    partial class DishesPopUp
     {
         /// <summary>
         /// Required designer variable.
@@ -28,21 +28,37 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // RMS
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(75, 80);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(199, 28);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "All dishes cleaned!";
+            // 
+            // DishesPopUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 400);
-            this.Name = "RMS";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.RMS_Load);
+            this.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.ClientSize = new System.Drawing.Size(352, 201);
+            this.Controls.Add(this.label1);
+            this.Name = "DishesPopUp";
+            this.Text = "DishesPopUp";
+            this.TopMost = true;
+            this.Load += new System.EventHandler(this.DishesPopUp_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+
+        private System.Windows.Forms.Label label1;
     }
 }
-

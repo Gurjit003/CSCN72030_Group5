@@ -11,7 +11,7 @@ namespace GUI_Module
 {
     internal class Order
     {
-        string main;
+        string main; 
         string side;
         string drink;
 
@@ -153,7 +153,7 @@ namespace GUI_Module
             }
 
             
-            totalExpense = expense * quantity;
+            totalExpense = expense * quantity; 
             totalExpense = Math.Round(totalExpense, 2); 
             string totalExpenseTemp = totalExpense.ToString(); 
 

@@ -35,6 +35,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -47,14 +48,92 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackOfHouse.cs" />
-    <Compile Include="RMS.cs">
+    <Compile Include="BackOfHouseGUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BackOfHouseGUI.Designer.cs">
+      <DependentUpon>BackOfHouseGUI.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ContactUs.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ContactUs.Designer.cs">
+      <DependentUpon>ContactUs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Dishes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Dishes.Designer.cs">
+      <DependentUpon>Dishes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DishesPopUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="RMS.Designer.cs">
-      <DependentUpon>RMS.cs</DependentUpon>
+    <Compile Include="DishesPopUp.Designer.cs">
+      <DependentUpon>DishesPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrontOfHouse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrontOfHouse.Designer.cs">
+      <DependentUpon>FrontOfHouse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Home1.Designer.cs">
+      <DependentUpon>Home1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Inventory.Designer.cs">
+      <DependentUpon>Inventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Kitchen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Kitchen.Designer.cs">
+      <DependentUpon>Kitchen.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReorderPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReorderPopUp.Designer.cs">
+      <DependentUpon>ReorderPopUp.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="BackOfHouseGUI.resx">
+      <DependentUpon>BackOfHouseGUI.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ContactUs.resx">
+      <DependentUpon>ContactUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Dishes.resx">
+      <DependentUpon>Dishes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DishesPopUp.resx">
+      <DependentUpon>DishesPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrontOfHouse.resx">
+      <DependentUpon>FrontOfHouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home1.resx">
+      <DependentUpon>Home1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory.resx">
+      <DependentUpon>Inventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Kitchen.resx">
+      <DependentUpon>Kitchen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -63,9 +142,13 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="RMS.resx">
-      <DependentUpon>RMS.cs</DependentUpon>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReorderPopUp.resx">
+      <DependentUpon>ReorderPopUp.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -79,6 +162,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\rms-logo-220.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

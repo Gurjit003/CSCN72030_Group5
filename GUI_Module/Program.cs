@@ -12,11 +12,11 @@ namespace GUI_Module
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main2()
+        static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RMS());
+            Application.EnableVisualStyles(); 
+            Application.SetCompatibleTextRenderingDefault(false); 
+            Application.Run(new Home()); 
         }
     }
 }
