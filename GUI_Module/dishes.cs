@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace GUI_Module
 {
+    //dishes module 
     internal class dishes
     { 
         public static int cleanDishesCount = 20;
