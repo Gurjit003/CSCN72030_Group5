@@ -200,7 +200,7 @@ namespace GUI_Module
         //this will let the dishes module the amount of orders made
         private static void tellDishesOfOrder(int numOfOrder)
         {
-            Dishes.recieveNumOfDishes(numOfOrder);
+            dishes.recieveNumOfDishes(numOfOrder);
         }
         //-----------------------------------------------------------------------------------------------------------------
 

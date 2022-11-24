@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace GUI_Module
 {
-    internal class Dishes
+    internal class dishes
     {
         public static int cleanDishesCount = 20;
         public static int dirtyDishesCount = 0;
@@ -19,7 +19,7 @@ namespace GUI_Module
         int dirty = 0;
         int beenUsed = 0;
 
-        public static Dishes allDishes = new Dishes();
+        public static dishes allDishes = new dishes();
         //-----------------------------------------------------------------------------------------------------------------
 
         //this function will get the number of dishes from the file 
@@ -160,7 +160,6 @@ namespace GUI_Module
         //this will send to the GUI the current amount of Dishes
         public static void sendCurrentDishesNum()
         {
-            //dishesControl1 d = new dishesControl1;
         }
         //-------------------------------------------------------------------------------------
 
@@ -177,7 +176,7 @@ namespace GUI_Module
         //-----------------------------------------------------------------------------------------------------------------
         
         //this function will set the global varibales 
-        private static void setNumOfDishes(Dishes dishes)
+        private static void setNumOfDishes(dishes dishes)
         {
             cleanDishesCount = dishes.clean;
             dirtyDishesCount = dishes.dirty;
