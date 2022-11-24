@@ -78,11 +78,12 @@
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.White;
             this.label7.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(422, 127);
+            this.label7.Location = new System.Drawing.Point(399, 127);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(20, 22);
             this.label7.TabIndex = 61;
             this.label7.Text = "0";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label2
             // 
@@ -166,11 +167,12 @@
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.Color.White;
             this.label4.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(422, 203);
+            this.label4.Location = new System.Drawing.Point(399, 203);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(20, 22);
             this.label4.TabIndex = 67;
             this.label4.Text = "0";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // textBox5
             // 
@@ -188,11 +190,12 @@
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.Color.White;
             this.label5.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(422, 277);
+            this.label5.Location = new System.Drawing.Point(399, 277);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(20, 22);
             this.label5.TabIndex = 69;
             this.label5.Text = "0";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // textBox6
             // 
@@ -270,6 +273,7 @@
             this.Controls.Add(this.textBox1);
             this.Name = "backOfHouseGUIControl1";
             this.Size = new System.Drawing.Size(670, 548);
+            this.Load += new System.EventHandler(this.backOfHouseGUIControl1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

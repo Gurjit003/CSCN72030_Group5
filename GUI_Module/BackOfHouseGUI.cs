@@ -21,5 +21,32 @@ namespace GUI_Module
         {
 
         }
+
+        private void backOfHouseGUIControl1_Load(object sender, EventArgs e)
+        {
+            string totalExpenseTemp = BackOfHouse.getExpenses().ToString();
+            label4.Text = totalExpenseTemp;
+
+            string totalIncomeTemp = BackOfHouse.getGrossRevenue().ToString(); 
+            label7.Text = totalIncomeTemp;
+            
+            string totalNetRevenue = BackOfHouse.getNetRevenue(BackOfHouse.getGrossRevenue(), BackOfHouse.getExpenses()).ToString();
+            label5.Text = totalNetRevenue; 
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

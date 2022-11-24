@@ -11,6 +11,7 @@ namespace GUI_Module
 {
     internal class Order
     {
+
         string main; 
         string side;
         string drink;
@@ -88,6 +89,10 @@ namespace GUI_Module
 
     internal static class BackOfHouse
     {
+        public static double grossRevenue = 0;
+        public static double expenses = 0;
+        public static double netRevenue = 0;
+
         static IEnumerable<string> ReadLines(this TextReader reader, char delimiter)
         {
             List<char> chars = new List<char>();
@@ -107,7 +112,7 @@ namespace GUI_Module
         }
 
 
-        static double getGrossRevenue()
+        public static double getGrossRevenue()
         {
             string filePath = "IncomeFile.txt";
             double sum = 0;
@@ -154,7 +159,7 @@ namespace GUI_Module
 
             
             totalExpense = expense * quantity; 
-            totalExpense = Math.Round(totalExpense, 2); 
+            totalExpense = Math.Round(totalExpense, 2);
             string totalExpenseTemp = totalExpense.ToString(); 
 
 
@@ -162,7 +167,7 @@ namespace GUI_Module
         }
 
 
-        static double getExpenses()
+        public static double getExpenses()
         {
             string filePath = "ExpensesFile.txt";
             double sum = 0;
@@ -175,11 +180,11 @@ namespace GUI_Module
                 }
             }
 
-            return Math.Round(sum, 2);
+            return Math.Round(sum, 2); 
         }
 
 
-        static double getNetRevenue(double grossRevenue, double expenses)
+        public static double getNetRevenue(double grossRevenue, double expenses)
         {
             double netRevenue = grossRevenue - expenses;
 
