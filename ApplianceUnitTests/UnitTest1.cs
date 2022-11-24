@@ -30,5 +30,28 @@ namespace ApplianceUnitTests
             Assert.AreEqual(result, grill.getTemperature());
 
         }
+
+        [TestMethod]
+        public void BreakDownOrder1Hamburger1Salad1pop()
+        {
+            int[] expectedResult = { 2, 1, 2, 1, 2, 1 };
+            int[] result;
+
+            Order[] order = new Order[3];
+            order[0].main = "Hamburger";
+            order[0].side = "Salad";
+            order[0].drink = "Pop";
+
+            order[1].main = "Hamburger";
+            order[1].side = "Fries";
+            order[1].drink = "Pop";
+
+            order[2].main = "Chicken Burger";
+            order[2].side = "Salad";
+            order[2].drink = "Water";
+
+            Kitchen kitchen = new Kitchen();
+            kitchen.reciveOrder(order);
+        }
     }
 }

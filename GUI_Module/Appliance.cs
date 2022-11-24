@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace GUI_Module
 {
@@ -69,7 +70,9 @@ namespace GUI_Module
 
     public class Grill : Appliance
     {
-        public void CookFood(int numOfBurgers)
+        public string grillFile = "grillFile.txt";
+
+        new public void CookFood(int numOfBurgers)
         {
             if(this.getTemperature() < 75)
             {
@@ -80,20 +83,33 @@ namespace GUI_Module
             //update GUI visual grill area
             
         }
+        public void updateFile()
+        {
+            if (File.Exists(grillFile))
+            {
+                
+            }
+        }
     }
 
     public class Fryer : Appliance
     {
-        public void CookFood(int numOfChicken)
+        public string fryerFile = "fryerFile.txt";
+
+        new public void CookFood(int numOfChicken)
         {
             if (this.getTemperature() < 75)
             {
                 //GUI pop or somthing to flag user to increase grill temp
-                Console.WriteLine("Grill not hot enough");
+                Console.WriteLine("Fryer not hot enough");
             }
             setUsedCookingSpace(numOfChicken);
             //update GUI visual grill area
+        }
 
+        public void updateFile()
+        {
+            
         }
     }
 }
