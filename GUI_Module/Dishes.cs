@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 namespace GUI_Module
 {
     internal class dishes
-    {
+    { 
         public static int cleanDishesCount = 20;
         public static int dirtyDishesCount = 0;
         public static int beenUsedDishesCount = 0;
