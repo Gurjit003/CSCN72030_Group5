@@ -162,7 +162,6 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Dishes.txt" />
