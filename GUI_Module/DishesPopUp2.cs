@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace GUI_Module
 {
-    public partial class Form1 : Form
+    public partial class DishesPopUp2 : Form
     {
-        public Form1()
+        public DishesPopUp2()
         {
             InitializeComponent();
+        }
+
+        private void DishesPopUp2_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
