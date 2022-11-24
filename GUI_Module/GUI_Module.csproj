@@ -72,6 +72,12 @@
     <Compile Include="DishesPopUp.Designer.cs">
       <DependentUpon>DishesPopUp.cs</DependentUpon>
     </Compile>
+    <Compile Include="DishesPopUp2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DishesPopUp2.Designer.cs">
+      <DependentUpon>DishesPopUp2.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrontOfHouse.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -121,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DishesPopUp.resx">
       <DependentUpon>DishesPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DishesPopUp2.resx">
+      <DependentUpon>DishesPopUp2.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrontOfHouse.resx">
       <DependentUpon>FrontOfHouse.cs</DependentUpon>
