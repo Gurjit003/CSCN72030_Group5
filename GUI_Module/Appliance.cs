@@ -59,7 +59,7 @@ namespace GUI_Module
         {
 
         }
-        public void cookFood(int num)
+        public void CookFood(int num)
         {
 
         }
@@ -69,7 +69,7 @@ namespace GUI_Module
 
     public class Grill : Appliance
     {
-        public void cookFood(int numOfBurgers)
+        public void CookFood(int numOfBurgers)
         {
             if(this.getTemperature() < 75)
             {
@@ -84,6 +84,16 @@ namespace GUI_Module
 
     public class Fryer : Appliance
     {
+        public void CookFood(int numOfChicken)
+        {
+            if (this.getTemperature() < 75)
+            {
+                //GUI pop or somthing to flag user to increase grill temp
+                Console.WriteLine("Grill not hot enough");
+            }
+            setUsedCookingSpace(numOfChicken);
+            //update GUI visual grill area
 
+        }
     }
 }

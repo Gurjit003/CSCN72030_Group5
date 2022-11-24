@@ -24,26 +24,59 @@ namespace GUI_Module
 
     public class Kitchen
     {
-        int[] parsedArray = {0,0};
+        
 
-        Grill grill = new Grill();
-        Fryer fryer = new Fryer();
+        Grill grill;
+        Fryer fryer;
+        public Kitchen()
+        {
+            grill = new Grill();
+            fryer = new Fryer();
+        }
         bool reciveOrder(Order[] order)
         {
+            //array {Hamburger, Chicken, Fries, Salad, Pop, Water}
+            int[] parsedArray = { 0, 0, 0, 0, 0, 0 };
             int numberOfMeals = order.Length;
-            for(int i = 0; i < numberOfMeals; i++)
+            for (int i = 0; i < numberOfMeals; i++)
             {
-                if (order[i].main == "Hamburger" )
+                //Disect the order to tally up chicken burgers and beef burgerss
+                if (order[i].main == "Hamburger")
                 {
-                    parsedArray[0] += parsedArray[0]; 
+                    parsedArray[0] += parsedArray[0];
                 }
                 else
                 {
                     parsedArray[1] += parsedArray[1];
                 }
+                if (order[i].side == "Fries")
+                {
+                    parsedArray[2] += parsedArray[2];
+                }
+                else
+                {
+                    parsedArray[3] += parsedArray[3];
+                }
+                if (order[i].drink == "Pop")
+                {
+                    parsedArray[4] += parsedArray[4];
+                }
+                else
+                {
+                    parsedArray[5] += parsedArray[5];
+                }
             }
-            fryer.cookFood(parsedArray[1]);
-            grill.cookFood(parsedArray[0]);
+
+            //if enough inventory
+            //{
+            fryer.CookFood(parsedArray[1]);
+            grill.CookFood(parsedArray[0]);
+            //}
+
+            //Deduct inventory
+
+            fryer.setCookingSpace(0);
+            grill.setCookingSpace(0);
             return true;
         }
 
