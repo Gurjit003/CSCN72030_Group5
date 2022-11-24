@@ -125,6 +125,9 @@ namespace GUI_Module
         public int popIndex = 4;
         public int waterIndex = 5;
 
+        // Array of items in inventory
+        item[] arrayOfItems;
+
         public item[] createDefaultItems() // Create an instance of all menu items
         {
             item[] arrayOfItems= new item[numberOfItems]; // Array to store all items
@@ -137,11 +140,23 @@ namespace GUI_Module
             item pop = new item(5, "Pop", 1.99, 0.50, 10); arrayOfItems[popIndex] = pop;
             item water = new item(6, "Water", 1.49, 0.10, 10); arrayOfItems[waterIndex] = water;
 
+            this.arrayOfItems = arrayOfItems;
+
             return arrayOfItems;
+        }
+
+        public void updateInventoryItems()
+        {
+            for (int itemIndex = 0; itemIndex < numberOfItems; itemIndex++)
+            {
+                this.arrayOfItems[itemIndex].readDataFile();
+            }
         }
 
         public int[] getAllItemStock(item[] itemArray) // Returns an array of quantity of items 
         {
+            this.updateInventoryItems(); // Update inventory before retrieving values
+
             int[] itemStockArray = new int[numberOfItems]; // Create array to hold item stock values
 
             for (int x = 0; x < itemArray.Length; x++) // For all items
@@ -153,12 +168,25 @@ namespace GUI_Module
             return itemStockArray; // Return array of stock values
         }
 
-        public void removeItemFromStock(item[] itemsOrdered) // Method to decrement an item's stock by 1
+        public void removeItemFromStock(int[] itemsToDecrease) // Method to decrement an item's stock by 1
         {
-            for (int x = 0; x < itemsOrdered.Length; x++) // For all items ordered
+            this.updateInventoryItems(); // Update inventory before modification
+
+            for (int x = 0; x < itemsToDecrease.Length; x++) // For all items ordered
             {
-                int currentItemStock = itemsOrdered[x].getQuantity(); // Get current quantity
-                itemsOrdered[x].setQuantity(--currentItemStock); // Set quantity to current - 1
+                int currentItemStock = this.arrayOfItems[x].getQuantity(); // Get current quantity
+                this.arrayOfItems[x].setQuantity(currentItemStock - itemsToDecrease[x]); // Set quantity to current - ordered
+            }
+        }
+
+        public void addItemToStock(int[] itemsToIncrease)
+        {
+            this.updateInventoryItems(); // Update inventory before modification 
+
+            for (int x = 0; x < itemsToIncrease.Length; x++) // For all items to increase stock
+            {
+                int currentItemStock = this.arrayOfItems[x].getQuantity(); // Get current quantity
+                this.arrayOfItems[x].setQuantity(currentItemStock + itemsToIncrease[x]); // Set quantity to current + added
             }
         }
     }

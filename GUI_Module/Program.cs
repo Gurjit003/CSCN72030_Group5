@@ -15,7 +15,8 @@ namespace GUI_Module
         [STAThread]
         static void Main()
         {
-
+            inventory testInventory = new inventory();
+            item[] arrayOfDefaultItems = testInventory.createDefaultItems();
         }
     }
 }

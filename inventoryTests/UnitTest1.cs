@@ -77,7 +77,10 @@ namespace inventoryTests
             // Act
             inventory testInventory = new inventory();
             item[] arrayOfDefaultItems = testInventory.createDefaultItems();
-            testInventory.removeItemFromStock(arrayOfDefaultItems);
+
+            int[] itemsToRemove = { 1, 1, 1, 1, 1, 1 };
+
+            testInventory.removeItemFromStock(itemsToRemove);
 
 
             // Assert
@@ -87,6 +90,31 @@ namespace inventoryTests
             Assert.AreEqual(arrayOfDefaultItems[3].getQuantity(), itemQuantityAfterReduced);
             Assert.AreEqual(arrayOfDefaultItems[4].getQuantity(), itemQuantityAfterReduced);
             Assert.AreEqual(arrayOfDefaultItems[5].getQuantity(), itemQuantityAfterReduced);
+        }
+
+        [TestMethod]
+        public void addItemToStock_verifyStockIncreasedByOne()
+        {
+            // Arrange
+            int itemQuantityAfterIncrease = 11;
+
+            // Act
+            inventory testInventory = new inventory();
+            item[] arrayOfDefaultItems = testInventory.createDefaultItems();
+
+            int[] itemsToAdd = { 1, 1, 1, 1, 1, 1 };
+
+
+            testInventory.addItemToStock(itemsToAdd);
+
+
+            // Assert
+            Assert.AreEqual(arrayOfDefaultItems[0].getQuantity(), itemQuantityAfterIncrease);
+            Assert.AreEqual(arrayOfDefaultItems[1].getQuantity(), itemQuantityAfterIncrease);
+            Assert.AreEqual(arrayOfDefaultItems[2].getQuantity(), itemQuantityAfterIncrease);
+            Assert.AreEqual(arrayOfDefaultItems[3].getQuantity(), itemQuantityAfterIncrease);
+            Assert.AreEqual(arrayOfDefaultItems[4].getQuantity(), itemQuantityAfterIncrease);
+            Assert.AreEqual(arrayOfDefaultItems[5].getQuantity(), itemQuantityAfterIncrease);
         }
 
 
