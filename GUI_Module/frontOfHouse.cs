@@ -54,12 +54,14 @@ namespace GUI_Module
         int numberOfTables = 8;
         int emptyTable = 0;
 
-        public table[] createArrayOfEmptyTables() // Method to create 6 empty tables
+        public table[] arrayOfTables; // Front of house table array
+
+        public table[] createArrayOfEmptyTables() // Method to create 8 empty tables
         {
             // New list for all the tables (easier access)
             table[] arrayOfTables = new table[numberOfTables];
 
-            // Create 4 empty tables, add tables to list
+            // Create 8 empty tables, add tables to list
             table table1 = new table(1); arrayOfTables[0] = table1;
             table table2 = new table(2); arrayOfTables[1] = table2;
             table table3 = new table(3); arrayOfTables[2] = table3;
@@ -68,6 +70,9 @@ namespace GUI_Module
             table table6 = new table(6); arrayOfTables[5] = table6;
             table table7 = new table(7); arrayOfTables[6] = table7;
             table table8 = new table(8); arrayOfTables[7] = table8;
+
+            // Tables are visible at the start of the program
+            this.arrayOfTables = arrayOfTables;
 
             return arrayOfTables;
         }
@@ -101,6 +106,22 @@ namespace GUI_Module
             Random random = new Random();
             int numberOfOccupants = random.Next(minimumTableOccupants, maximumTableOccupants);
             return numberOfOccupants;
+        }
+
+        public void setTable() // Method to assign randomly generated number of customers to an empty table
+        {
+            // Get empty table
+            int tableToOccupy = findEmptyTableNumber(this.arrayOfTables);
+
+            // Set random number of customers to a table
+            int numberOfCustomers = generateNumberOfCustomers();
+            this.arrayOfTables[tableToOccupy].setOccupants(numberOfCustomers);
+
+            // GUI: Show numberOfCustomers occupant icons on table ID
+
+            // Send to Order Module
+            sendOrder(this.arrayOfTables[tableToOccupy]);
+
         }
 
         public bool sendOrder(table tableOrdering) // Method to send the number of occupants to the Order module 
