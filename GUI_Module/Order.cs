@@ -21,7 +21,9 @@ namespace GUI_Module
         string main = "Nothing";
         string side = "Nothing";
         string drink = "Nothing";
+        //-----------------------------------------------------------------------------------------------------------------
 
+        //paramiatized constructor 
         public Order(string main, string side, string drink)
         {
             this.main = main;
@@ -29,6 +31,7 @@ namespace GUI_Module
             this.drink = drink;
         }
 
+        //this will get the number of orders from the frontOfHouseModule
         static public bool getNumOfOrder(int numOrders)
         {
             bool ready = true;
@@ -57,6 +60,7 @@ namespace GUI_Module
             return ready;
         }
         //-----------------------------------------------------------------------------------------------------------------
+        
         //getting and setting the main
         static private void getMain(Order[] order, int numOforder)
         {
@@ -200,6 +204,7 @@ namespace GUI_Module
         }
         //-----------------------------------------------------------------------------------------------------------------
 
+        //this funtction set the global varibale (increasing)
         private static void setNumOfMaking(Order[] order, int numOrders)
         {
             string ham = "Hamburger";
@@ -242,7 +247,9 @@ namespace GUI_Module
                 }
             }
         }
+        //-----------------------------------------------------------------------------------------------------------------
 
+        //this function will send the global varibale (reducing)
         private static void deduceNumOfMaking(Order[] order, int numOrders)
         {
             string ham = "Hamburger";
@@ -285,5 +292,6 @@ namespace GUI_Module
                 }
             }
         }
+        //-----------------------------------------------------------------------------------------------------------------
     }
 }

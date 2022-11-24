@@ -20,6 +20,7 @@ namespace GUI_Module
         int beenUsed = 0;
 
         public static Dishes allDishes = new Dishes();
+        //-----------------------------------------------------------------------------------------------------------------
 
         //this function will get the number of dishes from the file 
         private static void getDishes()
@@ -90,7 +91,7 @@ namespace GUI_Module
 
             if (isOkToContinue = false)
             {
-                ifNotEnough = tellToClean();
+                ifNotEnough = tellToClean(0);
 
                 if(ifNotEnough = true)
                 {
@@ -120,13 +121,23 @@ namespace GUI_Module
         //-------------------------------------------------------------------------------------
 
         // this will tell the GUI to display that the clean dishes is running low
-        private static bool tellToClean()
+        private static bool tellToClean(int sender)
         {
             bool isOkToContinue = true;
 
-            //KitchenControl k = new KitchenControl;
+            if(sender == 0)
+            {
+                //DishesPopUp2 d = new DishesPopUp2;
+            }
 
-            return isOkToContinue;
+            if(sender == 1)
+            {
+                return isOkToContinue;
+            }
+            else
+            {
+                return isOkToContinue;
+            }      
         }
         //-------------------------------------------------------------------------------------
 
@@ -149,7 +160,7 @@ namespace GUI_Module
         //this will send to the GUI the current amount of Dishes
         public static void sendCurrentDishesNum()
         {
-            //KitchenControl k = new KitchenControl;
+            //dishesControl1 d = new dishesControl1;
         }
         //-------------------------------------------------------------------------------------
 
@@ -157,18 +168,21 @@ namespace GUI_Module
         public static void recieveNumOfLeavingCus(int leavingCus)
         {
             allDishes.beenUsed = allDishes.beenUsed - leavingCus;
-            allDishes.beenUsed = allDishes.beenUsed + leavingCus;
+            allDishes.dirty = allDishes.dirty + leavingCus;
 
             reWriteDishes();
             setNumOfDishes(allDishes);
             sendCurrentDishesNum();
         }
-
+        //-----------------------------------------------------------------------------------------------------------------
+        
+        //this function will set the global varibales 
         private static void setNumOfDishes(Dishes dishes)
         {
             cleanDishesCount = dishes.clean;
             dirtyDishesCount = dishes.dirty;
             beenUsedDishesCount = dishes.beenUsed;
         }
+        //-----------------------------------------------------------------------------------------------------------------
     }
 }
