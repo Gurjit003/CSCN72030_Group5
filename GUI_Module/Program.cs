@@ -14,9 +14,11 @@ namespace GUI_Module
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            frontOfHouse frontOfHouse = new frontOfHouse();
+            table[] arrayOfTables = frontOfHouse.createArrayOfEmptyTables();
+
+            
+
         }
     }
 }

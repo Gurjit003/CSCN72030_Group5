@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace GUI_Module
 {
@@ -10,6 +11,8 @@ namespace GUI_Module
     {
         int tableID;
         int seatsOccupied;
+
+        string tableFileName = "tableData.txt";
         
         public table() // Base contructor
         {
@@ -30,10 +33,16 @@ namespace GUI_Module
         }
 
         public void setTableID(int tableID) // Set tableID
-        { this.tableID = tableID; }
+        { 
+            this.tableID = tableID;
+            updateTableFile();
+        }
 
         public void setOccupants(int seatsOccupied) // Set seatsOccupied
-        { this.seatsOccupied = seatsOccupied; }
+        { 
+            this.seatsOccupied = seatsOccupied;
+            updateTableFile();
+        }
 
         public int getTableID() // Return tableID
         { return tableID; }
@@ -43,6 +52,32 @@ namespace GUI_Module
 
         public void clearTable() // Set seatsOccupied to 0
         { this.seatsOccupied = 0; }
+
+        public void updateTableFile()
+        {
+            // Read data file into string 1 line per index
+            if (File.Exists(tableFileName))
+            {
+                // Store each line in array of strings
+                string[] fileLines = File.ReadAllLines(tableFileName);
+
+                // Replace line that corresponds with this table ID with any new info
+                fileLines[this.getTableID() - 1] = this.getTableID().ToString() + ',' + this.getOccupants();
+
+                // Write updated info
+                File.WriteAllLines(tableFileName, fileLines);
+            }
+            else
+            {
+                // Create empty data file
+                string[] emptyDataFile = { "Empty", "Empty", "Empty", "Empty",
+                    "Empty", "Empty", "Empty", "Empty" };
+
+                File.WriteAllLines(tableFileName, emptyDataFile);
+
+                this.updateTableFile();
+            }
+        }
 
     }
 
