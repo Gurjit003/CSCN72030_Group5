@@ -25,8 +25,9 @@ namespace GUI_Module
     public class Kitchen
     {
         int[] parsedArray = {0,0};
-        
-        
+
+        Grill grill = new Grill();
+        Fryer fryer = new Fryer();
         bool reciveOrder(Order[] order)
         {
             int numberOfMeals = order.Length;
@@ -41,8 +42,8 @@ namespace GUI_Module
                     parsedArray[1] += parsedArray[1];
                 }
             }
-            
-
+            fryer.cookFood(parsedArray[1]);
+            grill.cookFood(parsedArray[0]);
             return true;
         }
 

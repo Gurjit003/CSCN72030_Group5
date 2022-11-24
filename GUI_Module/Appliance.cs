@@ -59,14 +59,17 @@ namespace GUI_Module
         {
 
         }
-        
+        public void cookFood(int num)
+        {
+
+        }
         
 
     }
 
     public class Grill : Appliance
     {
-        void cookFood(int numOfBurgers)
+        public void cookFood(int numOfBurgers)
         {
             if(this.getTemperature() < 75)
             {
