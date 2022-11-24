@@ -49,7 +49,7 @@ namespace GUI_Module
                 {
                     parsedArray[1] += parsedArray[1];
                 }
-                if (order[i].side == "Fries")
+                if (order[i].side == "Salad")
                 {
                     parsedArray[2] += parsedArray[2];
                 }
@@ -67,7 +67,12 @@ namespace GUI_Module
                 }
             }
 
+
+
             //if enough inventory
+            //int[] currentStock = getAllItemStock(inventory.itemArrray);
+
+
             //{
             fryer.CookFood(parsedArray[1]);
             grill.CookFood(parsedArray[0]);
