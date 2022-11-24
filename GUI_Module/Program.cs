@@ -14,8 +14,6 @@ namespace GUI_Module
         [STAThread]
         static void Main()
         {
-            frontOfHouse frontOfHouse = new frontOfHouse();
-            table[] arrayOfTables = frontOfHouse.createArrayOfEmptyTables();
 
             
 

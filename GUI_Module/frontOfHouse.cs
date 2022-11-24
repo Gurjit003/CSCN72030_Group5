@@ -18,18 +18,21 @@ namespace GUI_Module
         {
             setTableID(0);
             setOccupants(0);
+            updateTableFile();
         }
 
         public table(int tableID) // Constructor with tableID
         {
             setTableID(tableID);
             setOccupants(0);
+            updateTableFile();
         }
 
         public table(int tableID, int seatsOccupied) // Constructor with tableID and seatsOccupied
         {
             setTableID(tableID);
             setOccupants(seatsOccupied);
+            updateTableFile();
         }
 
         public void setTableID(int tableID) // Set tableID
