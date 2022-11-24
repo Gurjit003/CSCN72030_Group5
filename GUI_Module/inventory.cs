@@ -116,6 +116,7 @@ namespace GUI_Module
     {
         // Number of menu items
         public int numberOfItems = 6;
+        public string inventoryFileName = "inventory.txt";
 
         // Menu item indexes (file and default array)
         public int burgerIndex = 0;
@@ -187,6 +188,36 @@ namespace GUI_Module
             {
                 int currentItemStock = this.arrayOfItems[x].getQuantity(); // Get current quantity
                 this.arrayOfItems[x].setQuantity(currentItemStock + itemsToIncrease[x]); // Set quantity to current + added
+            }
+        }
+
+        public void updateInventoryFile() // Method to update item info in text file
+        {
+            // Read data file into string 1 line per index
+            if (File.Exists(inventoryFileName))
+            {
+                // Store each line in array of strings
+                string[] fileLines = File.ReadAllLines(inventoryFileName);
+
+                // Retrieve all item stocks - save to string array
+                fileLines[this.burgerIndex] = arrayOfItems[this.burgerIndex].getQuantity().ToString();
+                fileLines[this.chickenBurgerIndex] = arrayOfItems[this.chickenBurgerIndex].getQuantity().ToString();
+                fileLines[this.saladIndex] = arrayOfItems[this.saladIndex].getQuantity().ToString();
+                fileLines[this.friesIndex] = arrayOfItems[this.friesIndex].getQuantity().ToString();
+                fileLines[this.popIndex] = arrayOfItems[this.popIndex].getQuantity().ToString();
+                fileLines[this.waterIndex] = arrayOfItems[this.waterIndex].getQuantity().ToString();
+
+                // Write updated info
+                File.WriteAllLines(inventoryFileName, fileLines);
+            }
+            else
+            {
+                // Create empty data file
+                string[] emptyDataFile = { "0", "0", "0", "0", "0", "0" };
+
+                File.WriteAllLines(inventoryFileName, emptyDataFile);
+
+                this.updateInventoryFile();
             }
         }
     }
