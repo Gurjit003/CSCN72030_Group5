@@ -15,14 +15,8 @@ namespace GUI_Module
         [STAThread]
         static void Main()
         {
-            inventory testInventory = new inventory();
-            item[] arrayOfDefaultItems = testInventory.createDefaultItems();
+            
 
-            int[] itemsToRemove = { 1, 1, 1, 1, 1, 1 };
-
-            testInventory.removeItemFromStock(itemsToRemove);
-
-            testInventory.updateInventoryFile();
         }
     }
 }

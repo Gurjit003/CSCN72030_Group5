@@ -143,10 +143,12 @@ namespace GUI_Module
 
             this.arrayOfItems = arrayOfItems;
 
+            updateInventoryFile(); // Update inventory file 
+
             return arrayOfItems;
         }
 
-        public void updateInventoryItems()
+        public void updateInventoryItems() // Method to update the attributes of this object's item array
         {
             for (int itemIndex = 0; itemIndex < numberOfItems; itemIndex++)
             {
@@ -178,6 +180,8 @@ namespace GUI_Module
                 int currentItemStock = this.arrayOfItems[x].getQuantity(); // Get current quantity
                 this.arrayOfItems[x].setQuantity(currentItemStock - itemsToDecrease[x]); // Set quantity to current - ordered
             }
+
+            updateInventoryFile(); // Update inventory file 
         }
 
         public void addItemToStock(int[] itemsToIncrease)
@@ -189,6 +193,8 @@ namespace GUI_Module
                 int currentItemStock = this.arrayOfItems[x].getQuantity(); // Get current quantity
                 this.arrayOfItems[x].setQuantity(currentItemStock + itemsToIncrease[x]); // Set quantity to current + added
             }
+
+            updateInventoryFile(); // Update inventory file 
         }
 
         public void updateInventoryFile() // Method to update item info in text file

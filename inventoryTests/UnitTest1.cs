@@ -211,5 +211,29 @@ namespace inventoryTests
             Assert.AreEqual(arrayOfDefaultItems[testInventory.chickenBurgerIndex].getQuantity(), newChickenBurgerQuantity);
             Assert.AreEqual(arrayOfDefaultItems[testInventory.popIndex].getItemPrice(), newPopPrice);
         }
+
+        [TestMethod]
+        public void createItems_removeInventoryAndVerifyInventoryFile()
+        {
+            // Arrange
+            int[] itemsToRemove = { 1, 1, 1, 1, 1, 1 };
+            int stockAfterRemove = 9;
+
+            // Act
+            inventory testInventory = new inventory();
+            item[] arrayOfDefaultItems = testInventory.createDefaultItems();
+            testInventory.removeItemFromStock(itemsToRemove);
+            testInventory.updateInventoryFile();
+
+            string[] fileLines = File.ReadAllLines(testInventory.inventoryFileName);
+
+            // Assert
+            Assert.AreEqual(int.Parse(fileLines[0]), stockAfterRemove);
+            Assert.AreEqual(int.Parse(fileLines[1]), stockAfterRemove);
+            Assert.AreEqual(int.Parse(fileLines[2]), stockAfterRemove);
+            Assert.AreEqual(int.Parse(fileLines[3]), stockAfterRemove);
+            Assert.AreEqual(int.Parse(fileLines[4]), stockAfterRemove);
+            Assert.AreEqual(int.Parse(fileLines[5]), stockAfterRemove);
+        }
     }
 }
