@@ -15,6 +15,7 @@ namespace GUI_Module
         [STAThread]
         static void Main()
         {
+
         }
     }
 }

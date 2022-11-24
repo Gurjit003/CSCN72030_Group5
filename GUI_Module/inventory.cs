@@ -102,7 +102,7 @@ namespace GUI_Module
                 // Store each line in array of strings
                 string[] fileLines = File.ReadAllLines(this.dataFileName);
 
-                string fileItem = String.Join(",", fileLines[this.idIndex]);
+                string fileItem = String.Join(",", fileLines[this.getItemID() - 1]);
                 int fileItemID = int.Parse(fileItem.Split(',')[this.idIndex]); this.setItemID(fileItemID);
                 string fileItemName = fileItem.Split(',')[this.nameIndex]; this.setItemName(fileItemName);
                 double fileItemPrice = double.Parse(fileItem.Split(',')[this.priceIndex]); this.setItemPrice(fileItemPrice);

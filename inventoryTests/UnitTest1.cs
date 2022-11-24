@@ -145,6 +145,8 @@ namespace inventoryTests
             string newBurgerName = "Burger2.0";
             int newChickenBurgerQuantity = 25;
             double newPopPrice = 0.99;
+
+                // Values From File
             string fileBurgerName;
             int fileChickenBurgerQuantity;
             double filePopPrice;
@@ -152,16 +154,21 @@ namespace inventoryTests
             // Act
             inventory testInventory = new inventory();
             item[] arrayOfDefaultItems = testInventory.createDefaultItems();
-            arrayOfDefaultItems[testInventory.burgerIndex].setItemName(newBurgerName);
-            arrayOfDefaultItems[testInventory.chickenBurgerIndex].setQuantity(newChickenBurgerQuantity);
-            arrayOfDefaultItems[testInventory.popIndex].setItemPrice(newPopPrice);
 
                 // Create custom data file
             string[] emptyDataFile = { "1,Burger2.0,6.79,2.49,10", "2,Chicken Burger,5.59,1.99,25",
                         "3,Salad,3.99,1.2,10", "4,Fries,1.99,0.6,10", "5,Pop,0.99,0.5,10", "6,Water,1.49,0.1,10" };
             File.WriteAllLines(arrayOfDefaultItems[0].dataFileName, emptyDataFile);
 
-                // Get values from file 
+            // call readDataFile() for each method
+            arrayOfDefaultItems[0].readDataFile();
+            arrayOfDefaultItems[1].readDataFile();
+            arrayOfDefaultItems[2].readDataFile();
+            arrayOfDefaultItems[3].readDataFile();
+            arrayOfDefaultItems[4].readDataFile();
+            arrayOfDefaultItems[5].readDataFile();
+
+            // Get values from file 
             string[] fileLines = File.ReadAllLines(arrayOfDefaultItems[0].dataFileName);
             string fileBurger = String.Join(",", fileLines[testInventory.burgerIndex]);
             fileBurgerName = fileBurger.Split(',')[arrayOfDefaultItems[0].nameIndex];
