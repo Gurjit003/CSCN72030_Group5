@@ -19,7 +19,13 @@ namespace GUI_Module
         double itemPrice;
         double orderPrice;
         int itemQuantity;
-        
+
+        // Item attribute index (file and default array)
+        public int idIndex = 0;
+        public int nameIndex = 1;
+        public int priceIndex = 2;
+        public int orderPriceIndex = 3;
+        public int quantityIndex = 4;
 
         public item(int itemID, string itemName, double itemPrice, double orderPrice, int quantity) // Base constructor
         {
@@ -88,6 +94,22 @@ namespace GUI_Module
                 this.updateDataFile();
             }
         }
+
+        public void readDataFile() // Method to read existing item data from file
+        {
+            if (File.Exists(this.dataFileName))
+            {
+                // Store each line in array of strings
+                string[] fileLines = File.ReadAllLines(this.dataFileName);
+
+                string fileItem = String.Join(",", fileLines[this.idIndex]);
+                int fileItemID = int.Parse(fileItem.Split(',')[this.idIndex]); this.setItemID(fileItemID);
+                string fileItemName = fileItem.Split(',')[this.nameIndex]; this.setItemName(fileItemName);
+                double fileItemPrice = double.Parse(fileItem.Split(',')[this.priceIndex]); this.setItemPrice(fileItemPrice);
+                double fileItemOrder = double.Parse(fileItem.Split(',')[this.orderPriceIndex]); this.setOrderPrice(fileItemOrder);
+                int fileItemQuantity = int.Parse(fileItem.Split(',')[this.quantityIndex]); this.setQuantity(fileItemQuantity);
+            }
+        }
     }
 
     public class inventory
@@ -102,13 +124,6 @@ namespace GUI_Module
         public int friesIndex = 3;
         public int popIndex = 4;
         public int waterIndex = 5;
-
-        // Item attribute index (file and default array)
-        public int idIndex = 0;
-        public int nameIndex = 1;
-        public int priceIndex = 2;
-        public int orderPriceIndex = 3;
-        public int quantityIndex = 4;
 
         public item[] createDefaultItems() // Create an instance of all menu items
         {

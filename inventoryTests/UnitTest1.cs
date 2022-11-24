@@ -112,18 +112,14 @@ namespace inventoryTests
             {
                 if (File.Exists(arrayOfDefaultItems[0].dataFileName))
                 {
-                    // Store each line in array of strings
+                    // Get values from file
                     string[] fileLines = File.ReadAllLines(arrayOfDefaultItems[0].dataFileName);
-
                     string fileBurger = String.Join(",", fileLines[testInventory.burgerIndex]);
-                    fileBurgerName = fileBurger.Split(',')[testInventory.nameIndex];
-
+                    fileBurgerName = fileBurger.Split(',')[arrayOfDefaultItems[0].nameIndex];
                     string fileChickenBurger = String.Join(",", fileLines[testInventory.chickenBurgerIndex]);
-                    fileChickenBurgerQuantity = int.Parse(fileChickenBurger.Split(',')[testInventory.quantityIndex]);
-                    
-
+                    fileChickenBurgerQuantity = int.Parse(fileChickenBurger.Split(',')[arrayOfDefaultItems[0].quantityIndex]);
                     string filePop = String.Join(",", fileLines[testInventory.popIndex]);
-                    filePopPrice = double.Parse(filePop.Split(',')[testInventory.priceIndex]);
+                    filePopPrice = double.Parse(filePop.Split(',')[arrayOfDefaultItems[0].priceIndex]);
 
                     break;
                 }
@@ -136,9 +132,49 @@ namespace inventoryTests
             }
 
             // Assert
+                // Compare file values to custom values
             Assert.AreEqual(fileBurgerName, newBurgerName);
             Assert.AreEqual(fileChickenBurgerQuantity, newChickenBurgerQuantity);
-            Assert.AreEqual(filePopPrice, newPopPrice);
+            Assert.AreEqual(filePopPrice, newPopPrice); 
+        }
+
+        [TestMethod]
+        public void createItemsInFile_readAndVerifyItem()
+        {
+            // Arrange
+            string newBurgerName = "Burger2.0";
+            int newChickenBurgerQuantity = 25;
+            double newPopPrice = 0.99;
+            string fileBurgerName;
+            int fileChickenBurgerQuantity;
+            double filePopPrice;
+
+            // Act
+            inventory testInventory = new inventory();
+            item[] arrayOfDefaultItems = testInventory.createDefaultItems();
+            arrayOfDefaultItems[testInventory.burgerIndex].setItemName(newBurgerName);
+            arrayOfDefaultItems[testInventory.chickenBurgerIndex].setQuantity(newChickenBurgerQuantity);
+            arrayOfDefaultItems[testInventory.popIndex].setItemPrice(newPopPrice);
+
+                // Create custom data file
+            string[] emptyDataFile = { "1,Burger2.0,6.79,2.49,10", "2,Chicken Burger,5.59,1.99,25",
+                        "3,Salad,3.99,1.2,10", "4,Fries,1.99,0.6,10", "5,Pop,0.99,0.5,10", "6,Water,1.49,0.1,10" };
+            File.WriteAllLines(arrayOfDefaultItems[0].dataFileName, emptyDataFile);
+
+                // Get values from file 
+            string[] fileLines = File.ReadAllLines(arrayOfDefaultItems[0].dataFileName);
+            string fileBurger = String.Join(",", fileLines[testInventory.burgerIndex]);
+            fileBurgerName = fileBurger.Split(',')[arrayOfDefaultItems[0].nameIndex];
+            string fileChickenBurger = String.Join(",", fileLines[testInventory.chickenBurgerIndex]);
+            fileChickenBurgerQuantity = int.Parse(fileChickenBurger.Split(',')[arrayOfDefaultItems[0].quantityIndex]);
+            string filePop = String.Join(",", fileLines[testInventory.popIndex]);
+            filePopPrice = double.Parse(filePop.Split(',')[arrayOfDefaultItems[0].priceIndex]);
+
+            // Assert
+                // Compare file values to actual item values
+            Assert.AreEqual(arrayOfDefaultItems[testInventory.burgerIndex].getItemName(), newBurgerName);
+            Assert.AreEqual(arrayOfDefaultItems[testInventory.chickenBurgerIndex].getQuantity(), newChickenBurgerQuantity);
+            Assert.AreEqual(arrayOfDefaultItems[testInventory.popIndex].getItemPrice(), newPopPrice);
         }
     }
 }
