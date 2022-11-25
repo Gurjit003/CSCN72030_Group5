@@ -12,7 +12,7 @@ namespace GUI_Module
         int tableID;
         int seatsOccupied;
 
-        string tableFileName = "tableData.txt";
+        public string tableFileName = "tableData.txt";
         
         public table() // Base contructor
         {
