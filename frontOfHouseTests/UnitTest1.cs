@@ -107,6 +107,7 @@ namespace frontOfHouseTests
             arrayOfTables[tableSixID - 1].setTableID(tableSixID);
             arrayOfTables[tableEightID - 1].setOccupants(tableEightQuantity);
 
+                // Get lines from tableData.txt
             string[] fileLines = File.ReadAllLines(arrayOfTables[0].tableFileName);
 
             string tableOneLine = String.Join(",", fileLines[tableOneID-1]);
