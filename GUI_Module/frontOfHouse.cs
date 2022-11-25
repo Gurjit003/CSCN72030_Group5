@@ -56,7 +56,7 @@ namespace GUI_Module
         public void clearTable() // Set seatsOccupied to 0
         { this.seatsOccupied = 0; }
 
-        public void updateTableFile()
+        public void updateTableFile() // Method to update tableData.txt
         {
             // Read data file into string 1 line per index
             if (File.Exists(tableFileName))
@@ -117,6 +117,12 @@ namespace GUI_Module
 
         public int findEmptyTableNumber(table[] arrayOfTables) // Method to find next empty table (returns table number)
         {
+            // Update all tables before searching
+            for (int tableNumber = 0; tableNumber < this.numberOfTables; tableNumber++)
+            {
+                this.arrayOfTables[tableNumber].updateTableFile();
+            }
+
             // Starting table to check if empty
             int tableNum = minimumTableOccupants;
 
@@ -159,7 +165,6 @@ namespace GUI_Module
 
             // Send to Order Module
             sendOrder(this.arrayOfTables[tableToOccupy]);
-
         }
 
         public bool sendOrder(table tableOrdering) // Method to send the number of occupants to the Order module 
