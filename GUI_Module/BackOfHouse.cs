@@ -18,9 +18,9 @@ namespace GUI_Module
         {
             string filePath = "IncomeFile.txt";
 
-            string main = order.getMain();
-            string side = order.getSide();
-            string drink = order.getDrink();
+            string main = order.main;
+            string side = order.side;
+            string drink = order.drink;
             double mainPrice, sidePrice, drinkPrice, orderPrice = 0;
 
             if (String.Equals(main, "Hamburger"))
