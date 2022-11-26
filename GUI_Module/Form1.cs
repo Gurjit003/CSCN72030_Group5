@@ -10,21 +10,11 @@ using System.Windows.Forms;
 
 namespace GUI_Module
 {
-    public partial class homeControl1 : UserControl
+    public partial class Form1 : Form
     {
-        public homeControl1()
+        public Form1()
         {
             InitializeComponent();
-        }
-
-        private void HomeControl_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
