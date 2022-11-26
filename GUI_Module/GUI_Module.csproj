@@ -98,6 +98,7 @@
     <Compile Include="Home1.Designer.cs">
       <DependentUpon>Home1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Inventory.cs" />
     <Compile Include="InventoryGUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
