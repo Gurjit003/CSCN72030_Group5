@@ -14,7 +14,7 @@ namespace GUI_Module
     {
         public inventoryControl1()
         {
-            InitializeComponent();
+            InitializeComponent1();
         }
 
         private void label13_Click(object sender, EventArgs e)

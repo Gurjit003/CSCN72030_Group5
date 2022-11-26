@@ -14,7 +14,7 @@ namespace GUI_Module
     {
         public Home()
         {
-            InitializeComponent1();
+            this.InitializeComponent1();
             homeControl1.BringToFront();
             SidePanel.Height = 33;
             SidePanel.Top = 7;
