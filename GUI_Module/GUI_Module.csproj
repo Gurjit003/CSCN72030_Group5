@@ -111,6 +111,7 @@
     </Compile>
     <Compile Include="inventory.Designer.cs">
       <DependentUpon>inventory.cs</DependentUpon>
+    </Compile>
     <Compile Include="InventoryGUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
