@@ -80,17 +80,13 @@
     <Compile Include="DishesPopUp2.Designer.cs">
       <DependentUpon>DishesPopUp2.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrontOfHouseGUI.cs">
+    <Compile Include="FrontOfHouse.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrontOfHouseGUI.Designer.cs">
-      <DependentUpon>FrontOfHouseGUI.cs</DependentUpon>
+    <Compile Include="FrontOfHouse.Designer.cs">
+      <DependentUpon>FrontOfHouse.cs</DependentUpon>
     </Compile>
-    <Compile Include="Home.cs">
-    <Compile Include="frontOfHouse.cs" />
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="frontOfHouseCode.cs" />
     <Compile Include="Home.Designer.cs">
       <DependentUpon>Home.cs</DependentUpon>
     </Compile>
@@ -100,17 +96,15 @@
     <Compile Include="Home1.Designer.cs">
       <DependentUpon>Home1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventory.cs" />
-    <Compile Include="InventoryGUI.cs">
+    <Compile Include="InventoryCode.cs" />
+    <Compile Include="Inventory.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="inventoryGUI.Designer.cs">
-      <DependentUpon>inventoryGUI.cs</DependentUpon>
+    <Compile Include="inventory.Designer.cs">
+      <DependentUpon>inventory.cs</DependentUpon>
     </Compile>
     <Compile Include="KitchenModule.cs" />
-    <Compile Include="inventoryGUI.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
+    <Compile Include="inventory.cs" />
     <Compile Include="Kitchen.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -141,14 +135,14 @@
     <EmbeddedResource Include="DishesPopUp2.resx">
       <DependentUpon>DishesPopUp2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrontOfHouseGUI.resx">
-      <DependentUpon>FrontOfHouseGUI.cs</DependentUpon>
+    <EmbeddedResource Include="FrontOfHouse.resx">
+      <DependentUpon>FrontOfHouse.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home1.resx">
       <DependentUpon>Home1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="inventoryGUI.resx">
-      <DependentUpon>inventoryGUI.cs</DependentUpon>
+    <EmbeddedResource Include="inventory.resx">
+      <DependentUpon>inventory.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kitchen.resx">
       <DependentUpon>Kitchen.cs</DependentUpon>
