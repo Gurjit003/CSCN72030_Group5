@@ -67,6 +67,7 @@
     <Compile Include="Dishes.Designer.cs">
       <DependentUpon>Dishes.cs</DependentUpon>
     </Compile>
+    <Compile Include="dishesModule.cs" />
     <Compile Include="DishesPopUp.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -113,6 +114,7 @@
     <Compile Include="Kitchen.Designer.cs">
       <DependentUpon>Kitchen.cs</DependentUpon>
     </Compile>
+    <Compile Include="Order.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReorderPopUp.cs">
