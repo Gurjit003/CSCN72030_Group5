@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\GUI_Module\GUI_Module.csproj" />
+    <ProjectReference Include="..\inventoryTests\inventoryTests.csproj" />
   </ItemGroup>
 
 </Project>
