@@ -96,6 +96,11 @@
     <Compile Include="InventoryCode.cs" />
     <Compile Include="inventory.Designer.cs">
       <DependentUpon>inventory.cs</DependentUpon>
+    <Compile Include="InventoryGUI.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="inventoryGUI.Designer.cs">
+      <DependentUpon>inventoryGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="KitchenModule.cs" />
     <Compile Include="inventory.cs">
