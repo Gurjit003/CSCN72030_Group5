@@ -80,11 +80,11 @@
     <Compile Include="DishesPopUp2.Designer.cs">
       <DependentUpon>DishesPopUp2.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrontOfHouse.cs">
+    <Compile Include="FrontOfHouseGUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrontOfHouse.Designer.cs">
-      <DependentUpon>FrontOfHouse.cs</DependentUpon>
+    <Compile Include="FrontOfHouseGUI.Designer.cs">
+      <DependentUpon>FrontOfHouseGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
@@ -98,14 +98,14 @@
     <Compile Include="Home1.Designer.cs">
       <DependentUpon>Home1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Inventory.cs">
+    <Compile Include="InventoryGUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Inventory.Designer.cs">
-      <DependentUpon>Inventory.cs</DependentUpon>
+    <Compile Include="inventoryGUI.Designer.cs">
+      <DependentUpon>inventoryGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="KitchenModule.cs" />
-    <Compile Include="inventory.cs">
+    <Compile Include="inventoryGUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Kitchen.cs">
@@ -138,14 +138,14 @@
     <EmbeddedResource Include="DishesPopUp2.resx">
       <DependentUpon>DishesPopUp2.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrontOfHouse.resx">
-      <DependentUpon>FrontOfHouse.cs</DependentUpon>
+    <EmbeddedResource Include="FrontOfHouseGUI.resx">
+      <DependentUpon>FrontOfHouseGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home1.resx">
       <DependentUpon>Home1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Inventory.resx">
-      <DependentUpon>Inventory.cs</DependentUpon>
+    <EmbeddedResource Include="inventoryGUI.resx">
+      <DependentUpon>inventoryGUI.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Kitchen.resx">
       <DependentUpon>Kitchen.cs</DependentUpon>
