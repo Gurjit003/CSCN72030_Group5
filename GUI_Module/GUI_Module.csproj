@@ -105,13 +105,11 @@
     <Compile Include="HomeDesigner.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="InventoryCode.cs" />
-    <Compile Include="Inventory.cs">
+    <Compile Include="inventory.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="inventory.Designer.cs">
-      <DependentUpon>inventory.cs</DependentUpon>
-    </Compile>
+    <Compile Include="Inventory.Designer.cs" />
+    <Compile Include="InventoryCode.cs" />
     <Compile Include="InventoryGUI.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -119,9 +117,6 @@
       <DependentUpon>inventoryGUI.cs</DependentUpon>
     </Compile>
     <Compile Include="KitchenModule.cs" />
-    <Compile Include="inventory.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="Kitchen.cs">
       <SubType>UserControl</SubType>
     </Compile>
