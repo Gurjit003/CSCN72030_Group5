@@ -67,5 +67,10 @@ namespace GUI_Module
         {
 
         }
+
+        private void inventoryControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

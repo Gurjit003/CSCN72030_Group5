@@ -104,7 +104,9 @@
       <DependentUpon>inventory.cs</DependentUpon>
     </Compile>
     <Compile Include="KitchenModule.cs" />
-    <Compile Include="inventory.cs" />
+    <Compile Include="inventory.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Include="Kitchen.cs">
       <SubType>UserControl</SubType>
     </Compile>
