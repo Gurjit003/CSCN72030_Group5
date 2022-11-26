@@ -110,12 +110,6 @@
     </Compile>
     <Compile Include="Inventory.Designer.cs" />
     <Compile Include="InventoryCode.cs" />
-    <Compile Include="InventoryGUI.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="inventoryGUI.Designer.cs">
-      <DependentUpon>inventoryGUI.cs</DependentUpon>
-    </Compile>
     <Compile Include="KitchenModule.cs" />
     <Compile Include="Kitchen.cs">
       <SubType>UserControl</SubType>
@@ -147,8 +141,17 @@
     <EmbeddedResource Include="DishesPopUp2.resx">
       <DependentUpon>DishesPopUp2.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrontOfHouse.resx">
       <DependentUpon>FrontOfHouse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home1.resx">
+      <DependentUpon>Home1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="inventory.resx">
       <DependentUpon>inventory.cs</DependentUpon>
@@ -184,6 +187,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\rms-logo-220.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="home1.resx.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

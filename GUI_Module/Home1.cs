@@ -26,5 +26,22 @@ namespace GUI_Module
         {
 
         }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // homeControl1
+            // 
+            this.Name = "homeControl1";
+            this.Load += new System.EventHandler(this.homeControl1_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void homeControl1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

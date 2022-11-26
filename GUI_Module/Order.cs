@@ -17,9 +17,9 @@ namespace GUI_Module
         public static int water = 0;
         public static int pop = 0;
 
-        string main = "Nothing";
-        string side = "Nothing";
-        string drink = "Nothing";
+        public string main = "Nothing";
+        public string side = "Nothing";
+        public string drink = "Nothing";
         //-----------------------------------------------------------------------------------------------------------------
 
         public string getMain()
@@ -210,7 +210,7 @@ namespace GUI_Module
         //this will let the dishes module the amount of orders made
         private static void tellDishesOfOrder(int numOfOrder)
         {
-            dishes.recieveNumOfDishes(numOfOrder);
+            //dishes.recieveNumOfDishes(numOfOrder);
         }
         //-----------------------------------------------------------------------------------------------------------------
 

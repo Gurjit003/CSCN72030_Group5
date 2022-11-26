@@ -14,7 +14,7 @@ namespace GUI_Module
     {
         public Home()
         {
-            InitializeComponent();
+            InitializeComponent1();
             homeControl1.BringToFront();
             SidePanel.Height = 33;
             SidePanel.Top = 7;
@@ -121,6 +121,24 @@ namespace GUI_Module
         }
 
         private void contactUsControl11_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void InitializeComponent()
+        {
+            this.SuspendLayout();
+            // 
+            // Home
+            // 
+            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.Name = "Home";
+            this.Load += new System.EventHandler(this.Home_Load);
+            this.ResumeLayout(false);
+
+        }
+
+        private void Home_Load(object sender, EventArgs e)
         {
 
         }

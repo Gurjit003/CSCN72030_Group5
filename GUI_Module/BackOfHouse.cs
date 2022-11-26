@@ -9,16 +9,13 @@ using System.Windows.Forms;
 
 namespace GUI_Module
 {
-    
-
-
     internal static class BackOfHouse
     {
         static void setGrossRevenue(Order order)
         {
             string filePath = "IncomeFile.txt";
 
-            string main = order.main;
+            string main = order.getMain();
             string side = order.side;
             string drink = order.drink;
             double mainPrice, sidePrice, drinkPrice, orderPrice = 0;
@@ -77,7 +74,7 @@ namespace GUI_Module
     }
 
 
-    internal static class BackOfHouse
+    internal static class BackOfHouseS
     {
         static IEnumerable<string> ReadLines(this TextReader reader, char delimiter)
         {
