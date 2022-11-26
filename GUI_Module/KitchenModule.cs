@@ -83,8 +83,8 @@ namespace GUI_Module
             //Deduct inventory
             //inventory.removeItemFromStock(brokenDownOrder);
 
-            fryer.setUsedCookingSpace(0);
-            grill.setUsedCookingSpace(0);
+            fryer.setCookingSpace(4);
+            grill.setCookingSpace(4);
             return true;
         }
 

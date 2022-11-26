@@ -14,11 +14,14 @@ namespace GUI_Module
         [STAThread]
         static void Main()
         {
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());
+            //Application.EnableVisualStyles();
+            //Application.SetCompatibleTextRenderingDefault(false);
+            //Application.Run(new Form1());
 
             Grill grill = new Grill();
+            grill.setTemp(100);
+            Console.WriteLine(grill.getCookingSpace()); 
+            grill.updateFile();
         }
         
 
