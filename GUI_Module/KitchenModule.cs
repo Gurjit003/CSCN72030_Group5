@@ -34,7 +34,7 @@ namespace GUI_Module
                 {
                     brokenDownOrder[1] += brokenDownOrder[1];
                 }
-                if (order[i].side == "Salad")
+                if (order[i].getSide() == "Salad")
                 {
                     brokenDownOrder[2] += brokenDownOrder[2];
                 }
@@ -42,7 +42,7 @@ namespace GUI_Module
                 {
                     brokenDownOrder[3] += brokenDownOrder[3];
                 }
-                if (order[i].drink == "Pop")
+                if (order[i].getDrink() == "Pop")
                 {
                     brokenDownOrder[4] += brokenDownOrder[4];
                 }

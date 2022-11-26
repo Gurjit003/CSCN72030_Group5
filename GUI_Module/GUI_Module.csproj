@@ -87,9 +87,6 @@
       <DependentUpon>FrontOfHouse.cs</DependentUpon>
     </Compile>
     <Compile Include="frontOfHouseCode.cs" />
-    <Compile Include="Home.Designer.cs">
-      <DependentUpon>Home.cs</DependentUpon>
-    </Compile>
     <Compile Include="Home1.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -97,9 +94,6 @@
       <DependentUpon>Home1.cs</DependentUpon>
     </Compile>
     <Compile Include="InventoryCode.cs" />
-    <Compile Include="Inventory.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
     <Compile Include="inventory.Designer.cs">
       <DependentUpon>inventory.cs</DependentUpon>
     </Compile>

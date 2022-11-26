@@ -22,13 +22,20 @@ namespace GUI_Module
         string drink = "Nothing";
         //-----------------------------------------------------------------------------------------------------------------
 
-        public string getMain()
-        {
-            return this.main;
-        }
-        public void setMainVar(string main)
+        public string getMain(){ return this.main; }
+        public string getSide(){ return this.side; }
+        public string getDrink(){ return this.drink; }
+        public void setMain(string main)
         {
             this.main = main;
+        }
+        public void setSide(string side)
+        {
+            this.side = side;
+        }
+        public void setDrink(string drink)
+        {
+            this.drink = drink;
         }
 
         //paramiatized constructor 
@@ -210,7 +217,7 @@ namespace GUI_Module
         //this will let the dishes module the amount of orders made
         private static void tellDishesOfOrder(int numOfOrder)
         {
-            dishes.recieveNumOfDishes(numOfOrder);
+            //dishes.recieveNumOfDishes(numOfOrder);
         }
         //-----------------------------------------------------------------------------------------------------------------
 
