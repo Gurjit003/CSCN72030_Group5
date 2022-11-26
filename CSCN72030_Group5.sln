@@ -5,14 +5,6 @@ VisualStudioVersion = 17.3.32922.545
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GUI_Module", "GUI_Module\GUI_Module.csproj", "{95B5A14F-AF1B-4E85-97CF-40E330F4858A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "frontOfHouseTests", "frontOfHouseTests\frontOfHouseTests.csproj", "{E7816BB7-F07C-4E82-96F5-1AB726128520}"
-EndProject
-<<<<<<< HEAD
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplianceUnitTests", "ApplianceUnitTests\ApplianceUnitTests.csproj", "{ED94812C-CAAC-45BD-9505-4BBB75E9F4D5}"
-=======
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "inventoryTests", "inventoryTests\inventoryTests.csproj", "{2E72EDA1-68CD-4067-95A9-B4E419711270}"
->>>>>>> Inventory
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +23,10 @@ Global
 		{95B5A14F-AF1B-4E85-97CF-40E330F4858A}.Debug|x86.Build.0 = Debug|Any CPU
 		{95B5A14F-AF1B-4E85-97CF-40E330F4858A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95B5A14F-AF1B-4E85-97CF-40E330F4858A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95B5A14F-AF1B-4E85-97CF-40E330F4858A}.Release|x64.ActiveCfg = Release|Any CPU
+		{95B5A14F-AF1B-4E85-97CF-40E330F4858A}.Release|x64.Build.0 = Release|Any CPU
+		{95B5A14F-AF1B-4E85-97CF-40E330F4858A}.Release|x86.ActiveCfg = Release|Any CPU
+		{95B5A14F-AF1B-4E85-97CF-40E330F4858A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -15,9 +15,9 @@ namespace GUI_Module
         public Home()
         {
             InitializeComponent();
-            homeControl1.BringToFront(); 
+            homeControl1.BringToFront();
             SidePanel.Height = 33;
-            SidePanel.Top = 7; 
+            SidePanel.Top = 7;
 
         }
 
@@ -33,16 +33,16 @@ namespace GUI_Module
 
         private void button5_Click(object sender, EventArgs e)
         {
-            homeControl1.BringToFront(); 
-            SidePanel.Height = 33; 
-            SidePanel.Top = 7; 
+            homeControl1.BringToFront();
+            SidePanel.Height = 33;
+            SidePanel.Top = 7;
         }
 
         private void button6_Click(object sender, EventArgs e)
         {
-            KitchenControl.BringToFront(); 
-            SidePanel.Height = 33; 
-            SidePanel.Top = 50; 
+            KitchenControl.BringToFront();
+            SidePanel.Height = 33;
+            SidePanel.Top = 50;
         }
 
         private void button7_Click(object sender, EventArgs e)
