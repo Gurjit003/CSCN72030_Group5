@@ -9,20 +9,11 @@ using System.Windows.Forms;
 
 namespace GUI_Module
 {
-    internal class Order
+    
+
+
+    internal static class BackOfHouse
     {
-        string main; 
-        string side;
-        string drink;
-
-        public Order(string main, string side, string drink)
-        {
-            this.main = main;
-            this.side = side;
-            this.drink = drink;
-        }
-
-
         static void setGrossRevenue(Order order)
         {
             string filePath = "IncomeFile.txt";
@@ -66,11 +57,6 @@ namespace GUI_Module
 
             File.AppendAllText(filePath, orderPriceTemp + Environment.NewLine);
         }
-    }
-
-
-    internal static class BackOfHouse
-    {
         static IEnumerable<string> ReadLines(this TextReader reader, char delimiter)
         {
             List<char> chars = new List<char>();

@@ -3,25 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GUI_Module;
 
 namespace GUI_Module
 {
-    public class Order
-    {
-        public string main;
-        public string side;
-        public string drink;
-
-        public Order()
-        {
-            main = "Hamburger";
-            side = "Frys";
-            drink = "Water";
-        }
-        public string getMain() { return this.main; }
-    }
-
-
     public class Kitchen
     {
         
@@ -41,7 +26,7 @@ namespace GUI_Module
             for (int i = 0; i < numberOfMeals; i++)
             {
                 //Disect the order to tally up chicken burgers and beef burgerss
-                if (order[i].main == "Hamburger")
+                if (order[i].getMain() == "Hamburger")
                 {
                     brokenDownOrder[0] += brokenDownOrder[0];
                 }
