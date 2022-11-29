@@ -7,20 +7,21 @@ using System.IO;
 
 namespace GUI_Module
 {
-    internal static class Program
+    internal class Program
     {
+        
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            
+
             Application.EnableVisualStyles(); 
             Application.SetCompatibleTextRenderingDefault(false); 
-            Application.Run(new Home()); 
-            
+            Application.Run(new Home());
 
-        }
     }
+}
 }

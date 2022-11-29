@@ -2,6 +2,8 @@
 {
     partial class frontOfHouseControl1
     {
+
+        private static frontOfHouseCode frontOfHouse = new frontOfHouseCode();
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -28,6 +30,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            table[] allTables = frontOfHouse.createArrayOfEmptyTables();
+            
+            for (int x = 0; x < frontOfHouse.numberOfTables; x++) // Set 8 tables
+            {
+                frontOfHouse.setTable();
+            }
+
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frontOfHouseControl1));
             this.label13 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -265,7 +274,7 @@
             this.pictureBox8.TabIndex = 53;
             this.pictureBox8.TabStop = false;
             // 
-            // label9
+            // label9 - Table 1
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -274,9 +283,10 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 18);
             this.label9.TabIndex = 55;
-            this.label9.Text = "Information";
+
+            this.label9.Text = allTables[0].getOccupants() + " - Status";
             // 
-            // label10
+            // label10 - Table 2
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -285,9 +295,9 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(84, 18);
             this.label10.TabIndex = 56;
-            this.label10.Text = "Information";
+            this.label10.Text = allTables[1].getOccupants() + " - Status";
             // 
-            // label11
+            // label11 - Table 3
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -296,9 +306,9 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(84, 18);
             this.label11.TabIndex = 57;
-            this.label11.Text = "Information";
+            this.label11.Text = allTables[2].getOccupants() + " - Status";
             // 
-            // label12
+            // label12 - Table 4
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -307,9 +317,9 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(84, 18);
             this.label12.TabIndex = 58;
-            this.label12.Text = "Information";
+            this.label12.Text = allTables[3].getOccupants() + " - Status";
             // 
-            // label14
+            // label14 - Table 5
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -318,9 +328,9 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(84, 18);
             this.label14.TabIndex = 59;
-            this.label14.Text = "Information";
+            this.label14.Text = allTables[4].getOccupants() + " - Status";
             // 
-            // label15
+            // label15 - Table 6
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -329,9 +339,9 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(84, 18);
             this.label15.TabIndex = 60;
-            this.label15.Text = "Information";
+            this.label15.Text = allTables[5].getOccupants() + " - Status";
             // 
-            // label16
+            // label16 - Table 7
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -340,9 +350,9 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(84, 18);
             this.label16.TabIndex = 61;
-            this.label16.Text = "Information";
+            this.label16.Text = allTables[6].getOccupants() + " - Status";
             // 
-            // label17
+            // label17 - Table 8
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -351,7 +361,7 @@
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(84, 18);
             this.label17.TabIndex = 62;
-            this.label17.Text = "Information";
+            this.label17.Text = allTables[7].getOccupants() + " - Status";
             // 
             // frontOfHouseControl1
             // 

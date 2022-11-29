@@ -11,6 +11,8 @@ namespace GUI_Module
     {
         int tableID;
         int seatsOccupied;
+        int idIndex = 0;
+        int occupantIndex = 1;
 
         public string tableFileName = "tableData.txt";
         
@@ -82,6 +84,19 @@ namespace GUI_Module
             }
         }
 
+        public void readDataFile() // Method to read existing item data from file
+        {
+            if (File.Exists(this.tableFileName))
+            {
+                // Store each line in array of strings
+                string[] fileLines = File.ReadAllLines(this.tableFileName);
+
+                string fileItem = String.Join(",", fileLines[this.getTableID() - 1]);
+                int tableID = int.Parse(fileItem.Split(',')[this.idIndex]); this.setTableID(tableID);
+                int occupants = int.Parse(fileItem.Split(',')[this.occupantIndex]); this.setOccupants(occupants);
+            }
+        }
+
     }
 
     public class frontOfHouseCode
@@ -89,7 +104,8 @@ namespace GUI_Module
         // These values are not modifiable 
         int minimumTableOccupants = 1;
         int maximumTableOccupants = 4;
-        int numberOfTables = 8;
+        int minimumTableIndex = 0;
+        public int numberOfTables = 8;
         int emptyTable = 0;
 
         public table[] arrayOfTables; // Front of house table array
@@ -120,11 +136,11 @@ namespace GUI_Module
             // Update all tables before searching
             for (int tableNumber = 0; tableNumber < this.numberOfTables; tableNumber++)
             {
-                this.arrayOfTables[tableNumber].updateTableFile();
+                this.arrayOfTables[tableNumber].readDataFile();
             }
 
             // Starting table to check if empty
-            int tableNum = minimumTableOccupants;
+            int tableNum = minimumTableIndex;
 
             // Loop until an unoccupied table is found
             while (true)
@@ -133,9 +149,10 @@ namespace GUI_Module
                 {
                     tableNum++; // Increment table number
                 }
-                else if (tableNum > 6)
+                else if (tableNum > maximumTableOccupants)
                 {
-                    // Error - all tables occupied
+                    
+                    break;
                 }
                 else
                     break; // Exit loop when empty table is found
@@ -148,7 +165,8 @@ namespace GUI_Module
         {
             // Choose random (1-4) occupants
             Random random = new Random();
-            int numberOfOccupants = random.Next(minimumTableOccupants, maximumTableOccupants);
+            
+            int numberOfOccupants = random.Next(minimumTableOccupants, maximumTableOccupants+1);
             return numberOfOccupants;
         }
 
@@ -178,7 +196,7 @@ namespace GUI_Module
             }
 
             // After ordering is complete, empty the table 
-            tableOrdering.setOccupants(emptyTable); 
+            //tableOrdering.setOccupants(emptyTable); 
 
             return orderConfirmation; // Temp return statement 
         }
@@ -188,6 +206,14 @@ namespace GUI_Module
             // Ordering stuff...
 
             return true;
+        }
+
+        public void updateTables(table[] arrayOfTablesToUpdate) // Method to update the attributes of this object's item array
+        {
+            for (int itemIndex = 0; itemIndex < numberOfTables; itemIndex++)
+            {
+                arrayOfTablesToUpdate[itemIndex].readDataFile();
+            }
         }
 
         // if getNumOfCustomers(numberOfOccupants) == 1
