@@ -190,6 +190,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="home1.resx.txt" />
+    <None Include="Resources\openSignT.gif" />
+    <None Include="Resources\openSign1.gif" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
