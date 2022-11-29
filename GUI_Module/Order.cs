@@ -183,8 +183,9 @@ namespace GUI_Module
         static private bool sendKitchenOrder(Order[] order)
         {
             bool orderRecievedAndMade = true;
+            Kitchen k = new Kitchen();
 
-            //orderRecievedAndMade = Kitchen.recieveOrder(order);  //this will send the orders to the kitchen class and will return a boolean when the order is ready 
+            orderRecievedAndMade = k.reciveOrder(order);  //this will send the orders to the kitchen class and will return a boolean when the order is ready 
 
             return orderRecievedAndMade;
         }
@@ -195,7 +196,7 @@ namespace GUI_Module
         {
             for (int i = 0; i < numOfOrder; i++)
             {
-                //BackOfHouse.getGrossRevenue(order[i]); //this will call the gross revenue function  
+                BackOfHouse.setGrossRevenue(order[i]); //this will call the gross revenue function  
             }
         }
         //-----------------------------------------------------------------------------------------------------------------
@@ -210,7 +211,7 @@ namespace GUI_Module
         //this will let the dishes module the amount of orders made
         private static void tellDishesOfOrder(int numOfOrder)
         {
-            //dishes.recieveNumOfDishes(numOfOrder);
+            dishes.recieveNumOfDishes(numOfOrder);
         }
         //-----------------------------------------------------------------------------------------------------------------
 
