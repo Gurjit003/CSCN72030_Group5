@@ -30,7 +30,7 @@ namespace GUI_Module
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e) // Dishes button
         {
             dishes.cleanDishes();
             dishesControl1 d = new dishesControl1();

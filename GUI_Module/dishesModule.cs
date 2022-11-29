@@ -36,14 +36,14 @@ namespace GUI_Module
         {
             this.clean = clean;
             this.dirty = dirty;
-            this.beenUsed = beenUsed;
+            this.beenUsed = beenused;
         }
         private static void getDishes()
         {
             int current = 0;
             string[] gottenNumber = new string[3];
 
-            foreach (string line in System.IO.File.ReadLines(@"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\group project\GUI_Module\Dishes.txt"))
+            foreach (string line in System.IO.File.ReadLines(@"G:\Repos\CSCN72030-Group5\GUI_Module\Dishes.txt"))
             {
                 if (current == 0)
                 {
@@ -81,7 +81,7 @@ namespace GUI_Module
             int current = 0;
             string[] gottenNumber = new string[3];
 
-            foreach (string line in System.IO.File.ReadLines(@"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\group project\GUI_Module\Dishes.txt"))
+            foreach (string line in System.IO.File.ReadLines(@"G:\Repos\CSCN72030-Group5\GUI_Module\Dishes.txt"))
             {
                 if (current == 0)
                 {
@@ -121,7 +121,7 @@ namespace GUI_Module
             int current = 0;
             string[] gottenNumber = new string[3];
 
-            foreach (string line in System.IO.File.ReadLines(@"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\group project\GUI_Module\Dishes.txt"))
+            foreach (string line in System.IO.File.ReadLines(@"G:\Repos\CSCN72030-Group5\GUI_Module\Dishes.txt"))
             {
                 if (current == 0)
                 {
@@ -159,14 +159,12 @@ namespace GUI_Module
 
         public static int getDishesBeenUsed()
         {
-            int counter = 0;
             string[] gottenNumber = new string[3];
 
-            string filePath = "Dishes.txt";
 
             int current = 0;
 
-            foreach (string line in System.IO.File.ReadLines(@"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\group project\GUI_Module\Dishes.txt"))
+            foreach (string line in System.IO.File.ReadLines(@"G:\Repos\CSCN72030-Group5\GUI_Module\Dishes.txt"))
             {
                 if (current == 0)
                 {
@@ -208,7 +206,7 @@ namespace GUI_Module
             string dirtyString = dirty.ToString();
             string beenUsedString = beenUsed.ToString();
 
-            string filePath = @"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\group project\GUI_Module\Dishes.txt";
+            string filePath = @"G:\Repos\CSCN72030-Group5\GUI_Module\Dishes.txt";
 
             if (File.Exists(filePath))
             {

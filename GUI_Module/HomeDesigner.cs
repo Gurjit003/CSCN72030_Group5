@@ -309,7 +309,7 @@
         private homeControl1 homeControl1;
         private System.Windows.Forms.Button button1;
         private dishesControl1 dishesControl11;
-        private inventoryControl1 inventoryControl11;
+        public inventoryControl1 inventoryControl11;
         private frontOfHouseControl1 frontOfHouseControl11;
         private backOfHouseGUIControl1 backOfHouseGUIControl11;
         private contactUsControl1 contactUsControl11;

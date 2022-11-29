@@ -22,6 +22,7 @@ namespace GUI_Module
             InitializeComponent();
         }
 
+
         private void HomeControl_Load(object sender, EventArgs e)
         {
 
@@ -32,7 +33,7 @@ namespace GUI_Module
 
         }
 
-        private void InitializeComponent()
+        public void InitializeComponent()
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -82,7 +83,7 @@ namespace GUI_Module
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.label1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(237, 381);
+            this.label1.Location = new System.Drawing.Point(217, 380);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(137, 23);

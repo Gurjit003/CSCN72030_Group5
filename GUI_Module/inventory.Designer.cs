@@ -1,7 +1,11 @@
-﻿namespace GUI_Module
+﻿using System.Drawing.Design;
+
+namespace GUI_Module
 {
     partial class inventoryControl1
     {
+        public static inventoryCode inventory = new inventoryCode();
+
         /// <summary> 
         /// Required designer variable.
         /// </summary>
@@ -22,12 +26,25 @@
 
         #region Component Designer generated code
 
+        public void createDefaultItems()
+        {
+            inventory.createDefaultItems();
+        }
+
+
         /// <summary> 
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent1()
         {
+            if (inventory.arrayOfItems == null) { inventory.createDefaultItems(); }
+
+            for (int x = 0; x < inventory.numberOfItems; x++) 
+            {
+                inventory.updateInventoryItems();
+            }
+
             this.label13 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -42,12 +59,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
             this.textBox6 = new System.Windows.Forms.TextBox();
             this.textBox7 = new System.Windows.Forms.TextBox();
             this.textBox4 = new System.Windows.Forms.TextBox();
@@ -81,7 +92,7 @@
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.label13.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(279, 20);
+            this.label13.Location = new System.Drawing.Point(268, 20);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(109, 28);
             this.label13.TabIndex = 38;
@@ -101,71 +112,71 @@
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
-            // label12
+            // label12 - POP
             // 
             this.label12.AutoSize = true;
             this.label12.BackColor = System.Drawing.Color.White;
             this.label12.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(613, 183);
+            this.label12.Location = new System.Drawing.Point(607, 183);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(20, 22);
             this.label12.TabIndex = 62;
-            this.label12.Text = "0";
+            this.label12.Text = inventory.arrayOfItems[inventory.popIndex].getQuantity().ToString();
             // 
-            // label11
+            // label11 - WATER
             // 
             this.label11.AutoSize = true;
             this.label11.BackColor = System.Drawing.Color.White;
             this.label11.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(613, 118);
+            this.label11.Location = new System.Drawing.Point(607, 118);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(20, 22);
             this.label11.TabIndex = 61;
-            this.label11.Text = "0";
+            this.label11.Text = inventory.arrayOfItems[inventory.waterIndex].getQuantity().ToString();
             // 
-            // label10
+            // label10 - SALAD
             // 
             this.label10.AutoSize = true;
             this.label10.BackColor = System.Drawing.Color.White;
             this.label10.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(402, 183);
+            this.label10.Location = new System.Drawing.Point(395, 183);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(20, 22);
             this.label10.TabIndex = 60;
-            this.label10.Text = "0";
+            this.label10.Text = inventory.arrayOfItems[inventory.saladIndex].getQuantity().ToString();
             // 
-            // label9
+            // label9 - FRIES
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.White;
             this.label9.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(403, 118);
+            this.label9.Location = new System.Drawing.Point(395, 118);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(20, 22);
             this.label9.TabIndex = 59;
-            this.label9.Text = "0";
+            this.label9.Text = inventory.arrayOfItems[inventory.friesIndex].getQuantity().ToString();
             // 
-            // label8
+            // label8 - CHICKEN BURGER
             // 
             this.label8.AutoSize = true;
             this.label8.BackColor = System.Drawing.Color.White;
             this.label8.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(189, 183);
+            this.label8.Location = new System.Drawing.Point(182, 183);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(20, 22);
             this.label8.TabIndex = 58;
-            this.label8.Text = "0";
+            this.label8.Text = inventory.arrayOfItems[inventory.chickenBurgerIndex].getQuantity().ToString();
             // 
-            // label7
+            // label7 - HAMBURGER
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.White;
             this.label7.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(189, 118);
+            this.label7.Location = new System.Drawing.Point(182, 118);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(20, 22);
             this.label7.TabIndex = 57;
-            this.label7.Text = "0";
+            this.label7.Text = inventory.arrayOfItems[inventory.burgerIndex].getQuantity().ToString();
             // 
             // label6
             // 
@@ -226,72 +237,6 @@
             this.label2.Size = new System.Drawing.Size(97, 22);
             this.label2.TabIndex = 51;
             this.label2.Text = "Hamburger";
-            // 
-            // textBox13
-            // 
-            this.textBox13.BackColor = System.Drawing.Color.White;
-            this.textBox13.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox13.Location = new System.Drawing.Point(607, 180);
-            this.textBox13.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(29, 29);
-            this.textBox13.TabIndex = 50;
-            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox12
-            // 
-            this.textBox12.BackColor = System.Drawing.Color.White;
-            this.textBox12.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox12.Location = new System.Drawing.Point(607, 115);
-            this.textBox12.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(29, 29);
-            this.textBox12.TabIndex = 49;
-            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox11
-            // 
-            this.textBox11.BackColor = System.Drawing.Color.White;
-            this.textBox11.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox11.Location = new System.Drawing.Point(397, 180);
-            this.textBox11.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(29, 29);
-            this.textBox11.TabIndex = 48;
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox10
-            // 
-            this.textBox10.BackColor = System.Drawing.Color.White;
-            this.textBox10.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox10.Location = new System.Drawing.Point(397, 115);
-            this.textBox10.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(29, 29);
-            this.textBox10.TabIndex = 47;
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox9
-            // 
-            this.textBox9.BackColor = System.Drawing.Color.White;
-            this.textBox9.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox9.Location = new System.Drawing.Point(183, 180);
-            this.textBox9.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(29, 29);
-            this.textBox9.TabIndex = 46;
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox8
-            // 
-            this.textBox8.BackColor = System.Drawing.Color.White;
-            this.textBox8.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox8.Location = new System.Drawing.Point(183, 115);
-            this.textBox8.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(29, 29);
-            this.textBox8.TabIndex = 45;
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textBox6
             // 
@@ -425,7 +370,7 @@
             this.label25.TabIndex = 75;
             this.label25.Text = "Hamburger";
             // 
-            // textBox14
+            // textBox14 - POP
             // 
             this.textBox14.BackColor = System.Drawing.Color.White;
             this.textBox14.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -436,7 +381,18 @@
             this.textBox14.TabIndex = 74;
             this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox16
+            // textBox15 - WATER
+            // 
+            this.textBox15.BackColor = System.Drawing.Color.White;
+            this.textBox15.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox15.Location = new System.Drawing.Point(607, 343);
+            this.textBox15.Margin = new System.Windows.Forms.Padding(0);
+            this.textBox15.Name = "textBox15";
+            this.textBox15.Size = new System.Drawing.Size(29, 29);
+            this.textBox15.TabIndex = 73;
+            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // textBox16 - SALAD
             // 
             this.textBox16.BackColor = System.Drawing.Color.White;
             this.textBox16.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -447,7 +403,7 @@
             this.textBox16.TabIndex = 72;
             this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox17
+            // textBox17 - FRIES
             // 
             this.textBox17.BackColor = System.Drawing.Color.White;
             this.textBox17.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -458,7 +414,7 @@
             this.textBox17.TabIndex = 71;
             this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox18
+            // textBox18 - CHICKEN BURGER
             // 
             this.textBox18.BackColor = System.Drawing.Color.White;
             this.textBox18.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -470,7 +426,7 @@
             this.textBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox18.TextChanged += new System.EventHandler(this.textBox18_TextChanged);
             // 
-            // textBox19
+            // textBox19 - HAMBURGER
             // 
             this.textBox19.BackColor = System.Drawing.Color.White;
             this.textBox19.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -559,28 +515,18 @@
             this.label26.AutoSize = true;
             this.label26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.label26.Font = new System.Drawing.Font("Tahoma", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(286, 267);
+            this.label26.Location = new System.Drawing.Point(275, 267);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(91, 28);
             this.label26.TabIndex = 87;
             this.label26.Text = "Reorder";
-            // 
-            // textBox15
-            // 
-            this.textBox15.BackColor = System.Drawing.Color.White;
-            this.textBox15.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox15.Location = new System.Drawing.Point(607, 343);
-            this.textBox15.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(29, 29);
-            this.textBox15.TabIndex = 73;
-            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+           
             // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.button1.Font = new System.Drawing.Font("Tahoma", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(242, 471);
+            this.button1.Location = new System.Drawing.Point(228, 471);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(191, 38);
             this.button1.TabIndex = 88;
@@ -625,12 +571,6 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
             this.Controls.Add(this.textBox6);
             this.Controls.Add(this.textBox7);
             this.Controls.Add(this.textBox4);
@@ -662,12 +602,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox8;
         private System.Windows.Forms.TextBox textBox6;
         private System.Windows.Forms.TextBox textBox7;
         private System.Windows.Forms.TextBox textBox4;

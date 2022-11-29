@@ -9,8 +9,6 @@ namespace GUI_Module
 {
     internal class Program
     {
-        
-
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -22,8 +20,11 @@ namespace GUI_Module
             Application.SetCompatibleTextRenderingDefault(false);
             int[] items = { 0, 0, 0, 0, 0, 0 };
             Kitchen kitchen = new Kitchen();
-            kitchen.orderPopUp(items);
-            Application.Run(new Home());
+            //kitchen.orderPopUp(items);
+
+            Home main= new Home();
+            
+            Application.Run(main);
 
     }
 }
