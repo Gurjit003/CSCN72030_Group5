@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
+using System.IO;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Security.Cryptography.X509Certificates;
+using System.Reflection.Emit;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,12 +12,6 @@ namespace GUI_Module
 {
     public class Order
     {
-        public static int hambuger = 0;
-        public static int chickenBurger = 0;
-        public static int fries = 0;
-        public static int salad = 0;
-        public static int water = 0;
-        public static int pop = 0;
 
         public string main = "Nothing";
         public string side = "Nothing";
@@ -58,14 +54,13 @@ namespace GUI_Module
             getDrink(order, numOrders);
 
             setNumOfMaking(order, numOrders);
-            sendWhatHasbeenMade();
 
             bool isReady = sendKitchenOrder(order);
             sendBOHOrder(order, numOrders);
             tellDishesOfOrder(numOrders);
 
             deduceNumOfMaking(order, numOrders);
-            sendWhatHasbeenMade();
+        
 
             return ready;
         }
@@ -82,16 +77,15 @@ namespace GUI_Module
                 Random rnd = new Random();
                 int random = rnd.Next(1, 2);
 
-                foreach (string line in System.IO.File.ReadLines(@"C:\\Users\\daveo_xxpkcgs\\OneDrive\\Desktop\\College\\year 2 (fall semseter)\\Software develpment\\Group project\\Group Code\\GUI_Module\\main.txt"))
+                if (random == 1)
                 {
-                    if ((counter + 1) == random)
-                    {
-                        gottenMain[i] = line;
-                    }
-                    counter++;
+                    gottenMain[i] = "Hamburger";
                 }
 
-                counter = 0;
+                if (random == 2)
+                {
+                    gottenMain[i] = "chicken burger";
+                }
             }
 
 
@@ -118,16 +112,14 @@ namespace GUI_Module
                 Random rnd = new Random();
                 int random = rnd.Next(1, 2);
 
-                foreach (string line in System.IO.File.ReadLines(@"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\Group Code\GUI_Module\side.txt"))
+                if(random == 1)
                 {
-                    if ((counter + 1) == random)
-                    {
-                        gottenSide[i] = line;
-                    }
-                    counter++;
+                    gottenSide[i] = "Fries";
                 }
-
-                counter = 0;
+                if (random == 2)
+                {
+                    gottenSide[i] = "Salad";
+                }
             }
 
 
@@ -146,7 +138,6 @@ namespace GUI_Module
         //getting and setting the drink
         static private void getDrink(Order[] order, int numOfOrder)
         {
-            int counter = 0;
             string[] gottenDrink = new string[numOfOrder];
 
             for (int i = 0; i < numOfOrder; i++)
@@ -154,16 +145,14 @@ namespace GUI_Module
                 Random rnd = new Random();
                 int random = rnd.Next(1, 2);
 
-                foreach (string line in System.IO.File.ReadLines(@"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\Group Code\GUI_Module\drink.txt"))
+                if(random == 1)
                 {
-                    if ((counter + 1) == random)
-                    {
-                        gottenDrink[i] = line;
-                    }
-                    counter++;
+                    gottenDrink[i] = "Pop";
                 }
-
-                counter = 0;
+                if (random == 2)
+                {
+                    gottenDrink[i] = "Water";
+                }
             }
 
 
@@ -202,11 +191,6 @@ namespace GUI_Module
         //-----------------------------------------------------------------------------------------------------------------
 
         //this will send to the GUI ehat has been made
-        public static void sendWhatHasbeenMade()
-        {
-            //KitchenControl k = new KitchenControl;
-        }
-        //-----------------------------------------------------------------------------------------------------------------
 
         //this will let the dishes module the amount of orders made
         private static void tellDishesOfOrder(int numOfOrder)
@@ -218,6 +202,8 @@ namespace GUI_Module
         //this funtction set the global varibale (increasing)
         private static void setNumOfMaking(Order[] order, int numOrders)
         {
+            int[] product = getProductNum();
+
             string ham = "Hamburger";
             string chic = "chicken burger";
             string fri = "Fries";
@@ -229,40 +215,44 @@ namespace GUI_Module
             {
                 if (order[i].main == ham)
                 {
-                    hambuger++;
+                    product[0]++;
                 }
 
                 if (order[i].main == chic)
                 {
-                    chickenBurger++;
+                    product[1]++;
                 }
 
                 if (order[i].side == fri)
                 {
-                    fries++;
+                    product[2]++;
                 }
 
                 if (order[i].side == sal)
                 {
-                    salad++;
+                    product[3]++;
                 }
 
                 if (order[i].drink == wat)
                 {
-                    water++;
+                    product[4]++;
                 }
 
                 if (order[i].drink == POP)
                 {
-                    pop++;
+                    product[5]++;
                 }
             }
+
+            setProductNum(product);
         }
         //-----------------------------------------------------------------------------------------------------------------
 
         //this function will send the global varibale (reducing)
         private static void deduceNumOfMaking(Order[] order, int numOrders)
         {
+            int[] product = getProductNum();
+
             string ham = "Hamburger";
             string chic = "chicken burger";
             string fri = "Fries";
@@ -274,34 +264,169 @@ namespace GUI_Module
             {
                 if (order[i].main == ham)
                 {
-                    hambuger--;
+                    product[0]--;
                 }
 
                 if (order[i].main == chic)
                 {
-                    chickenBurger--;
+                    product[1]--;
                 }
 
                 if (order[i].side == fri)
                 {
-                    fries++;
+                    product[2]--;
                 }
 
                 if (order[i].side == sal)
                 {
-                    salad--;
+                    product[3]--;
                 }
 
                 if (order[i].drink == wat)
                 {
-                    water--;
+                    product[4]--;
                 }
 
                 if (order[i].drink == POP)
                 {
-                    pop--;
+                    product[5]--;
                 }
             }
+
+            setProductNum(product);
         }
+
+        public static int[] getProductNum()
+        {
+            string[] productString = {"0", "0", "0", "0", "0", "0"};
+            int[] product = { 0, 0, 0, 0, 0, 0 };
+            int current = 0;
+
+            foreach (string line in System.IO.File.ReadLines(@"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\group project\GUI_Module\ProductNumber.txt"))
+            {
+                if (current == 0)
+                {
+                    productString[0] = line;
+                }
+
+                if (current == 1)
+                {
+                    productString[1] = line;
+                }
+
+                if (current == 2)
+                {
+                    productString[2] = line;
+                }
+
+                if (current == 3)
+                {
+                    productString[3] = line;
+                }
+
+                if (current == 4)
+                {
+                    productString[4] = line;
+                }
+
+                if (current == 5)
+                {
+                    productString[5] = line;
+                }
+
+                current++;
+            }
+
+            Int32.TryParse(productString[0], out product[0]);
+            Int32.TryParse(productString[1], out product[1]);
+            Int32.TryParse(productString[2], out product[2]);
+            Int32.TryParse(productString[3], out product[3]);
+            Int32.TryParse(productString[4], out product[4]);
+            Int32.TryParse(productString[5], out product[5]);
+
+            return product;
+        }
+
+        public static void setProductNum(int[] product)
+        {
+            string ham = product[0].ToString();
+            string chic = product[1].ToString();
+            string fri = product[2].ToString();
+            string sal = product[3].ToString();
+            string POP = product[4].ToString();
+            string wat = product[5].ToString();
+
+            string filePath = @"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\group project\GUI_Module\ProductNumber.txt";
+
+            if (File.Exists(filePath))
+            {
+                string[] fileLines = File.ReadAllLines(filePath);
+
+                fileLines[0] = ham;
+                fileLines[1] = chic;
+                fileLines[2] = fri;
+                fileLines[2] = sal;
+                fileLines[2] = POP;
+                fileLines[2] = wat;
+
+                File.WriteAllLines(filePath, fileLines);
+
+            }
+            else
+            {
+                string[] emptyFile = { "0", "0", "0", "0", "0", "0" };
+
+                File.WriteAllLines(filePath, emptyFile);
+            }
+        }
+
+        public static int sendHam()
+        {
+            int[] product = getProductNum();
+            int hamburger = product[0];
+
+            return hamburger;
+        }
+
+        public static int sendChic()
+        {
+            int[] product = getProductNum();
+            int ChickenBurger = product[1];
+
+            return ChickenBurger;
+        }
+
+        public static int sendFri()
+        {
+            int[] product = getProductNum();
+            int Fries = product[2];
+
+            return Fries;
+        }
+
+        public static int sendSal()
+        {
+            int[] product = getProductNum();
+            int Salad = product[3];
+
+            return Salad;
+        }
+
+        public static int sendPop()
+        {
+            int[] product = getProductNum();
+            int Pop = product[4];
+
+            return Pop;
+        }
+
+        public static int sendWat()
+        {
+            int[] product = getProductNum();
+            int Water = product[5];
+
+            return Water;
+        }
+
     }
 }
