@@ -15,8 +15,6 @@ namespace GUI_Module
     {
         private homeControl1 homeControl11;
         private Label label13;
-        private TextBox textBox2;
-        private Label label2;
         private Panel panel1;
         private homeControl1 homeControl12;
 

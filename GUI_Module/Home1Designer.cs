@@ -103,10 +103,5 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label2;
     }
 }
