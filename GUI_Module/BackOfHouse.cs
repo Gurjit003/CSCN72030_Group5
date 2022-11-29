@@ -55,12 +55,6 @@ namespace GUI_Module
             File.AppendAllText(filePath, orderPriceTemp + Environment.NewLine);
         }
 
-
-    }
-
-
-    internal static class BackOfHouseS
-    {
         static IEnumerable<string> ReadLines(this TextReader reader, char delimiter)
         {
             List<char> chars = new List<char>();
@@ -80,9 +74,10 @@ namespace GUI_Module
         }
 
 
-        static double getGrossRevenue()
+        public static double getGrossRevenue()
         {
-            string filePath = "IncomeFile.txt";
+            //string filePath = @"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\group project\GUI_Module\IncomeFile.txt";
+            string filePath = "IncomeFile.Txt";
             double sum = 0;
 
             using (StreamReader sr = new StreamReader(filePath, Encoding.Default))
@@ -135,8 +130,9 @@ namespace GUI_Module
         }
 
 
-        static double getExpenses()
+        public static double getExpenses()
         {
+            //string filePath = @"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\group project\GUI_Module\ExpensesFile.txt";
             string filePath = "ExpensesFile.txt";
             double sum = 0;
 
@@ -152,7 +148,7 @@ namespace GUI_Module
         }
 
 
-        static double getNetRevenue(double grossRevenue, double expenses)
+        public static double getNetRevenue(double grossRevenue, double expenses)
         {
             double netRevenue = grossRevenue - expenses;
 
