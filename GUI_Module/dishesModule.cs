@@ -12,15 +12,9 @@ namespace GUI_Module
 {
     internal class dishes
     {
-        //public static int cleanDishesCount = 10;
-        //public static int dirtyDishesCount = 10;
-        //public static int beenUsedDishesCount = 0;
-
-        int clean = 20;
-        int dirty = 0;
-        int beenUsed = 0;
-
-        public static dishes allDishes = new dishes();
+        int clean;
+        int dirty;
+        int beenUsed;
         //-----------------------------------------------------------------------------------------------------------------
 
         //this function will get the number of dishes from the file 
@@ -38,7 +32,7 @@ namespace GUI_Module
             this.dirty = dirty;
             this.beenUsed = beenUsed;
         }
-        private static void getDishes()
+        private static dishes getDishes()
         {
             int current = 0;
             string[] gottenNumber = new string[3];
@@ -71,9 +65,9 @@ namespace GUI_Module
             Int32.TryParse(gottenNumber[1], out newDirty);
             Int32.TryParse(gottenNumber[2], out newBeenUsed);
 
-            allDishes.clean = newClean;
-            allDishes.dirty = newDirty;
-            allDishes.beenUsed = newBeenUsed;
+            dishes d = new dishes(newClean, newDirty, newBeenUsed);
+
+            return d;
         }
 
         public static int getDishesClean()
@@ -109,10 +103,6 @@ namespace GUI_Module
             Int32.TryParse(gottenNumber[1], out newDirty);
             Int32.TryParse(gottenNumber[2], out newBeenUsed);
 
-            allDishes.clean = newClean;
-            allDishes.dirty = newDirty;
-            allDishes.beenUsed = newBeenUsed;
-
             return newClean;
         }
 
@@ -147,11 +137,7 @@ namespace GUI_Module
 
             Int32.TryParse(gottenNumber[0], out newClean);
             Int32.TryParse(gottenNumber[1], out newDirty);
-            Int32.TryParse(gottenNumber[2], out newBeenUsed);
-
-            allDishes.clean = newClean;
-            allDishes.dirty = newDirty;
-            allDishes.beenUsed = newBeenUsed;
+            Int32.TryParse(gottenNumber[2], out newBeenUsed);;
 
             return newDirty;
         }
@@ -194,10 +180,6 @@ namespace GUI_Module
             Int32.TryParse(gottenNumber[1], out newDirty);
             Int32.TryParse(gottenNumber[2], out newBeenUsed);
 
-            allDishes.clean = newClean;
-            allDishes.dirty = newDirty;
-            allDishes.beenUsed = newBeenUsed;
-
             return newBeenUsed;
         }
 
@@ -232,17 +214,16 @@ namespace GUI_Module
         //this will recieve the numer of dishes needed for an order
         public static void recieveNumOfDishes(int numOfDishes)
         {
-            getDishes();
-            //setNumOfDishes(allDishes);
-            sendCurrentDishesNum();
+            dishes d = new dishes();
+            d = getDishes();
 
-            bool isOkToContinue = checkNumOfDishes();
+            bool isOkToContinue = checkNumOfDishes(d);
             bool ifNotEnough = true;
 
             if (isOkToContinue == true)
             {
-                allDishes.clean = allDishes.clean - numOfDishes;
-                allDishes.beenUsed = allDishes.beenUsed + numOfDishes;
+                d.clean = d.clean - numOfDishes;
+                d.beenUsed = d.beenUsed + numOfDishes;
             }
 
             if (isOkToContinue == false)
@@ -251,23 +232,21 @@ namespace GUI_Module
 
                 if (ifNotEnough == true)
                 {
-                    allDishes.clean = allDishes.clean - numOfDishes;
-                    allDishes.beenUsed = allDishes.beenUsed + numOfDishes;
+                    d.clean = d.clean - numOfDishes;
+                    d.beenUsed = d.beenUsed + numOfDishes;
                 }
             }
 
-            reWriteDishes(allDishes.clean, allDishes.dirty, allDishes.beenUsed);
-            //setNumOfDishes(allDishes);
-            sendCurrentDishesNum();
+            reWriteDishes(d.clean, d.dirty, d.beenUsed);
         }
         //-------------------------------------------------------------------------------------
 
         //this will check the number of clean dishes we have
-        private static bool checkNumOfDishes()
+        private static bool checkNumOfDishes(dishes d)
         {
             bool isEnough = true;
 
-            if (allDishes.clean < 5)
+            if (d.clean < 5)
             {
                 isEnough = false;
             }
@@ -283,7 +262,8 @@ namespace GUI_Module
 
             if (sender == 0)
             {
-                //DishesPopUp2 d = new DishesPopUp2;
+                DishesPopUp2 d = new DishesPopUp2();
+                d.Show();
             }
 
             if (sender == 1)
@@ -314,37 +294,15 @@ namespace GUI_Module
             dishes d = new dishes(currentClean, currentDirty, currentBeenUsed);
 
             reWriteDishes(currentClean, currentDirty, currentBeenUsed);
-            //setNumOfDishes(d);
-            //sendCurrentDishesNum();
         }
-        //-------------------------------------------------------------------------------------
-
-        //this will send to the GUI the current amount of Dishes
-        public static void sendCurrentDishesNum()
-        {
-            dishesControl1 d = new dishesControl1();
-        }
-        //-------------------------------------------------------------------------------------
-
-        //this function will adjust the number of beenUsed and clean dishes according to the amount of customers that leave
         public static void recieveNumOfLeavingCus(int leavingCus)
         {
-            allDishes.beenUsed = allDishes.beenUsed - leavingCus;
-            allDishes.dirty = allDishes.dirty + leavingCus;
+            dishes d = new dishes();
+            d = getDishes();
+            d.beenUsed = d.beenUsed - leavingCus;
+            d.dirty = d.dirty + leavingCus;
 
-            reWriteDishes(allDishes.clean, allDishes.dirty, allDishes.beenUsed);
-            //setNumOfDishes(allDishes);
-            sendCurrentDishesNum();
+            reWriteDishes(d.clean, d.dirty, d.beenUsed);
         }
-        //-----------------------------------------------------------------------------------------------------------------
-
-        //this function will set the global varibales 
-        /*private static void setNumOfDishes(dishes dishes)
-        {
-            cleanDishesCount = dishes.clean;
-            dirtyDishesCount = dishes.dirty;
-            beenUsedDishesCount = dishes.beenUsed;
-        }*/
-        //-----------------------------------------------------------------------------------------------------------------
     }
 }
