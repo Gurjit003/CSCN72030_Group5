@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.Design;
 using System.IO;
 using System.Linq;
+using System.Reflection.Emit;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -9,9 +12,9 @@ namespace GUI_Module
 {
     internal class dishes
     {
-        public static int cleanDishesCount = 20;
-        public static int dirtyDishesCount = 0;
-        public static int beenUsedDishesCount = 0;
+        //public static int cleanDishesCount = 10;
+        //public static int dirtyDishesCount = 10;
+        //public static int beenUsedDishesCount = 0;
 
         int clean = 20;
         int dirty = 0;
@@ -21,26 +24,43 @@ namespace GUI_Module
         //-----------------------------------------------------------------------------------------------------------------
 
         //this function will get the number of dishes from the file 
+
+        dishes()
+        {
+            clean = 20;
+            dirty = 0;
+            beenUsed = 0;
+        }
+
+        dishes(int clean, int dirty, int beenused)
+        {
+            this.clean = clean;
+            this.dirty = dirty;
+            this.beenUsed = beenUsed;
+        }
         private static void getDishes()
         {
-            int counter = 0;
+            int current = 0;
             string[] gottenNumber = new string[3];
 
-            for (int i = 0; i < 3; i++)
+            foreach (string line in System.IO.File.ReadLines(@"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\group project\GUI_Module\Dishes.txt"))
             {
-                Random rnd = new Random();
-                int random = rnd.Next(1, 2);
-
-                foreach (string line in System.IO.File.ReadLines(@"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\Group Code\GUI_Module\Dishes.txt"))
+                if (current == 0)
                 {
-                    if ((counter + 1) == random)
-                    {
-                        gottenNumber[i] = line;
-                    }
-                    counter++;
+                    gottenNumber[0] = line;
                 }
 
-                counter = 0;
+                if (current == 1)
+                {
+                    gottenNumber[1] = line;
+                }
+
+                if (current == 2)
+                {
+                    gottenNumber[2] = line;
+                }
+
+                current = 0;
             }
 
             int newClean;
@@ -55,19 +75,157 @@ namespace GUI_Module
             allDishes.dirty = newDirty;
             allDishes.beenUsed = newBeenUsed;
         }
+
+        public static int getDishesClean()
+        {
+            int current = 0;
+            string[] gottenNumber = new string[3];
+
+            foreach (string line in System.IO.File.ReadLines(@"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\group project\GUI_Module\Dishes.txt"))
+            {
+                if (current == 0)
+                {
+                    gottenNumber[0] = line;
+                }
+
+                if (current == 1)
+                {
+                    gottenNumber[1] = line;
+                }
+
+                if (current == 2)
+                {
+                    gottenNumber[2] = line;
+                }
+
+                current++;
+            }
+
+            int newClean;
+            int newDirty;
+            int newBeenUsed;
+
+            Int32.TryParse(gottenNumber[0], out newClean);
+            Int32.TryParse(gottenNumber[1], out newDirty);
+            Int32.TryParse(gottenNumber[2], out newBeenUsed);
+
+            allDishes.clean = newClean;
+            allDishes.dirty = newDirty;
+            allDishes.beenUsed = newBeenUsed;
+
+            return newClean;
+        }
+
+        public static int getDishesDirty()
+        {
+            int current = 0;
+            string[] gottenNumber = new string[3];
+
+            foreach (string line in System.IO.File.ReadLines(@"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\group project\GUI_Module\Dishes.txt"))
+            {
+                if (current == 0)
+                {
+                    gottenNumber[0] = line;
+                }
+
+                if (current == 1)
+                {
+                    gottenNumber[1] = line;
+                }
+
+                if (current == 2)
+                {
+                    gottenNumber[2] = line;
+                }
+
+                current++;
+            }
+
+            int newClean;
+            int newDirty;
+            int newBeenUsed;
+
+            Int32.TryParse(gottenNumber[0], out newClean);
+            Int32.TryParse(gottenNumber[1], out newDirty);
+            Int32.TryParse(gottenNumber[2], out newBeenUsed);
+
+            allDishes.clean = newClean;
+            allDishes.dirty = newDirty;
+            allDishes.beenUsed = newBeenUsed;
+
+            return newDirty;
+        }
         //-------------------------------------------------------------------------------------
 
-        //this function will write the number of dishes to the file 
-        private static void reWriteDishes()
+        public static int getDishesBeenUsed()
         {
-            string cleanString = allDishes.clean.ToString();
-            string dirtyString = allDishes.dirty.ToString();
-            string beenUsedString = allDishes.beenUsed.ToString();
-            using (StreamWriter writer = new StreamWriter(@"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\Group Code\GUI_Module\Dishes.txt"))
+            int counter = 0;
+            string[] gottenNumber = new string[3];
+
+            string filePath = "Dishes.txt";
+
+            int current = 0;
+
+            foreach (string line in System.IO.File.ReadLines(@"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\group project\GUI_Module\Dishes.txt"))
             {
-                writer.WriteLine(cleanString);
-                writer.WriteLine(dirtyString);
-                writer.WriteLine(beenUsedString);
+                if (current == 0)
+                {
+                    gottenNumber[0] = line;
+                }
+
+                if (current == 1)
+                {
+                    gottenNumber[1] = line;
+                }
+
+                if (current == 2)
+                {
+                    gottenNumber[2] = line;
+                }
+
+                current++;
+            }
+
+            int newClean;
+            int newDirty;
+            int newBeenUsed;
+
+            Int32.TryParse(gottenNumber[0], out newClean);
+            Int32.TryParse(gottenNumber[1], out newDirty);
+            Int32.TryParse(gottenNumber[2], out newBeenUsed);
+
+            allDishes.clean = newClean;
+            allDishes.dirty = newDirty;
+            allDishes.beenUsed = newBeenUsed;
+
+            return newBeenUsed;
+        }
+
+        //this function will write the number of dishes to the file 
+        private static void reWriteDishes(int clean, int dirty, int beenUsed)
+        {
+            string cleanString = clean.ToString();
+            string dirtyString = dirty.ToString();
+            string beenUsedString = beenUsed.ToString();
+
+            string filePath = @"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\group project\GUI_Module\Dishes.txt";
+
+            if (File.Exists(filePath))
+            {
+                string[] fileLines = File.ReadAllLines(filePath);
+
+                fileLines[0] = cleanString;
+                fileLines[1] = dirtyString;
+                fileLines[2] = beenUsedString;
+
+                File.WriteAllLines(filePath, fileLines);
+
+            }
+            else
+            {
+                string[] emptyFile = { "0", "0", "0" };
+
+                File.WriteAllLines(filePath, emptyFile);
             }
         }
 
@@ -75,7 +233,7 @@ namespace GUI_Module
         public static void recieveNumOfDishes(int numOfDishes)
         {
             getDishes();
-            setNumOfDishes(allDishes);
+            //setNumOfDishes(allDishes);
             sendCurrentDishesNum();
 
             bool isOkToContinue = checkNumOfDishes();
@@ -98,8 +256,8 @@ namespace GUI_Module
                 }
             }
 
-            reWriteDishes();
-            setNumOfDishes(allDishes);
+            reWriteDishes(allDishes.clean, allDishes.dirty, allDishes.beenUsed);
+            //setNumOfDishes(allDishes);
             sendCurrentDishesNum();
         }
         //-------------------------------------------------------------------------------------
@@ -140,24 +298,31 @@ namespace GUI_Module
         //-------------------------------------------------------------------------------------
 
         //this will clean all the dirty dishes
-        private static void cleanDishes()
+        public static void cleanDishes()
         {
-            int temp = 0;
-            temp = allDishes.dirty;
+            int currentClean = getDishesClean();
+            int currentDirty = getDishesDirty();
+            int currentBeenUsed = getDishesBeenUsed();
 
-            allDishes.dirty = 0;
-            allDishes.clean = allDishes.clean + temp;
+            int temp = 0;
+            temp = currentDirty;
+
+            currentDirty = 0;
+            currentClean = currentClean + temp;
             temp = 0;
 
-            reWriteDishes();
-            setNumOfDishes(allDishes);
-            sendCurrentDishesNum();
+            dishes d = new dishes(currentClean, currentDirty, currentBeenUsed);
+
+            reWriteDishes(currentClean, currentDirty, currentBeenUsed);
+            //setNumOfDishes(d);
+            //sendCurrentDishesNum();
         }
         //-------------------------------------------------------------------------------------
 
         //this will send to the GUI the current amount of Dishes
         public static void sendCurrentDishesNum()
         {
+            dishesControl1 d = new dishesControl1();
         }
         //-------------------------------------------------------------------------------------
 
@@ -167,19 +332,19 @@ namespace GUI_Module
             allDishes.beenUsed = allDishes.beenUsed - leavingCus;
             allDishes.dirty = allDishes.dirty + leavingCus;
 
-            reWriteDishes();
-            setNumOfDishes(allDishes);
+            reWriteDishes(allDishes.clean, allDishes.dirty, allDishes.beenUsed);
+            //setNumOfDishes(allDishes);
             sendCurrentDishesNum();
         }
         //-----------------------------------------------------------------------------------------------------------------
 
         //this function will set the global varibales 
-        private static void setNumOfDishes(dishes dishes)
+        /*private static void setNumOfDishes(dishes dishes)
         {
             cleanDishesCount = dishes.clean;
             dirtyDishesCount = dishes.dirty;
             beenUsedDishesCount = dishes.beenUsed;
-        }
+        }*/
         //-----------------------------------------------------------------------------------------------------------------
     }
 }
