@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
+using System.Security.Cryptography.X509Certificates;
 
 namespace GUI_Module
 {
@@ -25,7 +26,7 @@ namespace GUI_Module
         {
             this.cookingSpace = space;
         }
-       
+
         public void setPower(bool set)
         {
             this.powerStatus = set;
@@ -59,7 +60,7 @@ namespace GUI_Module
         {
 
         }
-        
+
 
     }
 
@@ -67,28 +68,26 @@ namespace GUI_Module
     {
         public Grill()
         {
-            this.setPower(false);
-            this.setCookingSpace(4);
-            this.setTemp(0);
+            this.LoadFromFile();
         }
 
         public string grillFile = "grillFile.txt";
 
         new public void CookFood(int numOfBurgers)
         {
-            if(this.getTemperature() < 75 )
+            if (this.getTemperature() < 75)
             {
                 //GUI pop or somthing to flag user to increase grill temp
                 Console.WriteLine("Grill not hot enough");
             }
-            if(this.getPowerStatus() == false)
+            if (this.getPowerStatus() == false)
             {
                 //GUI call pop up
                 Console.WriteLine("Grill not on");
             }
             setCookingSpace(this.getCookingSpace() - numOfBurgers);
             //update GUI visual grill area
-            
+
         }
         public void updateFile()
         {
@@ -105,17 +104,39 @@ namespace GUI_Module
             }
             else
             {
-                string[]  emptyFile = { "0", "0", "0" };
+                string[] emptyFile = { "0", "0", "0" };
 
                 File.WriteAllLines(grillFile, emptyFile);
 
                 this.updateFile();
             }
         }
+        public void LoadFromFile()
+        {
+            if (File.Exists(grillFile))
+            {
+                string[] fileLines = File.ReadAllLines(grillFile);
+
+                if (fileLines[0] == "False")
+                {
+                    this.setPower(false);
+                }
+                else
+                {
+                    this.setPower(true);
+                }
+                this.setTemp(Int32.Parse(fileLines[1]));
+                this.setCookingSpace(Int32.Parse(fileLines[2]));
+            }
+        }
     }
 
     public class Fryer : Appliance
     {
+        public Fryer()
+        {
+            this.LoadFromFile();
+        }
         public string fryerFile = "fryerFile.txt";
 
         new public void CookFood(int numOfChicken)
@@ -125,11 +146,11 @@ namespace GUI_Module
                 //GUI pop or somthing to flag user to increase grill temp
                 Console.WriteLine("Fryer not hot enough");
             }
-            if(this.getPowerStatus() == false)
+            if (this.getPowerStatus() == false)
             {
                 Console.WriteLine("Fryer not on");
             }
-            setCookingSpace(this.getCookingSpace() -  numOfChicken);
+            setCookingSpace(this.getCookingSpace() - numOfChicken);
             //update GUI visual grill area
         }
 
@@ -154,5 +175,23 @@ namespace GUI_Module
                 this.updateFile();
             }
         }
-    }
+        public void LoadFromFile()
+        {
+            if (File.Exists(fryerFile))
+            {
+                string[] fileLines = File.ReadAllLines(fryerFile);
+
+                if (fileLines[0] == "False")
+                {
+                    this.setPower(false);
+                }
+                else
+                {
+                    this.setPower(true);
+                }
+                this.setTemp(Int32.Parse(fileLines[1]));
+                this.setCookingSpace(Int32.Parse(fileLines[2]));
+            }
+        }
+    } 
 }

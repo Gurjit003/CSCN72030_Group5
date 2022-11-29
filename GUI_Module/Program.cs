@@ -18,7 +18,13 @@ namespace GUI_Module
             
             Application.EnableVisualStyles(); 
             Application.SetCompatibleTextRenderingDefault(false); 
+
+            
+
             Application.Run(new Home()); 
+
+            
+            
             
 
         }
