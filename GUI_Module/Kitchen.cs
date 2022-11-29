@@ -15,6 +15,23 @@ namespace GUI_Module
         public KitchenControl()
         {
             InitializeComponent();
+            Grill grill = new Grill();
+            Fryer fryer = new Fryer();
+
+            numericUpDown1.Value = fryer.getTemperature();
+            numericUpDown2.Value = grill.getTemperature();
+
+            
+
+            if(fryer.getPowerStatus() == true)
+            {
+                button1.BackColor = Color.Green;
+            }
+            if (grill.getPowerStatus() == true)
+            {
+                button2.BackColor = Color.Green;
+            }
+
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -34,37 +51,57 @@ namespace GUI_Module
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-
+            Fryer fryer = new Fryer();
+            if(fryer.getPowerStatus() == true)
+            {
+                fryer.setTemp(((int)numericUpDown1.Value));
+                fryer.updateFile();
+            }
+            else
+            {
+                numericUpDown1.Value = 0;
+            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Fryer fryer = new Fryer();
             Control ctrl = ((Control)sender);
             switch (ctrl.BackColor.Name)
             {
                 case "Green":
+                    fryer.setPower(false);
                     ctrl.BackColor = Color.Red;
-                    numericUpDown1.ResetText();
+                    numericUpDown1.Value = 0;
+                    fryer.setTemp((int)numericUpDown1.Value);
                     break;
                 default:
+                    fryer.setPower(true);
                     ctrl.BackColor = Color.Green;
                     break;
             }
+            fryer.updateFile();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            Grill grill = new Grill();
             Control ctrl = ((Control)sender);
             switch (ctrl.BackColor.Name)
             {
                 case "Green":
+                    grill.setPower(false);
                     ctrl.BackColor = Color.Red;
-                    numericUpDown2.ResetText(); 
+                    numericUpDown2.Value = 0;
+                    grill.setTemp((int)numericUpDown2.Value);
                     break;
                 default:
+                    grill.setPower(true);
                     ctrl.BackColor = Color.Green;
                     break;
             }
+            grill.updateFile();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -74,7 +111,17 @@ namespace GUI_Module
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-
+            Grill grill = new Grill();
+            if(grill.getPowerStatus() == true)
+            {
+                grill.setTemp(((int)numericUpDown2.Value));
+                grill.updateFile();
+            }
+            else
+            {
+                numericUpDown2.Value = 0;
+            }
+            
         }
 
         private void label7_Click(object sender, EventArgs e)
@@ -83,6 +130,11 @@ namespace GUI_Module
         }
 
         private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label14_Click(object sender, EventArgs e)
         {
 
         }

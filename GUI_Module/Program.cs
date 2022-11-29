@@ -7,20 +7,24 @@ using System.IO;
 
 namespace GUI_Module
 {
-    internal static class Program
+    internal class Program
     {
+        
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         static void Main()
         {
-            
-            Application.EnableVisualStyles(); 
-            Application.SetCompatibleTextRenderingDefault(false); 
-            Application.Run(new Home()); 
-            
 
-        }
+            Application.EnableVisualStyles(); 
+            Application.SetCompatibleTextRenderingDefault(false);
+            int[] items = { 0, 0, 0, 0, 0, 0 };
+            Kitchen kitchen = new Kitchen();
+            kitchen.orderPopUp(items);
+            Application.Run(new Home());
+
     }
+}
 }

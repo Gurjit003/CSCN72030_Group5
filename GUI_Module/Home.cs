@@ -10,12 +10,11 @@ using System.Windows.Forms;
 
 namespace GUI_Module
 {
+
     public partial class Home : Form
     {
         private homeControl1 homeControl11;
         private Label label13;
-        private TextBox textBox2;
-        private Label label2;
         private Panel panel1;
         private homeControl1 homeControl12;
 
@@ -61,6 +60,7 @@ namespace GUI_Module
 
         private void button8_Click(object sender, EventArgs e)
         {
+            
             frontOfHouseControl11.BringToFront();
             SidePanel.Height = 33;
             SidePanel.Top = 179;

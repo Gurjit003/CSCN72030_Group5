@@ -11,7 +11,6 @@ namespace GUI_Module
 {
     public class item
     {
-        int numberOfItems = 6;
         public string dataFileName = "itemQuantities.txt";
 
         int itemID;
@@ -128,7 +127,7 @@ namespace GUI_Module
         public int waterIndex = 5;
 
         // Array of items in inventory
-        item[] arrayOfItems;
+        public item[] arrayOfItems;
 
         public item[] createDefaultItems() // Create an instance of all menu items
         {

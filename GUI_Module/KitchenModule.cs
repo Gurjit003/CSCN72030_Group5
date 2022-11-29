@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using GUI_Module;
 
 namespace GUI_Module
 {
     public class Kitchen
     {
-        
+
 
         Grill grill;
         Fryer fryer;
@@ -52,28 +53,68 @@ namespace GUI_Module
                 }
             }
 
-
+            inventoryCode mainInventory = new inventoryCode();
 
             //if enough inventory
-            //int[] currentStock = getAllItemStock(inventory.itemArrray);
-            //for(int i = 0; i < currentStock.Length; i++)
-            //{
-                    //if(currentStock[i] < parsedArray[i]
-                        //Flag GUI for not enough stock
-            //{
+            int[] itemsToOrder = { 0, 0, 0, 0, 0, 0 };
+            int[] currentStock = mainInventory.getAllItemStock(mainInventory.arrayOfItems);
+            for (int i = 0; i < currentStock.Length; i++)
+            {
+                if (currentStock[i] < brokenDownOrder[i])
+                {
+                    itemsToOrder[i] = brokenDownOrder[i] - currentStock[i];
+                }
+
+                mainInventory.addItemToStock(itemsToOrder);
+                //GUI popup syas items ordered
+                
+
+
+            }
             fryer.CookFood(brokenDownOrder[1]);
             grill.CookFood(brokenDownOrder[0]);
-            //}
+
 
             //Deduct inventory
-            //inventory.removeItemFromStock(brokenDownOrder);
+            mainInventory.removeItemFromStock(brokenDownOrder);
 
             fryer.setCookingSpace(4);
             grill.setCookingSpace(4);
             return true;
         }
 
+        public void orderPopUp(int[] addedItems)
+        {
+            Form formBackground = new Form();
+            try
+            {
+                using (KitchenOrderLevelPopUp uu = new KitchenOrderLevelPopUp())
+                {
+                    formBackground.StartPosition = FormStartPosition.CenterParent;
+                    formBackground.FormBorderStyle = FormBorderStyle.None;
+                    formBackground.Opacity = 0;
+                    formBackground.TopMost = true;
+                    //formBackground.Location = KitchenControl
+                    formBackground.ShowInTaskbar = false;
+                    formBackground.Show();
+
+                    uu.Owner = formBackground;
+                    uu.ShowDialog();
+
+                    formBackground.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                formBackground.Dispose();
+            }
+        }
     }
+
 
 
 

@@ -239,17 +239,17 @@ namespace GUI_Module
             bool isOkToContinue = checkNumOfDishes();
             bool ifNotEnough = true;
 
-            if (isOkToContinue = true)
+            if (isOkToContinue == true)
             {
                 allDishes.clean = allDishes.clean - numOfDishes;
                 allDishes.beenUsed = allDishes.beenUsed + numOfDishes;
             }
 
-            if (isOkToContinue = false)
+            if (isOkToContinue == false)
             {
                 ifNotEnough = tellToClean(0);
 
-                if (ifNotEnough = true)
+                if (ifNotEnough == true)
                 {
                     allDishes.clean = allDishes.clean - numOfDishes;
                     allDishes.beenUsed = allDishes.beenUsed + numOfDishes;

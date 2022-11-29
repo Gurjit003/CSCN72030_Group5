@@ -1,6 +1,6 @@
 ﻿namespace GUI_Module
 {
-    partial class DishesPopUp
+    partial class KitchenOrderLevelPopUp
     {
         /// <summary>
         /// Required designer variable.
@@ -28,39 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(56, 65);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 23);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "All dishes cleaned!";
-            // 
-            // DishesPopUp
+            // KitchenOrderLevelPopUp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(264, 163);
-            this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "DishesPopUp";
-            this.Text = "DishesPopUp";
-            this.TopMost = true;
-            this.Load += new System.EventHandler(this.DishesPopUp_Load);
+            this.ClientSize = new System.Drawing.Size(266, 163);
+            this.Name = "KitchenOrderLevelPopUp";
+            this.Text = "KitchenOrderLevelPopUp";
+            this.Load += new System.EventHandler(this.KitchenOrderLevelPopUp_Load);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
     }
 }
