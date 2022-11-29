@@ -12,6 +12,13 @@ namespace GUI_Module
 {
     public partial class Home : Form
     {
+        private homeControl1 homeControl11;
+        private Label label13;
+        private TextBox textBox2;
+        private Label label2;
+        private Panel panel1;
+        private homeControl1 homeControl12;
+
         public Home()
         {
             this.InitializeComponent1();
@@ -127,18 +134,97 @@ namespace GUI_Module
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Home));
+            this.homeControl11 = new GUI_Module.homeControl1();
+            this.homeControl12 = new GUI_Module.homeControl1();
+            this.label13 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
+            // 
+            // homeControl11
+            // 
+            this.homeControl11.Location = new System.Drawing.Point(54, 51);
+            this.homeControl11.Name = "homeControl11";
+            this.homeControl11.Size = new System.Drawing.Size(150, 150);
+            this.homeControl11.TabIndex = 0;
+            // 
+            // homeControl12
+            // 
+            this.homeControl12.BackColor = System.Drawing.Color.Pink;
+            this.homeControl12.Location = new System.Drawing.Point(127, -5);
+            this.homeControl12.Name = "homeControl12";
+            this.homeControl12.Size = new System.Drawing.Size(502, 445);
+            this.homeControl12.TabIndex = 1;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.label13.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(342, 22);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(59, 23);
+            this.label13.TabIndex = 42;
+            this.label13.Text = "Home";
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.textBox1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(127, 19);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.textBox1.Size = new System.Drawing.Size(504, 30);
+            this.textBox1.TabIndex = 41;
+            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Pink;
+            this.label1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(304, 335);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(137, 23);
+            this.label1.TabIndex = 43;
+            this.label1.Text = "Welcome back!";
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("panel1.BackgroundImage")));
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(290, 108);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(151, 136);
+            this.panel1.TabIndex = 44;
             // 
             // Home
             // 
-            this.ClientSize = new System.Drawing.Size(284, 261);
+            this.ClientSize = new System.Drawing.Size(719, 452);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.homeControl12);
+            this.Controls.Add(this.homeControl11);
             this.Name = "Home";
             this.Load += new System.EventHandler(this.Home_Load);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         private void Home_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void backOfHouseGUIControl11_Load_1(object sender, EventArgs e)
         {
 
         }

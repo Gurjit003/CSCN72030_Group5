@@ -86,11 +86,11 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrontOfHouse.cs">
+    <Compile Include="FrontOfHouse .cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrontOfHouse.Designer.cs">
-      <DependentUpon>FrontOfHouse.cs</DependentUpon>
+    <Compile Include="FrontOfHouse .Designer.cs">
+      <DependentUpon>FrontOfHouse .cs</DependentUpon>
     </Compile>
     <Compile Include="frontOfHouseCode.cs" />
     <Compile Include="Home.cs">
@@ -144,8 +144,8 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrontOfHouse.resx">
-      <DependentUpon>FrontOfHouse.cs</DependentUpon>
+    <EmbeddedResource Include="FrontOfHouse .resx">
+      <DependentUpon>FrontOfHouse .cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

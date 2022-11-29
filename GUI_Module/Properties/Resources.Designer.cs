@@ -63,6 +63,16 @@ namespace GUI_Module.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap personIcon {
+            get {
+                object obj = ResourceManager.GetObject("personIcon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap rms_logo_220 {
             get {
                 object obj = ResourceManager.GetObject("rms-logo-220", resourceCulture);
