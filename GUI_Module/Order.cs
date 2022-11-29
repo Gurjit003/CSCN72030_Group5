@@ -75,7 +75,6 @@ namespace GUI_Module
         //getting and setting the main
         static private void getMain(Order[] order, int numOforder)
         {
-            int counter = 0;
             string[] gottenMain = new string[numOforder];
 
             for (int i = 0; i < numOforder; i++)
@@ -112,7 +111,6 @@ namespace GUI_Module
         //getting and setting the side
         static private void getSide(Order[] order, int numOfOrder)
         {
-            int counter = 0;
             string[] gottenSide = new string[numOfOrder];
 
             for (int i = 0; i < numOfOrder; i++)
@@ -311,7 +309,7 @@ namespace GUI_Module
             int[] product = { 0, 0, 0, 0, 0, 0 };
             int current = 0;
 
-            foreach (string line in System.IO.File.ReadLines(@"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\group project\GUI_Module\ProductNumber.txt"))
+            foreach (string line in System.IO.File.ReadLines(@"G:\Repos\CSCN72030-Group5\GUI_Module\ProductNumber.txt"))
             {
                 if (current == 0)
                 {

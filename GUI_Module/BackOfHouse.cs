@@ -76,8 +76,8 @@ namespace GUI_Module
 
         public static double getGrossRevenue()
         {
-            //string filePath = @"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\group project\GUI_Module\IncomeFile.txt";
-            string filePath = "IncomeFile.Txt";
+            string filePath = @"G:\Repos\CSCN72030-Group5\GUI_Module\IncomeFile.txt";
+            //string filePath = "IncomeFile.Txt";
             double sum = 0;
 
             using (StreamReader sr = new StreamReader(filePath, Encoding.Default))
@@ -132,8 +132,8 @@ namespace GUI_Module
 
         public static double getExpenses()
         {
-            //string filePath = @"C:\Users\daveo_xxpkcgs\OneDrive\Desktop\College\year 2 (fall semseter)\Software develpment\Group project\group project\GUI_Module\ExpensesFile.txt";
-            string filePath = "ExpensesFile.txt";
+            string filePath = @"G:\Repos\CSCN72030-Group5\GUI_Module\ExpensesFile.txt";
+            //string filePath = "ExpensesFile.txt";
             double sum = 0;
 
             using (StreamReader sr = new StreamReader(filePath, Encoding.Default))
