@@ -11,7 +11,6 @@ namespace GUI_Module
 {
     public class item
     {
-        int numberOfItems = 6;
         public string dataFileName = "itemQuantities.txt";
 
         int itemID;
