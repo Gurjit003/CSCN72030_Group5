@@ -46,7 +46,12 @@ namespace GUI_Module
 
         private void KitchenControl_Load(object sender, EventArgs e)
         {
-
+            label7.Text = Order.sendHam().ToString();
+            label8.Text = Order.sendChic().ToString();
+            label9.Text = Order.sendFri().ToString();
+            label10.Text = Order.sendSal().ToString();
+            label11.Text = Order.sendWat().ToString();
+            label12.Text = Order.sendPop().ToString(); 
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
@@ -135,6 +140,26 @@ namespace GUI_Module
         }
 
         private void label14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label10_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label12_Click(object sender, EventArgs e)
         {
 
         }
