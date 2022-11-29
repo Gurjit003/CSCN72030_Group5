@@ -12,20 +12,25 @@ namespace GUI_Module
 {
     public class Order
     {
-
+        //initilized the atrributes of an order
         public string main = "Nothing";
         public string side = "Nothing";
         public string drink = "Nothing";
         //-----------------------------------------------------------------------------------------------------------------
 
+        //this is a function that other module can call to get the main of an order object
         public string getMain()
         {
             return this.main;
         }
-        public void setMainVar(string main)
+        //-----------------------------------------------------------------------------------------------------------------
+
+        //this will set the main
+        public void setMain(string main)
         {
             this.main = main;
         }
+        //-----------------------------------------------------------------------------------------------------------------
 
         //paramiatized constructor 
         public Order(string main, string side, string drink)
@@ -34,6 +39,7 @@ namespace GUI_Module
             this.side = side;
             this.drink = drink;
         }
+        //-----------------------------------------------------------------------------------------------------------------
 
         //this will get the number of orders from the frontOfHouseModule
         static public bool getNumOfOrder(int numOrders)
@@ -91,7 +97,9 @@ namespace GUI_Module
 
             setMain(gottenMain, order, numOforder);
         }
+        //-----------------------------------------------------------------------------------------------------------------
 
+        //this will set the main of the order object 
         static private void setMain(string[] Main, Order[] order, int numOfOrder)
         {
             for (int i = 0; i < numOfOrder; i++)
@@ -126,6 +134,7 @@ namespace GUI_Module
             setSide(gottenSide, order, numOfOrder);
         }
 
+        //this will set the side of the order object
         static private void setSide(string[] Side, Order[] order, int numOfOrder)
         {
             for (int i = 0; i < numOfOrder; i++)
@@ -159,6 +168,7 @@ namespace GUI_Module
             setDrink(gottenDrink, order, numOfOrder);
         }
 
+        //this will set the drink of the order object
         static private void setDrink(string[] Drink, Order[] order, int numOfOrder)
         {
             for (int i = 0; i < numOfOrder; i++)
@@ -189,8 +199,6 @@ namespace GUI_Module
             }
         }
         //-----------------------------------------------------------------------------------------------------------------
-
-        //this will send to the GUI ehat has been made
 
         //this will let the dishes module the amount of orders made
         private static void tellDishesOfOrder(int numOfOrder)
@@ -296,6 +304,7 @@ namespace GUI_Module
             setProductNum(product);
         }
 
+        //this will get the number of the products been made from the text file
         public static int[] getProductNum()
         {
             string[] productString = {"0", "0", "0", "0", "0", "0"};
@@ -346,7 +355,9 @@ namespace GUI_Module
 
             return product;
         }
+        //-----------------------------------------------------------------------------------------------------------------
 
+        //this will set the number of products been made in the text file
         public static void setProductNum(int[] product)
         {
             string ham = product[0].ToString();
@@ -379,7 +390,9 @@ namespace GUI_Module
                 File.WriteAllLines(filePath, emptyFile);
             }
         }
+        //-----------------------------------------------------------------------------------------------------------------
 
+        //this will return the number of hamburgers been made 
         public static int sendHam()
         {
             int[] product = getProductNum();
@@ -387,7 +400,9 @@ namespace GUI_Module
 
             return hamburger;
         }
+        //-----------------------------------------------------------------------------------------------------------------
 
+        //this will return the number of chichken burger been made
         public static int sendChic()
         {
             int[] product = getProductNum();
@@ -395,7 +410,9 @@ namespace GUI_Module
 
             return ChickenBurger;
         }
+        //-----------------------------------------------------------------------------------------------------------------
 
+        //this will return the number of fries been made
         public static int sendFri()
         {
             int[] product = getProductNum();
@@ -403,7 +420,9 @@ namespace GUI_Module
 
             return Fries;
         }
+        //-----------------------------------------------------------------------------------------------------------------
 
+        //this will return the number of salads been made
         public static int sendSal()
         {
             int[] product = getProductNum();
@@ -411,7 +430,9 @@ namespace GUI_Module
 
             return Salad;
         }
+        //-----------------------------------------------------------------------------------------------------------------
 
+        //this will return the number of Pop been made
         public static int sendPop()
         {
             int[] product = getProductNum();
@@ -419,7 +440,9 @@ namespace GUI_Module
 
             return Pop;
         }
+        //-----------------------------------------------------------------------------------------------------------------
 
+        //this will return the number of water been made
         public static int sendWat()
         {
             int[] product = getProductNum();
@@ -427,6 +450,6 @@ namespace GUI_Module
 
             return Water;
         }
-
+        //-----------------------------------------------------------------------------------------------------------------
     }
 }
