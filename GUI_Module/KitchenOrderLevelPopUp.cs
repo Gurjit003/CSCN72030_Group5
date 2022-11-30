@@ -19,6 +19,22 @@ namespace GUI_Module
 
         private void KitchenOrderLevelPopUp_Load(object sender, EventArgs e)
         {
+            label1.Text = "hello";
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
 
         }
     }

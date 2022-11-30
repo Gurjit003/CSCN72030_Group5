@@ -95,7 +95,7 @@ namespace GUI_Module
                 {
                     formBackground.StartPosition = FormStartPosition.Manual;
                     formBackground.FormBorderStyle = FormBorderStyle.None;
-                    formBackground.Opacity = .1000d;
+                    formBackground.Opacity = 0;
                     formBackground.TopMost = true;
                     formBackground.Location = this.Location;
                     formBackground.ShowInTaskbar = false;

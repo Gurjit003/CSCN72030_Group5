@@ -76,7 +76,7 @@ namespace GUI_Module
 
         public static double getGrossRevenue()
         {
-            string filePath = @"G:\Repos\CSCN72030-Group5\GUI_Module\IncomeFile.txt";
+            string filePath = @"C:\Users\timme\Source\Repos\CSCN72030_Group5\GUI_Module\IncomeFile.txt";
             //string filePath = "IncomeFile.Txt";
             double sum = 0;
 
@@ -132,7 +132,7 @@ namespace GUI_Module
 
         public static double getExpenses()
         {
-            string filePath = @"G:\Repos\CSCN72030-Group5\GUI_Module\ExpensesFile.txt";
+            string filePath = @"C:\Users\timme\Source\Repos\CSCN72030_Group5\GUI_Module\IncomeFile.txt";
             //string filePath = "ExpensesFile.txt";
             double sum = 0;
 
