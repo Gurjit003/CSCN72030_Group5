@@ -284,7 +284,7 @@
             this.label9.Size = new System.Drawing.Size(84, 18);
             this.label9.TabIndex = 55;
 
-            this.label9.Text = frontOfHouse.arrayOfTables[0].getOccupants() + " - Status";
+            this.label9.Text = frontOfHouse.arrayOfTables[0].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[0]);
             // 
             // label10 - Table 2
             // 
@@ -295,7 +295,7 @@
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(84, 18);
             this.label10.TabIndex = 56;
-            this.label10.Text = frontOfHouse.arrayOfTables[1].getOccupants() + " - Status";
+            this.label10.Text = frontOfHouse.arrayOfTables[1].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[1]);
             // 
             // label11 - Table 3
             // 
@@ -306,7 +306,7 @@
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(84, 18);
             this.label11.TabIndex = 57;
-            this.label11.Text = frontOfHouse.arrayOfTables[2].getOccupants() + " - Status";
+            this.label11.Text = frontOfHouse.arrayOfTables[2].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[2]);
             // 
             // label12 - Table 4
             // 
@@ -317,7 +317,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(84, 18);
             this.label12.TabIndex = 58;
-            this.label12.Text = frontOfHouse.arrayOfTables[3].getOccupants() + " - Status";
+            this.label12.Text = frontOfHouse.arrayOfTables[3].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[3]);
             // 
             // label14 - Table 5
             // 
@@ -328,7 +328,7 @@
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(84, 18);
             this.label14.TabIndex = 59;
-            this.label14.Text = frontOfHouse.arrayOfTables[4].getOccupants() + " - Status";
+            this.label14.Text = frontOfHouse.arrayOfTables[4].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[4]);
             // 
             // label15 - Table 6
             // 
@@ -339,7 +339,7 @@
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(84, 18);
             this.label15.TabIndex = 60;
-            this.label15.Text = frontOfHouse.arrayOfTables[5].getOccupants() + " - Status";
+            this.label15.Text = frontOfHouse.arrayOfTables[5].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[5]);
             // 
             // label16 - Table 7
             // 
@@ -350,7 +350,7 @@
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(84, 18);
             this.label16.TabIndex = 61;
-            this.label16.Text = frontOfHouse.arrayOfTables[6].getOccupants() + " - Status";
+            this.label16.Text = frontOfHouse.arrayOfTables[6].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[6]);
             // 
             // label17 - Table 8
             // 
@@ -361,7 +361,7 @@
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(84, 18);
             this.label17.TabIndex = 62;
-            this.label17.Text = frontOfHouse.arrayOfTables[7].getOccupants() + " - Status";
+            this.label17.Text = frontOfHouse.arrayOfTables[7].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[7]);
             // 
             // frontOfHouseControl1
             // 

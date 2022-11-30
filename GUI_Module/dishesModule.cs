@@ -75,7 +75,7 @@ namespace GUI_Module
             int current = 0;
             string[] gottenNumber = new string[3];
 
-            foreach (string line in System.IO.File.ReadLines(@"C:\Users\timme\Source\Repos\CSCN72030_Group5\GUI_Module\Dishes.txt"))
+            foreach (string line in System.IO.File.ReadLines(@"G:\Repos\CSCN72030-Group5\GUI_Module\Dishes.txt"))
             {
                 if (current == 0)
                 {
@@ -111,7 +111,7 @@ namespace GUI_Module
             int current = 0;
             string[] gottenNumber = new string[3];
 
-            foreach (string line in System.IO.File.ReadLines(@"C:\Users\timme\Source\Repos\CSCN72030_Group5\GUI_Module\Dishes.txt"))
+            foreach (string line in System.IO.File.ReadLines(@"G:\Repos\CSCN72030-Group5\GUI_Module\Dishes.txt"))
             {
                 if (current == 0)
                 {
@@ -150,7 +150,7 @@ namespace GUI_Module
 
             int current = 0;
 
-            foreach (string line in System.IO.File.ReadLines(@"C:\Users\timme\Source\Repos\CSCN72030_Group5\GUI_Module\Dishes.txt"))
+            foreach (string line in System.IO.File.ReadLines(@"G:\Repos\CSCN72030-Group5\GUI_Module\Dishes.txt"))
             {
                 if (current == 0)
                 {
@@ -188,7 +188,7 @@ namespace GUI_Module
             string dirtyString = dirty.ToString();
             string beenUsedString = beenUsed.ToString();
 
-            string filePath = @"C:\Users\timme\Source\Repos\CSCN72030_Group5\GUI_Module\Dishes.txt";
+            string filePath = @"G:\Repos\CSCN72030-Group5\GUI_Module\Dishes.txt";
 
             if (File.Exists(filePath))
             {

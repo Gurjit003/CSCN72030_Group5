@@ -102,7 +102,7 @@ namespace GUI_Module
 
                 File.WriteAllLines(kitchenOrderFIle, emptyFile);
 
-                this.orderedItemsFile(items);
+               // this.orderedItemsFile(items);
             }
         }
         public void orderPopUp(int[] addedItems)

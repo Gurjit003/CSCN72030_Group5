@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Threading;
 
 namespace GUI_Module
 {
@@ -188,24 +189,18 @@ namespace GUI_Module
         public bool sendOrder(table tableOrdering) // Method to send the number of occupants to the Order module 
         {
             bool orderConfirmation = false; // Order starts as incomplete
-            
+
             // Send to order module
-            while (orderConfirmation != true)
-            {
-                orderConfirmation = dummyGetNumOfCustomers(tableOrdering.getOccupants()); // Continue ordering until complete
-            }
+            //while (orderConfirmation != true)
+           // {
+                orderConfirmation = Order.getNumOfOrder(tableOrdering.getOccupants()); // Continue ordering until complete
+           // }
 
             // After ordering is complete, empty the table 
-            //tableOrdering.setOccupants(emptyTable); 
+            //Thread.Sleep(1000);
+            tableOrdering.setOccupants(emptyTable);
 
             return orderConfirmation; // Temp return statement 
-        }
-        
-        public bool dummyGetNumOfCustomers(int numberOfOrders)
-        {
-            // Ordering stuff...
-
-            return true;
         }
 
         public void updateTables(table[] arrayOfTablesToUpdate) // Method to update the attributes of this object's item array
@@ -215,6 +210,17 @@ namespace GUI_Module
                 arrayOfTablesToUpdate[itemIndex].readDataFile();
             }
         }
+
+        public string getOrderStatus(table tableToGetStatus)
+        {
+            if (tableToGetStatus.getOccupants() != 0)
+            {
+                return "In Progress";
+            }
+            else
+                return "Empty";
+        }
+
 
         // if getNumOfCustomers(numberOfOccupants) == 1
         // Order is complete
