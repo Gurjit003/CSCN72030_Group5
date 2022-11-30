@@ -26,6 +26,15 @@ namespace GUI_Module
         public int orderPriceIndex = 3;
         public int quantityIndex = 4;
 
+        public item(int itemID) // Base constructor
+        {
+            this.itemID = itemID;
+            this.itemName = "";
+            this.itemPrice = 0.00;
+            this.orderPrice = 0.00;
+            this.itemQuantity = 0;
+        }
+
         public item(int itemID, string itemName, double itemPrice, double orderPrice, int quantity) // Base constructor
         {
             setItemID(itemID);
@@ -126,8 +135,16 @@ namespace GUI_Module
         public int popIndex = 4;
         public int waterIndex = 5;
 
-        // Array of items in inventory
-        public item[] arrayOfItems;
+        // Default array of items in inventory
+        public item[] arrayOfItems = new item[]
+        {
+            new item(1),
+            new item(2),
+            new item(3),
+            new item(4),
+            new item(5),
+            new item(6)
+        };
 
         public item[] createDefaultItems() // Create an instance of all menu items
         {

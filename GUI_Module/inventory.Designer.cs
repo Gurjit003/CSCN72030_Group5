@@ -26,10 +26,6 @@ namespace GUI_Module
 
         #region Component Designer generated code
 
-        public void createDefaultItems()
-        {
-            inventory.createDefaultItems();
-        }
 
 
         /// <summary> 
@@ -38,7 +34,6 @@ namespace GUI_Module
         /// </summary>
         private void InitializeComponent1()
         {
-            if (inventory.arrayOfItems == null) { inventory.createDefaultItems(); }
 
             for (int x = 0; x < inventory.numberOfItems; x++) 
             {

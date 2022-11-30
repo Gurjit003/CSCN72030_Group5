@@ -309,7 +309,7 @@ namespace GUI_Module
             int[] product = { 0, 0, 0, 0, 0, 0 };
             int current = 0;
 
-            foreach (string line in System.IO.File.ReadLines(@"G:\Repos\CSCN72030-Group5\GUI_Module\ProductNumber.txt"))
+            foreach (string line in System.IO.File.ReadLines(@"G:\Repos\CSCN72030-Group5\GUI_Module\ProductNumber.txt")) 
             {
                 if (current == 0)
                 {
