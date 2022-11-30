@@ -3,15 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
-using GUI_Module;
+using System.Security.Cryptography.X509Certificates;
 
 namespace GUI_Module
 {
     public class Kitchen
     {
 
-
+        string kitchenOrderFIle = "kitchenOrderedItems.txt";
         Grill grill;
         Fryer fryer;
         public Kitchen()
@@ -65,6 +66,7 @@ namespace GUI_Module
                     itemsToOrder[i] = brokenDownOrder[i] - currentStock[i];
                 }
 
+                UpdateOrderedItemsFile(itemsToOrder);
                 mainInventory.addItemToStock(itemsToOrder);
                 //GUI popup syas items ordered
                 
@@ -82,7 +84,27 @@ namespace GUI_Module
             grill.setCookingSpace(4);
             return true;
         }
+        public void UpdateOrderedItemsFile(int[] items)
+        {
+            if (File.Exists(kitchenOrderFIle))
+            {
+                string[] fileLines = File.ReadAllLines(kitchenOrderFIle);
 
+                for(int i = 0; i < items.Length; i++)
+                {
+                    fileLines[i] = items[i].ToString();
+                }
+                File.WriteAllLines(kitchenOrderFIle, fileLines);
+            }
+            else
+            {
+                string[] emptyFile = { "0", "0", "0", "0", "0", "0" };
+
+                File.WriteAllLines(kitchenOrderFIle, emptyFile);
+
+                this.orderedItemsFile(items);
+            }
+        }
         public void orderPopUp(int[] addedItems)
         {
             Form formBackground = new Form();
@@ -97,7 +119,6 @@ namespace GUI_Module
                     //formBackground.Location = KitchenControl
                     formBackground.ShowInTaskbar = false;
                     formBackground.Show();
-
                     uu.Owner = formBackground;
                     uu.ShowDialog();
 

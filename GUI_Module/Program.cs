@@ -20,7 +20,8 @@ namespace GUI_Module
             Application.SetCompatibleTextRenderingDefault(false);
             int[] items = { 0, 0, 0, 0, 0, 0 };
             Kitchen kitchen = new Kitchen();
-            //kitchen.orderPopUp(items);
+            kitchen.UpdateOrderedItemsFile(items);
+            kitchen.orderPopUp(items);
 
             Home main= new Home();
             

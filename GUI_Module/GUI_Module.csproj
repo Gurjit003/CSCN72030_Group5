@@ -140,6 +140,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Dishes.resx">
       <DependentUpon>Dishes.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="DishesPopUp.resx">
       <DependentUpon>DishesPopUp.cs</DependentUpon>
