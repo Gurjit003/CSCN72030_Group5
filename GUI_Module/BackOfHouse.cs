@@ -154,8 +154,5 @@ namespace GUI_Module
 
             return Math.Round(netRevenue, 2);
         }
-
-
-      
     }
 }
