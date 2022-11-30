@@ -12,7 +12,7 @@ namespace GUI_Module
 
         private void frontOfHouseControl1_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -24,8 +24,11 @@ namespace GUI_Module
                 frontOfHouse.setTable();
                 updateTableStatus();
             }
-            
-            //clearTables();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            clearTables();
             updateTableStatus();
         }
     }
