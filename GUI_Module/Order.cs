@@ -309,41 +309,51 @@ namespace GUI_Module
             int[] product = { 0, 0, 0, 0, 0, 0 };
             int current = 0;
 
-            //string fileName = "ProductNumber.txt";
+            string productFileName = "ProductNumber.txt";
 
-            foreach (string line in System.IO.File.ReadLines(@"C:\Users\timme\Source\Repos\CSCN72030_Group5\GUI_Module\ProductNumber.txt"))
+            if (File.Exists(productFileName))
             {
-                if (current == 0)
+                foreach (string line in System.IO.File.ReadLines(productFileName))
                 {
-                    productString[0] = line;
-                }
+                    if (current == 0)
+                    {
+                        productString[0] = line;
+                    }
 
-                if (current == 1)
-                {
-                    productString[1] = line;
-                }
+                    if (current == 1)
+                    {
+                        productString[1] = line;
+                    }
 
-                if (current == 2)
-                {
-                    productString[2] = line;
-                }
+                    if (current == 2)
+                    {
+                        productString[2] = line;
+                    }
 
-                if (current == 3)
-                {
-                    productString[3] = line;
-                }
+                    if (current == 3)
+                    {
+                        productString[3] = line;
+                    }
 
-                if (current == 4)
-                {
-                    productString[4] = line;
-                }
+                    if (current == 4)
+                    {
+                        productString[4] = line;
+                    }
 
-                if (current == 5)
-                {
-                    productString[5] = line;
-                }
+                    if (current == 5)
+                    {
+                        productString[5] = line;
+                    }
 
-                current++;
+                    current++;
+                }
+            }
+            else
+            {
+                // Create empty data file
+                string[] emptyDataFile = { "0", "0", "0", "0", "0", "0" };
+
+                File.WriteAllLines(productFileName, emptyDataFile);
             }
 
             Int32.TryParse(productString[0], out product[0]);
@@ -367,11 +377,11 @@ namespace GUI_Module
             string POP = product[4].ToString();
             string wat = product[5].ToString();
 
-            string filePath = @"C:\Users\timme\Source\Repos\CSCN72030_Group5\GUI_Module\ProductNumber.txt";
+            string productFilePath = "ProductNumber.txt";
 
-            if (File.Exists(filePath))
+            if (File.Exists(productFilePath))
             {
-                string[] fileLines = File.ReadAllLines(filePath);
+                string[] fileLines = File.ReadAllLines(productFilePath);
 
                 fileLines[0] = ham;
                 fileLines[1] = chic;
@@ -380,14 +390,14 @@ namespace GUI_Module
                 fileLines[2] = POP;
                 fileLines[2] = wat;
 
-                File.WriteAllLines(filePath, fileLines);
+                File.WriteAllLines(productFilePath, fileLines);
 
             }
             else
             {
                 string[] emptyFile = { "0", "0", "0", "0", "0", "0" };
 
-                File.WriteAllLines(filePath, emptyFile);
+                File.WriteAllLines(productFilePath, emptyFile);
             }
         }
         //-----------------------------------------------------------------------------------------------------------------

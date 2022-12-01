@@ -12,6 +12,7 @@ namespace GUI_Module
 {
     internal class dishes
     {
+       
         int clean;
         int dirty;
         int beenUsed;
@@ -37,26 +38,37 @@ namespace GUI_Module
             int current = 0;
             string[] gottenNumber = new string[3];
 
-            foreach (string line in System.IO.File.ReadLines(@"C:\Users\timme\Source\Repos\CSCN72030_Group5\GUI_Module\Dishes.txt"))
+            string dishesFileName = "Dishes.txt";
+
+            if (File.Exists(dishesFileName))
             {
-                if (current == 0)
+                foreach (string line in System.IO.File.ReadLines(dishesFileName))
                 {
-                    gottenNumber[0] = line;
-                }
+                    if (current == 0)
+                    {
+                        gottenNumber[0] = line;
+                    }
 
-                if (current == 1)
-                {
-                    gottenNumber[1] = line;
-                }
+                    if (current == 1)
+                    {
+                        gottenNumber[1] = line;
+                    }
 
-                if (current == 2)
-                {
-                    gottenNumber[2] = line;
-                }
+                    if (current == 2)
+                    {
+                        gottenNumber[2] = line;
+                    }
 
-                current = 0;
+                    current = 0;
+                }
             }
+            else
+            {
+                // Create empty data file
+                string[] emptyDishesFile = { "0", "0", "0" };
 
+                File.WriteAllLines(dishesFileName, emptyDishesFile);
+            }
             int newClean;
             int newDirty;
             int newBeenUsed;
@@ -75,24 +87,36 @@ namespace GUI_Module
             int current = 0;
             string[] gottenNumber = new string[3];
 
-            foreach (string line in System.IO.File.ReadLines(@"C:\Users\timme\Source\Repos\CSCN72030_Group5\GUI_Module\Dishes.txt"))
+            string dishesFileName = "Dishes.txt";
+
+            if (File.Exists(dishesFileName))
             {
-                if (current == 0)
+                foreach (string line in System.IO.File.ReadLines(dishesFileName))
                 {
-                    gottenNumber[0] = line;
-                }
+                    if (current == 0)
+                    {
+                        gottenNumber[0] = line;
+                    }
 
-                if (current == 1)
-                {
-                    gottenNumber[1] = line;
-                }
+                    if (current == 1)
+                    {
+                        gottenNumber[1] = line;
+                    }
 
-                if (current == 2)
-                {
-                    gottenNumber[2] = line;
-                }
+                    if (current == 2)
+                    {
+                        gottenNumber[2] = line;
+                    }
 
-                current++;
+                    current++;
+                }
+            }
+            else
+            {
+                // Create empty data file
+                string[] emptyDishesFile = { "0", "0", "0"};
+
+                File.WriteAllLines(dishesFileName, emptyDishesFile);
             }
 
             int newClean;
@@ -110,25 +134,35 @@ namespace GUI_Module
         {
             int current = 0;
             string[] gottenNumber = new string[3];
-
-            foreach (string line in System.IO.File.ReadLines(@"C:\Users\timme\Source\Repos\CSCN72030_Group5\GUI_Module\Dishes.txt"))
+            string dishesFileName = "Dishes.txt";
+            if (File.Exists(dishesFileName))
             {
-                if (current == 0)
+                foreach (string line in System.IO.File.ReadLines("Dishes.txt"))
                 {
-                    gottenNumber[0] = line;
-                }
+                    if (current == 0)
+                    {
+                        gottenNumber[0] = line;
+                    }
 
-                if (current == 1)
-                {
-                    gottenNumber[1] = line;
-                }
+                    if (current == 1)
+                    {
+                        gottenNumber[1] = line;
+                    }
 
-                if (current == 2)
-                {
-                    gottenNumber[2] = line;
-                }
+                    if (current == 2)
+                    {
+                        gottenNumber[2] = line;
+                    }
 
-                current++;
+                    current++;
+                }
+            }
+            else
+            {
+                // Create empty data file
+                string[] emptyDishesFile = { "0", "0", "0" };
+
+                File.WriteAllLines(dishesFileName, emptyDishesFile);
             }
 
             int newClean;
@@ -147,29 +181,38 @@ namespace GUI_Module
         {
             string[] gottenNumber = new string[3];
 
-
+            string dishesFileName = "Dishes.txt";
             int current = 0;
 
-            foreach (string line in System.IO.File.ReadLines(@"C:\Users\timme\Source\Repos\CSCN72030_Group5\GUI_Module\Dishes.txt"))
+            if (File.Exists(dishesFileName))
             {
-                if (current == 0)
+                foreach (string line in System.IO.File.ReadLines("Dishes.txt"))
                 {
-                    gottenNumber[0] = line;
-                }
+                    if (current == 0)
+                    {
+                        gottenNumber[0] = line;
+                    }
 
-                if (current == 1)
-                {
-                    gottenNumber[1] = line;
-                }
+                    if (current == 1)
+                    {
+                        gottenNumber[1] = line;
+                    }
 
-                if (current == 2)
-                {
-                    gottenNumber[2] = line;
-                }
+                    if (current == 2)
+                    {
+                        gottenNumber[2] = line;
+                    }
 
-                current++;
+                    current++;
+                }
             }
+            else
+            {
+                // Create empty data file
+                string[] emptyDishesFile = { "0", "0", "0" };
 
+                File.WriteAllLines(dishesFileName, emptyDishesFile);
+            }
             int newClean;
             int newDirty;
             int newBeenUsed;
@@ -188,7 +231,7 @@ namespace GUI_Module
             string dirtyString = dirty.ToString();
             string beenUsedString = beenUsed.ToString();
 
-            string filePath = @"C:\Users\timme\Source\Repos\CSCN72030_Group5\GUI_Module\Dishes.txt";
+            string filePath = "Dishes.txt";
 
             if (File.Exists(filePath))
             {
