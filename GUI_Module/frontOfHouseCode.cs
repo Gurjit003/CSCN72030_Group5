@@ -149,17 +149,18 @@ namespace GUI_Module
             // Starting table to check if empty
             int tableNum = minimumTableIndex;
 
+
             // Loop until an unoccupied table is found
             while (true)
             {
-                if (arrayOfTables[tableNum].getOccupants() != emptyTable) // If table is not empty
+                if (tableNum >= numberOfTables)
+                {
+                    tableNum = 1;
+                    return tableNum;
+                }
+                else if (arrayOfTables[tableNum].getOccupants() != emptyTable) // If table is not empty
                 {
                     tableNum++; // Increment table number
-                }
-                else if (tableNum > maximumTableOccupants)
-                {
-                    
-                    break;
                 }
                 else
                     break; // Exit loop when empty table is found

@@ -33,9 +33,6 @@ namespace GUI_Module
             // {
             frontOfHouse.setTable();
             updateTableStatus();
-            inventoryControl1 inventoryControl = new inventoryControl1();
-
-
             // }
         }
     }
