@@ -21,6 +21,7 @@ namespace GUI_Module
             
 
             dishes.resetDishes();
+            Order.resetOrder();
             Home main= new Home();
             
             Application.Run(main);

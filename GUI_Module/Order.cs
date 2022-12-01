@@ -41,6 +41,12 @@ namespace GUI_Module
         }
         //-----------------------------------------------------------------------------------------------------------------
 
+        public static void resetOrder()
+        {
+            int[] product = { 0, 0, 0, 0, 0, 0 };
+            setProductNum(product);
+        }
+
         //this will get the number of orders from the frontOfHouseModule
         static public bool getNumOfOrder(int numOrders)
         {
@@ -65,7 +71,7 @@ namespace GUI_Module
             sendBOHOrder(order, numOrders);
             tellDishesOfOrder(numOrders);
 
-            deduceNumOfMaking(order, numOrders);
+            //deduceNumOfMaking(order, numOrders);
         
 
             return ready;
