@@ -35,9 +35,10 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(71, 90);
+            this.button1.Location = new System.Drawing.Point(95, 111);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 36);
+            this.button1.Size = new System.Drawing.Size(143, 44);
             this.button1.TabIndex = 3;
             this.button1.Text = "Power On";
             this.button1.UseVisualStyleBackColor = true;
@@ -47,20 +48,23 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Tahoma", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(38, 37);
+            this.label1.Location = new System.Drawing.Point(51, 46);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(181, 19);
+            this.label1.Size = new System.Drawing.Size(222, 24);
             this.label1.TabIndex = 2;
             this.label1.Text = "The Grill Is Powered Off";
             // 
             // GrillPowerPopUp
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.ClientSize = new System.Drawing.Size(264, 163);
+            this.ClientSize = new System.Drawing.Size(352, 201);
+            this.ControlBox = false;
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "GrillPowerPopUp";
             this.Text = "GrillPowerPopUp";
             this.ResumeLayout(false);
