@@ -20,6 +20,7 @@ namespace GUI_Module
             Application.SetCompatibleTextRenderingDefault(false);
             
 
+            dishes.resetDishes();
             Home main= new Home();
             
             Application.Run(main);

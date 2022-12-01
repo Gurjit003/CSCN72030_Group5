@@ -33,6 +33,16 @@ namespace GUI_Module
             this.dirty = dirty;
             this.beenUsed = beenused;
         }
+
+        public static void resetDishes()
+        {
+            int clean = 32;
+            int dirty = 0;
+            int beenused = 0;
+
+            reWriteDishes(clean, dirty, beenused);
+        }
+
         private static dishes getDishes()
         {
             int current = 0;
