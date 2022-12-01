@@ -57,7 +57,10 @@ namespace GUI_Module
         { return seatsOccupied; }
 
         public void clearTable() // Set seatsOccupied to 0
-        { this.seatsOccupied = 0; }
+        { 
+            this.seatsOccupied = 0;
+            updateTableFile();
+        }
 
         public void updateTableFile() // Method to update tableData.txt
         {

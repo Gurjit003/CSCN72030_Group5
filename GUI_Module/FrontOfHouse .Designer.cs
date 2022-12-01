@@ -43,7 +43,6 @@ namespace GUI_Module
             }
         }
 
-
         #region Component Designer generated code
 
         /// <summary> 
@@ -53,8 +52,6 @@ namespace GUI_Module
         private void InitializeComponent()
         {
             frontOfHouse.createArrayOfEmptyTables();
-            
-            
 
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frontOfHouseControl1));
             this.label13 = new System.Windows.Forms.Label();
