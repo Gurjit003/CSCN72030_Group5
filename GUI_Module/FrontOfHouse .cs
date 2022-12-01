@@ -29,11 +29,29 @@ namespace GUI_Module
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            //for (int x = 0; x < (frontOfHouse.generateNumberOfCustomers() * 2); x++) // Set random number of tables
-            // {
-            frontOfHouse.setTable();
-            updateTableStatus();
-            // }
+            int tableCounter = 0;
+            for (int x = 0; x < frontOfHouse.numberOfTables; x++) // For all tables
+            {
+                if (frontOfHouse.arrayOfTables[x].getOccupants() != 0) // If the table is not empty
+                {
+                    tableCounter++;
+                }
+            }
+
+            if (tableCounter < frontOfHouse.numberOfTables) // If all tables are not occupied
+            {
+                //for (int x = 0; x < (frontOfHouse.generateNumberOfCustomers() * 2); x++) // Set random number of tables
+                // {
+                frontOfHouse.setTable();
+                updateTableStatus();
+                // }
+            }
+            else
+            {
+                // All dishes occupied popup
+                allTablesOccupiedPopUp();
+            }
+
         }
     }
 }

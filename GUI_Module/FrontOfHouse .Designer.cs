@@ -1,4 +1,7 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
+using System.Windows.Forms;
+
 namespace GUI_Module
 {
     partial class frontOfHouseControl1
@@ -21,6 +24,36 @@ namespace GUI_Module
                 components.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public void allTablesOccupiedPopUp()
+        {
+            Form formBackground = new Form();
+            try
+            {
+                using (AllTablesOccupiedPopUp uu = new AllTablesOccupiedPopUp())
+                {
+                    formBackground.StartPosition = FormStartPosition.CenterParent;
+                    formBackground.FormBorderStyle = FormBorderStyle.None;
+                    formBackground.Opacity = 0;
+                    formBackground.TopMost = true;
+                    //formBackground.Location = KitchenControl
+                    formBackground.ShowInTaskbar = false;
+                    formBackground.Show();
+                    uu.Owner = formBackground;
+                    uu.ShowDialog();
+
+                    formBackground.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                formBackground.Dispose();
+            }
         }
 
         private void updateTableStatus()
