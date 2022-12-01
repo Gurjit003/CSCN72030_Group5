@@ -52,6 +52,7 @@ namespace GUI_Module
             KitchenControl.BringToFront();
             SidePanel.Height = 33;
             SidePanel.Top = 50;
+
         }
 
         private void button7_Click(object sender, EventArgs e) // Click inventory
@@ -60,6 +61,7 @@ namespace GUI_Module
             inventoryControl11.BringToFront();
             SidePanel.Height = 33;
             SidePanel.Top = 136;
+            inventoryControl11.loadComponents();
         }
 
         private void button8_Click(object sender, EventArgs e)
@@ -121,7 +123,7 @@ namespace GUI_Module
 
         private void inventoryControl11_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void frontOfHouseControl11_Load(object sender, EventArgs e)

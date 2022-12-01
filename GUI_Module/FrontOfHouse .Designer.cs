@@ -134,7 +134,7 @@ namespace GUI_Module
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(27, 18);
             this.label2.TabIndex = 42;
-            this.label2.Text = "#2";
+            this.label2.Text = "#5";
             // 
             // pictureBox2
             // 
@@ -167,7 +167,7 @@ namespace GUI_Module
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(27, 18);
             this.label3.TabIndex = 44;
-            this.label3.Text = "#3";
+            this.label3.Text = "#2";
             // 
             // pictureBox3
             // 
@@ -189,7 +189,7 @@ namespace GUI_Module
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(27, 18);
             this.label4.TabIndex = 46;
-            this.label4.Text = "#4";
+            this.label4.Text = "#6";
             // 
             // pictureBox4
             // 
@@ -211,7 +211,7 @@ namespace GUI_Module
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(27, 18);
             this.label5.TabIndex = 48;
-            this.label5.Text = "#5";
+            this.label5.Text = "#3";
             // 
             // pictureBox5
             // 
@@ -233,7 +233,7 @@ namespace GUI_Module
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(27, 18);
             this.label6.TabIndex = 50;
-            this.label6.Text = "#6";
+            this.label6.Text = "#7";
             // 
             // pictureBox6
             // 
@@ -255,7 +255,7 @@ namespace GUI_Module
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(27, 18);
             this.label7.TabIndex = 52;
-            this.label7.Text = "#7";
+            this.label7.Text = "#4";
             // 
             // pictureBox7
             // 
@@ -377,7 +377,7 @@ namespace GUI_Module
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 27);
             this.button2.TabIndex = 63;
-            this.button2.Text = "Clear";
+            this.button2.Text = "Clean";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 

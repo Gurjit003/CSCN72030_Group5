@@ -143,12 +143,7 @@ namespace GUI_Module
 
         private void inventoryControl11_Load(object sender, EventArgs e)
         {
-            this.label12.Text = inventory.arrayOfItems[inventory.popIndex].getQuantity().ToString();
-            this.label11.Text = inventory.arrayOfItems[inventory.waterIndex].getQuantity().ToString();
-            this.label10.Text = inventory.arrayOfItems[inventory.saladIndex].getQuantity().ToString();
-            this.label9.Text = inventory.arrayOfItems[inventory.friesIndex].getQuantity().ToString();
-            this.label8.Text = inventory.arrayOfItems[inventory.chickenBurgerIndex].getQuantity().ToString();
-            this.label7.Text = inventory.arrayOfItems[inventory.burgerIndex].getQuantity().ToString();
+            
         }
     }
 }
