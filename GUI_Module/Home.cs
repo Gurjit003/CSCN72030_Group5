@@ -20,6 +20,7 @@ namespace GUI_Module
 
         public Home()
         {
+            
             this.InitializeComponent1();
             homeControl1.BringToFront();
             SidePanel.Height = 33;
@@ -39,6 +40,7 @@ namespace GUI_Module
 
         private void button5_Click(object sender, EventArgs e)
         {
+            
             homeControl1.BringToFront();
             SidePanel.Height = 33;
             SidePanel.Top = 7;
@@ -46,6 +48,7 @@ namespace GUI_Module
 
         private void button6_Click(object sender, EventArgs e)
         {
+            
             KitchenControl.BringToFront();
             SidePanel.Height = 33;
             SidePanel.Top = 50;
@@ -55,6 +58,7 @@ namespace GUI_Module
 
         private void button7_Click(object sender, EventArgs e) // Click inventory
         {
+            
             inventoryControl11.BringToFront();
             SidePanel.Height = 33;
             SidePanel.Top = 136;
@@ -71,13 +75,16 @@ namespace GUI_Module
 
         private void button9_Click(object sender, EventArgs e)
         {
+            
             backOfHouseGUIControl11.BringToFront();
             SidePanel.Height = 33;
             SidePanel.Top = 220;
+            backOfHouseGUIControl11.loadComponents(); 
         }
 
         private void button10_Click(object sender, EventArgs e)
         {
+            
             contactUsControl11.BringToFront();
             SidePanel.Height = 33;
             SidePanel.Top = 263;
@@ -105,6 +112,7 @@ namespace GUI_Module
 
         private void button1_Click(object sender, EventArgs e)
         {
+            
             dishesControl11.BringToFront();
             SidePanel.Height = 33;
             SidePanel.Top = 93;

@@ -8,6 +8,7 @@ namespace GUI_Module
         public inventoryControl1()
         {
             InitializeComponent1();
+            
         }
 
         private void label13_Click(object sender, EventArgs e)
@@ -134,12 +135,13 @@ namespace GUI_Module
             // inventoryControl1
             // 
             this.Name = "inventoryControl1";
-            this.Load += new System.EventHandler(this.inventoryControl1_Load);
+            this.Size = new System.Drawing.Size(157, 123);
+            this.Load += new System.EventHandler(this.inventoryControl11_Load);
             this.ResumeLayout(false);
 
         }
 
-        private void inventoryControl1_Load(object sender, EventArgs e)
+        private void inventoryControl11_Load(object sender, EventArgs e)
         {
             
         }
