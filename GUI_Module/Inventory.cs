@@ -23,6 +23,9 @@ namespace GUI_Module
 
         private void button1_Click(object sender, EventArgs e) // Click reorder button
         {
+            inventoryCode referenceInventory = new inventoryCode();
+            referenceInventory.createDefaultItems();
+
             // pop - label 12 - box 14
             // water - label 11 - box 15
             // salad - label 10 - box 16
@@ -88,32 +91,32 @@ namespace GUI_Module
 
             if (itemsToAdd[inventory.popIndex] != 0)
             {
-                BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.popIndex].getItemName(), itemsToAdd[inventory.popIndex]);
+                BackOfHouse.setExpenses(referenceInventory.arrayOfItems[referenceInventory.popIndex].getItemName(), itemsToAdd[referenceInventory.popIndex]);
             }
 
             if (itemsToAdd[inventory.waterIndex] != 0)
             {
-                BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.waterIndex].getItemName(), itemsToAdd[inventory.waterIndex]);
+                BackOfHouse.setExpenses(referenceInventory.arrayOfItems[referenceInventory.waterIndex].getItemName(), itemsToAdd[referenceInventory.waterIndex]);
             }
 
             if (itemsToAdd[inventory.saladIndex] != 0)
             {
-                BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.saladIndex].getItemName(), itemsToAdd[inventory.saladIndex]);
+                BackOfHouse.setExpenses(referenceInventory.arrayOfItems[referenceInventory.saladIndex].getItemName(), itemsToAdd[referenceInventory.saladIndex]);
             }
 
             if (itemsToAdd[inventory.friesIndex] != 0)
             {
-                BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.friesIndex].getItemName(), itemsToAdd[inventory.friesIndex]);
+                BackOfHouse.setExpenses(referenceInventory.arrayOfItems[referenceInventory.friesIndex].getItemName(), itemsToAdd[referenceInventory.friesIndex]);
             }
 
             if (itemsToAdd[inventory.chickenBurgerIndex] != 0)
             {
-                BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.chickenBurgerIndex].getItemName(), itemsToAdd[inventory.chickenBurgerIndex]);
+                BackOfHouse.setExpenses(inventory.arrayOfItems[referenceInventory.chickenBurgerIndex].getItemName(), itemsToAdd[referenceInventory.chickenBurgerIndex]);
             }
 
             if (itemsToAdd[inventory.burgerIndex] != 0)
             {
-                BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.burgerIndex].getItemName(), itemsToAdd[inventory.burgerIndex]);
+                BackOfHouse.setExpenses(inventory.arrayOfItems[referenceInventory.burgerIndex].getItemName(), itemsToAdd[referenceInventory.burgerIndex]);
             }
 
             Form formBackground = new Form();
