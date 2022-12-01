@@ -85,6 +85,7 @@ namespace GUI_Module
 
             //Deduct inventory
             mainInventory.removeItemFromStock(brokenDownOrder);
+            
 
             this.fryer.setCookingSpace(4);
             this.grill.setCookingSpace(4);

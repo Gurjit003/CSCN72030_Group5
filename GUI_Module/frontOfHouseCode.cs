@@ -57,7 +57,10 @@ namespace GUI_Module
         { return seatsOccupied; }
 
         public void clearTable() // Set seatsOccupied to 0
-        { 
+        {
+            
+            int leavingCust  = this.getOccupants();
+            dishes.recieveNumOfLeavingCus(leavingCust);
             this.seatsOccupied = 0;
             updateTableFile();
         }

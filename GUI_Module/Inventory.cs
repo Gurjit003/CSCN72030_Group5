@@ -8,6 +8,7 @@ namespace GUI_Module
         public inventoryControl1()
         {
             InitializeComponent1();
+            
         }
 
         private void label13_Click(object sender, EventArgs e)
@@ -134,14 +135,20 @@ namespace GUI_Module
             // inventoryControl1
             // 
             this.Name = "inventoryControl1";
-            this.Load += new System.EventHandler(this.inventoryControl1_Load);
+            this.Size = new System.Drawing.Size(157, 123);
+            this.Load += new System.EventHandler(this.inventoryControl11_Load);
             this.ResumeLayout(false);
 
         }
 
-        private void inventoryControl1_Load(object sender, EventArgs e)
+        private void inventoryControl11_Load(object sender, EventArgs e)
         {
-
+            this.label12.Text = inventory.arrayOfItems[inventory.popIndex].getQuantity().ToString();
+            this.label11.Text = inventory.arrayOfItems[inventory.waterIndex].getQuantity().ToString();
+            this.label10.Text = inventory.arrayOfItems[inventory.saladIndex].getQuantity().ToString();
+            this.label9.Text = inventory.arrayOfItems[inventory.friesIndex].getQuantity().ToString();
+            this.label8.Text = inventory.arrayOfItems[inventory.chickenBurgerIndex].getQuantity().ToString();
+            this.label7.Text = inventory.arrayOfItems[inventory.burgerIndex].getQuantity().ToString();
         }
     }
 }

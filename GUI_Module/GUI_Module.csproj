@@ -199,7 +199,6 @@
     <None Include="Resources\rms-logo-220.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Dishes.txt" />
     <Content Include="ExpensesFile.txt" />
     <Content Include="home1.resx.txt" />
     <Content Include="IncomeFile.txt" />

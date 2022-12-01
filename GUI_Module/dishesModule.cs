@@ -59,7 +59,7 @@ namespace GUI_Module
                         gottenNumber[2] = line;
                     }
 
-                    current = 0;
+                    current++;
                 }
             }
             else
