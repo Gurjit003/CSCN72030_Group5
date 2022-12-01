@@ -25,6 +25,13 @@ namespace GUI_Module
             label7.Text = dishes.getDishesBeenUsed().ToString();
         }
 
+        public void dishesLoad()
+        {
+            label4.Text = dishes.getDishesClean().ToString();
+            label1.Text = dishes.getDishesDirty().ToString();
+            label7.Text = dishes.getDishesBeenUsed().ToString();
+        }
+
         private void label5_Click(object sender, EventArgs e)
         {
 
