@@ -99,7 +99,7 @@ namespace GUI_Module
             if (String.Equals(item, "Hamburger"))
             {
                 expense = 2.49;
-            } else if (String.Equals(item, "Chicken burger"))
+            } else if (String.Equals(item, "Chicken Burger"))
             {
                 expense = 1.99;
             } else if (String.Equals(item, "Fries"))

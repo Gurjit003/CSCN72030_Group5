@@ -85,6 +85,7 @@ namespace GUI_Module
             loadComponents(); // Update text for each item quantity
 
             // Send item info to BOH
+
             BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.popIndex].getItemName(), itemsToAdd[inventory.popIndex]);
             BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.waterIndex].getItemName(), itemsToAdd[inventory.waterIndex]);
             BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.saladIndex].getItemName(), itemsToAdd[inventory.saladIndex]);
