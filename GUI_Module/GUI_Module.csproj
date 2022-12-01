@@ -61,6 +61,12 @@
     <Compile Include="ContactUs.Designer.cs">
       <DependentUpon>ContactUs.cs</DependentUpon>
     </Compile>
+    <Compile Include="CookingPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CookingPopUp.Designer.cs">
+      <DependentUpon>CookingPopUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dishes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -161,6 +167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ContactUs.resx">
       <DependentUpon>ContactUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CookingPopUp.resx">
+      <DependentUpon>CookingPopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dishes.resx">
       <DependentUpon>Dishes.cs</DependentUpon>

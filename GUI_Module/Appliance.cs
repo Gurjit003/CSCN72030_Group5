@@ -76,16 +76,16 @@ namespace GUI_Module
         new public void CookFood(int numOfBurgers)
         {
             
-            if (this.getPowerStatus() == false)
+            if (getPowerStatus() == false)
             {
                 CallGrillPowerPopUp();
             }
-            if (this.getTemperature() < 75)
+            if (getTemperature() < 75)
             {
                 CallGrillLowTempPopUp();
             }
-            setCookingSpace(this.getCookingSpace() - numOfBurgers);
-            //update GUI visual grill area
+            setCookingSpace(getCookingSpace() - numOfBurgers);
+            updateFile();
 
         }
         public void updateFile()
@@ -118,14 +118,14 @@ namespace GUI_Module
 
                 if (fileLines[0] == "False")
                 {
-                    this.setPower(false);
+                    setPower(false);
                 }
                 else
                 {
-                    this.setPower(true);
+                    setPower(true);
                 }
-                this.setTemp(Int32.Parse(fileLines[1]));
-                this.setCookingSpace(Int32.Parse(fileLines[2]));
+                setTemp(Int32.Parse(fileLines[1]));
+                setCookingSpace(Int32.Parse(fileLines[2]));
             }
         }
         public void CallGrillLowTempPopUp()
@@ -207,7 +207,8 @@ namespace GUI_Module
             {
                 CallFryerLowTempPopUp();
             }
-            setCookingSpace(this.getCookingSpace() - numOfChicken);
+            this.setCookingSpace(this.getCookingSpace() - numOfChicken);
+            this.updateFile();
             //update GUI visual grill area
         }
 

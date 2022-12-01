@@ -81,7 +81,7 @@ namespace GUI_Module
 
             this.fryer.CookFood(brokenDownOrder[1]);
             this.grill.CookFood(brokenDownOrder[0]);
-
+            CallCookingPopUp();
 
             //Deduct inventory
             mainInventory.removeItemFromStock(brokenDownOrder);
@@ -89,6 +89,8 @@ namespace GUI_Module
 
             this.fryer.setCookingSpace(4);
             this.grill.setCookingSpace(4);
+            this.grill.updateFile();
+            this.fryer.updateFile();
             return true;
         }
 
@@ -130,6 +132,35 @@ namespace GUI_Module
             try
             {
                 using (KitchenOrderLevelPopUp uu = new KitchenOrderLevelPopUp())
+                {
+                    formBackground.StartPosition = FormStartPosition.CenterParent;
+                    formBackground.FormBorderStyle = FormBorderStyle.None;
+                    formBackground.Opacity = 0;
+                    formBackground.TopMost = true;
+                    //formBackground.Location = KitchenControl
+                    formBackground.ShowInTaskbar = false;
+                    formBackground.Show();
+                    uu.Owner = formBackground;
+                    uu.ShowDialog();
+
+                    formBackground.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                formBackground.Dispose();
+            }
+        }
+        public void CallCookingPopUp()
+        {
+            Form formBackground = new Form();
+            try
+            {
+                using (CookingPopUp uu = new CookingPopUp())
                 {
                     formBackground.StartPosition = FormStartPosition.CenterParent;
                     formBackground.FormBorderStyle = FormBorderStyle.None;

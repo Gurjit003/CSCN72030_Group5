@@ -70,9 +70,17 @@ namespace GUI_Module
             {
                 button1.BackColor = Color.Green;
             }
+            else
+            {
+                button1.BackColor = Color.Red;
+            }
             if (grill.getPowerStatus() == true)
             {
                 button2.BackColor = Color.Green;
+            }
+            else
+            {
+                button2.BackColor = Color.Red;
             }
             numericUpDown1.Value = fryer.getTemperature();
             numericUpDown2.Value = grill.getTemperature();

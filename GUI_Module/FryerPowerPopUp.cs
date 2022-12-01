@@ -26,5 +26,10 @@ namespace GUI_Module
 
             this.Close();
         }
+
+        private void FryerPowerPopUp_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
