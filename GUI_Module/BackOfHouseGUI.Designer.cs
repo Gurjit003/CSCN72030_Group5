@@ -22,6 +22,14 @@
 
         #region Component Designer generated code
 
+        public void loadComponents()
+        {
+            label7.Text = BackOfHouse.getGrossRevenue().ToString();
+            label4.Text = BackOfHouse.getExpenses().ToString();
+            label5.Text = BackOfHouse.getNetRevenue(BackOfHouse.getGrossRevenue(), BackOfHouse.getExpenses()).ToString(); 
+        } 
+
+
         /// <summary> 
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.

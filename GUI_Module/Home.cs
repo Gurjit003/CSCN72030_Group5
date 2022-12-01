@@ -73,6 +73,7 @@ namespace GUI_Module
             backOfHouseGUIControl11.BringToFront();
             SidePanel.Height = 33;
             SidePanel.Top = 220;
+            backOfHouseGUIControl11.loadComponents(); 
         }
 
         private void button10_Click(object sender, EventArgs e)
@@ -140,13 +141,12 @@ namespace GUI_Module
             this.homeControl11 = new GUI_Module.homeControl1();
             this.homeControl12 = new GUI_Module.homeControl1();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // homeControl11
             // 
+            this.homeControl11.BackColor = System.Drawing.Color.Pink;
             this.homeControl11.Location = new System.Drawing.Point(54, 51);
             this.homeControl11.Name = "homeControl11";
             this.homeControl11.Size = new System.Drawing.Size(150, 150);
@@ -159,6 +159,7 @@ namespace GUI_Module
             this.homeControl12.Name = "homeControl12";
             this.homeControl12.Size = new System.Drawing.Size(502, 445);
             this.homeControl12.TabIndex = 1;
+            this.homeControl12.Load += new System.EventHandler(this.homeControl12_Load);
             // 
             // label13
             // 
@@ -171,30 +172,6 @@ namespace GUI_Module
             this.label13.Size = new System.Drawing.Size(59, 23);
             this.label13.TabIndex = 42;
             this.label13.Text = "Home";
-            // 
-            // textBox1
-            // 
-            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.textBox1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(127, 19);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
-            this.textBox1.Size = new System.Drawing.Size(504, 30);
-            this.textBox1.TabIndex = 41;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Pink;
-            this.label1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(304, 335);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 23);
-            this.label1.TabIndex = 43;
-            this.label1.Text = "Welcome back!";
             // 
             // panel1
             // 
@@ -209,9 +186,7 @@ namespace GUI_Module
             // 
             this.ClientSize = new System.Drawing.Size(719, 452);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label1);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.homeControl12);
             this.Controls.Add(this.homeControl11);
             this.Name = "Home";
@@ -227,6 +202,11 @@ namespace GUI_Module
         }
 
         private void backOfHouseGUIControl11_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void homeControl12_Load(object sender, EventArgs e)
         {
 
         }

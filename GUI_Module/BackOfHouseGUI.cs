@@ -34,9 +34,6 @@ namespace GUI_Module
 
         private void backOfHouseGUIControl1_Load(object sender, EventArgs e)
         {
-            //double totalIncome = BackOfHouse.getGrossRevenue();     
-            //double totalExpenses = BackOfHouse.getExpenses();
-
             label7.Text = BackOfHouse.getGrossRevenue().ToString();
             label4.Text = BackOfHouse.getExpenses().ToString();
             label5.Text = BackOfHouse.getNetRevenue(BackOfHouse.getGrossRevenue(), BackOfHouse.getExpenses()).ToString();
