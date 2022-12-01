@@ -77,7 +77,6 @@ namespace GUI_Module
         public static double getGrossRevenue()
         {
             string filePath = "IncomeFile.txt";
-            //string filePath = "IncomeFile.Txt";
             double sum = 0;
 
             using (StreamReader sr = new StreamReader(filePath, Encoding.Default))
@@ -132,8 +131,7 @@ namespace GUI_Module
 
         public static double getExpenses()
         {
-            string filePath = "IncomeFile.txt";
-            //string filePath = "ExpensesFile.txt";
+            string filePath = "ExpensesFile.txt";
             double sum = 0;
 
             using (StreamReader sr = new StreamReader(filePath, Encoding.Default))
