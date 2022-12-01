@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 using System.Security.Cryptography.X509Certificates;
+using System.Windows.Forms.Design;
 
 namespace GUI_Module
 {
@@ -15,6 +16,7 @@ namespace GUI_Module
         string kitchenOrderFIle = "kitchenOrderedItems.txt";
         Grill grill;
         Fryer fryer;
+        
         public Kitchen()
         {
             grill = new Grill();
@@ -57,6 +59,7 @@ namespace GUI_Module
             inventoryCode mainInventory = new inventoryCode();
 
             //if enough inventory
+            bool needToOrder = false;
             int[] itemsToOrder = { 0, 0, 0, 0, 0, 0 };
             int[] currentStock = mainInventory.getAllItemStock(mainInventory.arrayOfItems);
             for (int i = 0; i < currentStock.Length; i++)
@@ -64,25 +67,40 @@ namespace GUI_Module
                 if (currentStock[i] < brokenDownOrder[i])
                 {
                     itemsToOrder[i] = brokenDownOrder[i] - currentStock[i];
-                }
-
-                UpdateOrderedItemsFile(itemsToOrder);
-                mainInventory.addItemToStock(itemsToOrder);
-                //GUI popup syas items ordered
-                
-
+                    needToOrder = true;
+                }                           
 
             }
-            fryer.CookFood(brokenDownOrder[1]);
-            grill.CookFood(brokenDownOrder[0]);
+            if (needToOrder == true)
+            {
+                this.UpdateOrderedItemsFile(itemsToOrder);
+                mainInventory.addItemToStock(itemsToOrder);
+                this.orderPopUp();
+            }
+            
+
+            this.fryer.CookFood(brokenDownOrder[1]);
+            this.grill.CookFood(brokenDownOrder[0]);
 
 
             //Deduct inventory
             mainInventory.removeItemFromStock(brokenDownOrder);
 
-            fryer.setCookingSpace(4);
-            grill.setCookingSpace(4);
+            this.fryer.setCookingSpace(4);
+            this.grill.setCookingSpace(4);
             return true;
+        }
+
+        public string[] LoadFile()
+        {
+            string[] orderedItems = { "0", "0", "0", "0", "0", "0" };
+
+            if(File.Exists(kitchenOrderFIle))
+            {
+                orderedItems = File.ReadAllLines(kitchenOrderFIle);
+            }
+
+            return orderedItems;
         }
         public void UpdateOrderedItemsFile(int[] items)
         {
@@ -105,7 +123,7 @@ namespace GUI_Module
                // this.orderedItemsFile(items);
             }
         }
-        public void orderPopUp(int[] addedItems)
+        public void orderPopUp()
         {
             Form formBackground = new Form();
             try

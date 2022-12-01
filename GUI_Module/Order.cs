@@ -309,7 +309,9 @@ namespace GUI_Module
             int[] product = { 0, 0, 0, 0, 0, 0 };
             int current = 0;
 
-            foreach (string line in System.IO.File.ReadLines(@"G:\Repos\CSCN72030-Group5\GUI_Module\ProductNumber.txt"))
+            //string fileName = "ProductNumber.txt";
+
+            foreach (string line in System.IO.File.ReadLines(@"C:\Users\timme\Source\Repos\CSCN72030_Group5\GUI_Module\ProductNumber.txt"))
             {
                 if (current == 0)
                 {
@@ -365,7 +367,7 @@ namespace GUI_Module
             string POP = product[4].ToString();
             string wat = product[5].ToString();
 
-            string filePath = @"G:\Repos\CSCN72030-Group5\GUI_Module\ProductNumber.txt";
+            string filePath = @"C:\Users\timme\Source\Repos\CSCN72030_Group5\GUI_Module\ProductNumber.txt";
 
             if (File.Exists(filePath))
             {
