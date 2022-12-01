@@ -89,6 +89,14 @@ namespace GUI_Module
             this.label8.Text = inventory.arrayOfItems[inventory.chickenBurgerIndex].getQuantity().ToString();
             this.label7.Text = inventory.arrayOfItems[inventory.burgerIndex].getQuantity().ToString();
 
+            // Send item info to BOH
+            BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.popIndex].getItemName(), itemsToAdd[inventory.popIndex]);
+            BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.waterIndex].getItemName(), itemsToAdd[inventory.waterIndex]);
+            BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.saladIndex].getItemName(), itemsToAdd[inventory.saladIndex]);
+            BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.friesIndex].getItemName(), itemsToAdd[inventory.friesIndex]);
+            BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.chickenBurgerIndex].getItemName(), itemsToAdd[inventory.chickenBurgerIndex]);
+            BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.burgerIndex].getItemName(), itemsToAdd[inventory.burgerIndex]);
+
             Form formBackground = new Form();
             try
             {

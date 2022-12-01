@@ -91,7 +91,7 @@ namespace GUI_Module
         }
 
 
-        static void setExpenses(string item, int quantity)
+        public static void setExpenses(string item, int quantity)
         {
             string filePath = "ExpensesFile.txt"; 
             double expense, totalExpense = 0; 
