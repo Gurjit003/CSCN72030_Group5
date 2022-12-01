@@ -28,6 +28,11 @@ namespace GUI_Module
 
         public void loadComponents()
         {
+            for (int x = 0; x < inventory.numberOfItems; x++)
+            {
+                inventory.updateInventoryItems();
+            }
+
             this.label12.Text = inventory.arrayOfItems[inventory.popIndex].getQuantity().ToString();
             this.label11.Text = inventory.arrayOfItems[inventory.waterIndex].getQuantity().ToString();
             this.label10.Text = inventory.arrayOfItems[inventory.saladIndex].getQuantity().ToString();
@@ -524,7 +529,6 @@ namespace GUI_Module
             this.label26.Size = new System.Drawing.Size(91, 28);
             this.label26.TabIndex = 87;
             this.label26.Text = "Reorder";
-           
             // 
             // button1
             // 

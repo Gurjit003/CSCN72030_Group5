@@ -82,12 +82,7 @@ namespace GUI_Module
 
             inventoryControl1.inventory.addItemToStock(itemsToAdd);
 
-            this.label12.Text = inventory.arrayOfItems[inventory.popIndex].getQuantity().ToString();
-            this.label11.Text = inventory.arrayOfItems[inventory.waterIndex].getQuantity().ToString();
-            this.label10.Text = inventory.arrayOfItems[inventory.saladIndex].getQuantity().ToString();
-            this.label9.Text = inventory.arrayOfItems[inventory.friesIndex].getQuantity().ToString();
-            this.label8.Text = inventory.arrayOfItems[inventory.chickenBurgerIndex].getQuantity().ToString();
-            this.label7.Text = inventory.arrayOfItems[inventory.burgerIndex].getQuantity().ToString();
+            loadComponents(); // Update text for each item quantity
 
             // Send item info to BOH
             BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.popIndex].getItemName(), itemsToAdd[inventory.popIndex]);
