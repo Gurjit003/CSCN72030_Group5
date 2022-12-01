@@ -83,9 +83,10 @@ namespace GUI_Module
         {
             string[] gottenMain = new string[numOforder];
 
+            Random rnd = new Random();
             for (int i = 0; i < numOforder; i++)
             {
-                Random rnd = new Random();
+                
                 int random = rnd.Next(1, 3);
 
                 if (random == 1)
@@ -119,9 +120,9 @@ namespace GUI_Module
         {
             string[] gottenSide = new string[numOfOrder];
 
+            Random rnd = new Random();
             for (int i = 0; i < numOfOrder; i++)
             {
-                Random rnd = new Random();
                 int random = rnd.Next(1, 3);
 
                 if(random == 1)
@@ -153,9 +154,9 @@ namespace GUI_Module
         {
             string[] gottenDrink = new string[numOfOrder];
 
+            Random rnd = new Random();
             for (int i = 0; i < numOfOrder; i++)
             {
-                Random rnd = new Random();
                 int random = rnd.Next(1, 3);
 
                 if(random == 1)
