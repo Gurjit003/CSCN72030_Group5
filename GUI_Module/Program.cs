@@ -7,7 +7,7 @@ using System.IO;
 
 namespace GUI_Module
 {
-    internal class Program
+    public class Program
     {
         /// <summary>
         /// The main entry point for the application.
@@ -26,7 +26,6 @@ namespace GUI_Module
             Home main= new Home();
             
             Application.Run(main);
-
+        }
     }
-}
 }

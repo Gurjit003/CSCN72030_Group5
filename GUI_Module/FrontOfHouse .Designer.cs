@@ -1,4 +1,5 @@
-﻿namespace GUI_Module
+﻿using System.Threading;
+namespace GUI_Module
 {
     partial class frontOfHouseControl1
     {
@@ -22,6 +23,27 @@
             base.Dispose(disposing);
         }
 
+        private void updateTableStatus()
+        {
+            this.label9.Text = frontOfHouse.arrayOfTables[0].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[0]);
+            this.label10.Text = frontOfHouse.arrayOfTables[1].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[1]);
+            this.label11.Text = frontOfHouse.arrayOfTables[2].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[2]);
+            this.label12.Text = frontOfHouse.arrayOfTables[3].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[3]);
+            this.label14.Text = frontOfHouse.arrayOfTables[4].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[4]);
+            this.label15.Text = frontOfHouse.arrayOfTables[5].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[5]);
+            this.label16.Text = frontOfHouse.arrayOfTables[6].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[6]);
+            this.label17.Text = frontOfHouse.arrayOfTables[7].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[7]);
+        }
+
+        public void clearTables()
+        {
+            for (int x = 0; x < frontOfHouse.numberOfTables; x++) 
+            {
+                frontOfHouse.arrayOfTables[x].clearTable();
+            }
+        }
+
+
         #region Component Designer generated code
 
         /// <summary> 
@@ -32,10 +54,7 @@
         {
             frontOfHouse.createArrayOfEmptyTables();
             
-            for (int x = 0; x < (frontOfHouse.generateNumberOfCustomers() * 2); x++) // Set random number of tables
-            {
-                frontOfHouse.setTable();
-            }
+            
 
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frontOfHouseControl1));
             this.label13 = new System.Windows.Forms.Label();
@@ -64,6 +83,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.button1= new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -283,7 +304,6 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(84, 18);
             this.label9.TabIndex = 55;
-
             this.label9.Text = frontOfHouse.arrayOfTables[0].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[0]);
             // 
             // label10 - Table 2
@@ -363,11 +383,46 @@
             this.label17.TabIndex = 62;
             this.label17.Text = frontOfHouse.arrayOfTables[7].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[7]);
             // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(425, 17);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 27);
+            this.button1.TabIndex = 63;
+            this.button1.Text = "Order";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(350, 17);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 27);
+            this.button1.TabIndex = 63;
+            this.button1.Text = "Order";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.Location = new System.Drawing.Point(425, 17);
+            this.button2.Name = "button1";
+            this.button2.Size = new System.Drawing.Size(75, 27);
+            this.button2.TabIndex = 63;
+            this.button2.Text = "Clear";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // frontOfHouseControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Pink;
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
@@ -439,5 +494,7 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
