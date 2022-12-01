@@ -75,15 +75,14 @@ namespace GUI_Module
 
         new public void CookFood(int numOfBurgers)
         {
-            if (this.getTemperature() < 75)
-            {
-                //GUI pop or somthing to flag user to increase grill temp
-                Console.WriteLine("Grill not hot enough");
-            }
+            
             if (this.getPowerStatus() == false)
             {
-                //GUI call pop up
-                Console.WriteLine("Grill not on");
+                CallGrillPowerPopUp();
+            }
+            if (this.getTemperature() < 75)
+            {
+                CallGrillLowTempPopUp();
             }
             setCookingSpace(this.getCookingSpace() - numOfBurgers);
             //update GUI visual grill area
@@ -129,6 +128,64 @@ namespace GUI_Module
                 this.setCookingSpace(Int32.Parse(fileLines[2]));
             }
         }
+        public void CallGrillLowTempPopUp()
+        {
+            Form formBackground = new Form();
+            try
+            {
+                using (GrillLowTempPopUo uu = new GrillLowTempPopUo())
+                {
+                    formBackground.StartPosition = FormStartPosition.CenterParent;
+                    formBackground.FormBorderStyle = FormBorderStyle.None;
+                    formBackground.Opacity = 0;
+                    formBackground.TopMost = true;
+                    //formBackground.Location = KitchenControl;
+                    formBackground.ShowInTaskbar = false;
+                    formBackground.Show();
+                    uu.Owner = formBackground;
+                    uu.ShowDialog();
+
+                    formBackground.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                formBackground.Dispose();
+            }
+        }
+        public void CallGrillPowerPopUp()
+        {
+            Form formBackground = new Form();
+            try
+            {
+                using (GrillPowerPopUp uu = new GrillPowerPopUp())
+                {
+                    formBackground.StartPosition = FormStartPosition.CenterParent;
+                    formBackground.FormBorderStyle = FormBorderStyle.None;
+                    formBackground.Opacity = 0;
+                    formBackground.TopMost = true;
+                    //formBackground.Location = KitchenControl
+                    formBackground.ShowInTaskbar = false;
+                    formBackground.Show();
+                    uu.Owner = formBackground;
+                    uu.ShowDialog();
+
+                    //formBackground.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                formBackground.Dispose();
+            }
+        }
     }
 
     public class Fryer : Appliance
@@ -141,14 +198,14 @@ namespace GUI_Module
 
         new public void CookFood(int numOfChicken)
         {
-            if (this.getTemperature() < 75)
-            {
-                //GUI pop or somthing to flag user to increase grill temp
-                Console.WriteLine("Fryer not hot enough");
-            }
+            
             if (this.getPowerStatus() == false)
             {
-                Console.WriteLine("Fryer not on");
+                CallFryerPowerPopUp();
+            }
+            if (this.getTemperature() < 75)
+            {
+                CallFryerLowTempPopUp();
             }
             setCookingSpace(this.getCookingSpace() - numOfChicken);
             //update GUI visual grill area
@@ -191,6 +248,65 @@ namespace GUI_Module
                 }
                 this.setTemp(Int32.Parse(fileLines[1]));
                 this.setCookingSpace(Int32.Parse(fileLines[2]));
+            }
+        }
+        public void CallFryerLowTempPopUp()
+        {
+            Form formBackground = new Form();
+            try
+            {
+                using (LowTempPopUp uu = new LowTempPopUp())
+                {
+                    formBackground.StartPosition = FormStartPosition.CenterParent;
+                    formBackground.FormBorderStyle = FormBorderStyle.None;
+                    formBackground.Opacity = 0;
+                    formBackground.TopMost = true;
+                    //formBackground.Location = KitchenControl
+                    formBackground.ShowInTaskbar = false;
+                    formBackground.Show();
+                    uu.Owner = formBackground;
+                    uu.ShowDialog();
+
+                    formBackground.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                formBackground.Dispose();
+            }
+            
+        }
+        public void CallFryerPowerPopUp()
+        {
+            Form formBackground = new Form();
+            try
+            {
+                using (FryerPowerPopUp uu = new FryerPowerPopUp())
+                {
+                    formBackground.StartPosition = FormStartPosition.CenterParent;
+                    formBackground.FormBorderStyle = FormBorderStyle.None;
+                    formBackground.Opacity = 0;
+                    formBackground.TopMost = true;
+                    //formBackground.Location = KitchenControl
+                    formBackground.ShowInTaskbar = false;
+                    formBackground.Show();
+                    uu.Owner = formBackground;
+                    uu.ShowDialog();
+
+                    formBackground.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                formBackground.Dispose();
             }
         }
     } 

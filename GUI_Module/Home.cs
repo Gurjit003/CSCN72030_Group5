@@ -58,7 +58,6 @@ namespace GUI_Module
 
         private void button7_Click(object sender, EventArgs e) // Click inventory
         {
-            
             inventoryControl11.BringToFront();
             SidePanel.Height = 33;
             SidePanel.Top = 136;

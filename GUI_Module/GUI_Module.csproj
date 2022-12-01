@@ -93,6 +93,24 @@
       <DependentUpon>FrontOfHouse .cs</DependentUpon>
     </Compile>
     <Compile Include="frontOfHouseCode.cs" />
+    <Compile Include="FryerPowerPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FryerPowerPopUp.Designer.cs">
+      <DependentUpon>FryerPowerPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GrillLowTempPopUo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GrillLowTempPopUo.Designer.cs">
+      <DependentUpon>GrillLowTempPopUo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GrillPowerPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GrillPowerPopUp.Designer.cs">
+      <DependentUpon>GrillPowerPopUp.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -122,6 +140,12 @@
     </Compile>
     <Compile Include="KitchenOrderLevelPopUp.Designer.cs">
       <DependentUpon>KitchenOrderLevelPopUp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LowTempPopUp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LowTempPopUp.Designer.cs">
+      <DependentUpon>LowTempPopUp.cs</DependentUpon>
     </Compile>
     <Compile Include="Order.cs" />
     <Compile Include="Program.cs" />
@@ -154,6 +178,15 @@
     <EmbeddedResource Include="FrontOfHouse .resx">
       <DependentUpon>FrontOfHouse .cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FryerPowerPopUp.resx">
+      <DependentUpon>FryerPowerPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrillLowTempPopUo.resx">
+      <DependentUpon>GrillLowTempPopUo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GrillPowerPopUp.resx">
+      <DependentUpon>GrillPowerPopUp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>
     </EmbeddedResource>
@@ -168,6 +201,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KitchenOrderLevelPopUp.resx">
       <DependentUpon>KitchenOrderLevelPopUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LowTempPopUp.resx">
+      <DependentUpon>LowTempPopUp.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
