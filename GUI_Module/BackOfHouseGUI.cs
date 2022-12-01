@@ -34,12 +34,22 @@ namespace GUI_Module
 
         private void backOfHouseGUIControl1_Load(object sender, EventArgs e)
         {
-            double totalIncome = BackOfHouse.getGrossRevenue();     
-            double totalExpenses = BackOfHouse.getExpenses();
+            //double totalIncome = BackOfHouse.getGrossRevenue();     
+            //double totalExpenses = BackOfHouse.getExpenses();
 
-            label7.Text = totalIncome.ToString();
-            label4.Text = totalExpenses.ToString();
-            label5.Text = BackOfHouse.getNetRevenue(totalIncome, totalExpenses).ToString();
+            label7.Text = BackOfHouse.getGrossRevenue().ToString();
+            label4.Text = BackOfHouse.getExpenses().ToString();
+            label5.Text = BackOfHouse.getNetRevenue(BackOfHouse.getGrossRevenue(), BackOfHouse.getExpenses()).ToString();
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label5_Click(object sender, EventArgs e)
+        {
 
         }
     }
