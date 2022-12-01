@@ -199,6 +199,7 @@
     <None Include="Resources\rms-logo-220.png" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Dishes.txt" />
     <Content Include="home1.resx.txt" />
     <Content Include="ProductNumber.txt" />
     <None Include="Resources\openSignT.gif" />
