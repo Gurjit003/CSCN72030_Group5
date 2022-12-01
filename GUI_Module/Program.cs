@@ -18,10 +18,7 @@ namespace GUI_Module
 
             Application.EnableVisualStyles(); 
             Application.SetCompatibleTextRenderingDefault(false);
-            int[] items = { 0, 0, 0, 0, 0, 0 };
-            Kitchen kitchen = new Kitchen();
-            kitchen.UpdateOrderedItemsFile(items);
-           // kitchen.orderPopUp();
+            
 
             Home main= new Home();
             
