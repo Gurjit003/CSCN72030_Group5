@@ -32,27 +32,27 @@ namespace GUI_Module
                 //Disect the order to tally up chicken burgers and beef burgerss
                 if (order[i].getMain() == "Hamburger")
                 {
-                    brokenDownOrder[0] += brokenDownOrder[0];
+                    brokenDownOrder[0] = brokenDownOrder[0] + 1;
                 }
                 else
                 {
-                    brokenDownOrder[1] += brokenDownOrder[1];
+                    brokenDownOrder[1] = brokenDownOrder[1] + 1;
                 }
                 if (order[i].side == "Salad")
                 {
-                    brokenDownOrder[2] += brokenDownOrder[2];
+                    brokenDownOrder[2] = brokenDownOrder[2] + 1;
                 }
                 else
                 {
-                    brokenDownOrder[3] += brokenDownOrder[3];
+                    brokenDownOrder[3] = brokenDownOrder[3] + 1;
                 }
                 if (order[i].drink == "Pop")
                 {
-                    brokenDownOrder[4] += brokenDownOrder[4];
+                    brokenDownOrder[4] = brokenDownOrder[4] + 1;
                 }
                 else
                 {
-                    brokenDownOrder[5] += brokenDownOrder[5];
+                    brokenDownOrder[5] = brokenDownOrder[5] + 1;
                 }
             }
 
