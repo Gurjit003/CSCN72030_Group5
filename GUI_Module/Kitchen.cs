@@ -62,6 +62,20 @@ namespace GUI_Module
             label10.Text = Order.sendSal().ToString();
             label11.Text = Order.sendWat().ToString();
             label12.Text = Order.sendPop().ToString();
+
+            Grill grill = new Grill();
+            Fryer fryer = new Fryer();
+
+            if (fryer.getPowerStatus() == true)
+            {
+                button1.BackColor = Color.Green;
+            }
+            if (grill.getPowerStatus() == true)
+            {
+                button2.BackColor = Color.Green;
+            }
+            numericUpDown1.Value = fryer.getTemperature();
+            numericUpDown2.Value = grill.getTemperature();
         }
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
