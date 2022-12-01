@@ -51,8 +51,6 @@ namespace GUI_Module
         /// </summary>
         private void InitializeComponent()
         {
-            frontOfHouse.createArrayOfEmptyTables();
-
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frontOfHouseControl1));
             this.label13 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -80,8 +78,8 @@ namespace GUI_Module
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.button1= new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -143,7 +141,7 @@ namespace GUI_Module
             this.pictureBox2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox2.BackgroundImage")));
             this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox2.Location = new System.Drawing.Point(289, 72);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(77, 67);
             this.pictureBox2.TabIndex = 41;
@@ -154,7 +152,7 @@ namespace GUI_Module
             this.pictureBox1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.BackgroundImage")));
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox1.Location = new System.Drawing.Point(130, 72);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(77, 67);
             this.pictureBox1.TabIndex = 39;
@@ -176,7 +174,7 @@ namespace GUI_Module
             this.pictureBox3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox3.BackgroundImage")));
             this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox3.Location = new System.Drawing.Point(130, 165);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox3.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(77, 67);
             this.pictureBox3.TabIndex = 43;
@@ -198,7 +196,7 @@ namespace GUI_Module
             this.pictureBox4.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox4.BackgroundImage")));
             this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox4.Location = new System.Drawing.Point(289, 165);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox4.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(77, 67);
             this.pictureBox4.TabIndex = 45;
@@ -220,7 +218,7 @@ namespace GUI_Module
             this.pictureBox5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox5.BackgroundImage")));
             this.pictureBox5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox5.Location = new System.Drawing.Point(130, 256);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(77, 67);
             this.pictureBox5.TabIndex = 47;
@@ -242,7 +240,7 @@ namespace GUI_Module
             this.pictureBox6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox6.BackgroundImage")));
             this.pictureBox6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox6.Location = new System.Drawing.Point(289, 256);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(77, 67);
             this.pictureBox6.TabIndex = 49;
@@ -264,7 +262,7 @@ namespace GUI_Module
             this.pictureBox7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox7.BackgroundImage")));
             this.pictureBox7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox7.Location = new System.Drawing.Point(130, 345);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox7.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(77, 67);
             this.pictureBox7.TabIndex = 51;
@@ -286,132 +284,113 @@ namespace GUI_Module
             this.pictureBox8.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pictureBox8.BackgroundImage")));
             this.pictureBox8.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.pictureBox8.Location = new System.Drawing.Point(289, 345);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(77, 67);
             this.pictureBox8.TabIndex = 53;
             this.pictureBox8.TabStop = false;
             // 
-            // label9 - Table 1
+            // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(30, 95);
             this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(84, 18);
+            this.label9.Size = new System.Drawing.Size(0, 18);
             this.label9.TabIndex = 55;
-            this.label9.Text = frontOfHouse.arrayOfTables[0].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[0]);
             // 
-            // label10 - Table 2
+            // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(30, 188);
             this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(84, 18);
+            this.label10.Size = new System.Drawing.Size(0, 18);
             this.label10.TabIndex = 56;
-            this.label10.Text = frontOfHouse.arrayOfTables[1].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[1]);
             // 
-            // label11 - Table 3
+            // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(30, 279);
             this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(84, 18);
+            this.label11.Size = new System.Drawing.Size(0, 18);
             this.label11.TabIndex = 57;
-            this.label11.Text = frontOfHouse.arrayOfTables[2].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[2]);
             // 
-            // label12 - Table 4
+            // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.Location = new System.Drawing.Point(30, 368);
             this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(84, 18);
+            this.label12.Size = new System.Drawing.Size(0, 18);
             this.label12.TabIndex = 58;
-            this.label12.Text = frontOfHouse.arrayOfTables[3].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[3]);
             // 
-            // label14 - Table 5
+            // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(388, 95);
             this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(84, 18);
+            this.label14.Size = new System.Drawing.Size(0, 18);
             this.label14.TabIndex = 59;
-            this.label14.Text = frontOfHouse.arrayOfTables[4].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[4]);
             // 
-            // label15 - Table 6
+            // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.Location = new System.Drawing.Point(388, 188);
             this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(84, 18);
+            this.label15.Size = new System.Drawing.Size(0, 18);
             this.label15.TabIndex = 60;
-            this.label15.Text = frontOfHouse.arrayOfTables[5].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[5]);
             // 
-            // label16 - Table 7
+            // label16
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label16.Location = new System.Drawing.Point(388, 279);
             this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(84, 18);
+            this.label16.Size = new System.Drawing.Size(0, 18);
             this.label16.TabIndex = 61;
-            this.label16.Text = frontOfHouse.arrayOfTables[6].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[6]);
             // 
-            // label17 - Table 8
+            // label17
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Tahoma", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.Location = new System.Drawing.Point(388, 368);
             this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(84, 18);
+            this.label17.Size = new System.Drawing.Size(0, 18);
             this.label17.TabIndex = 62;
-            this.label17.Text = frontOfHouse.arrayOfTables[7].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[7]);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(425, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 27);
-            this.button1.TabIndex = 63;
-            this.button1.Text = "Order";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(350, 17);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 27);
-            this.button1.TabIndex = 63;
-            this.button1.Text = "Order";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.Location = new System.Drawing.Point(425, 17);
-            this.button2.Name = "button1";
+            this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(75, 27);
             this.button2.TabIndex = 63;
             this.button2.Text = "Clear";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Font = new System.Drawing.Font("Tahoma", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(325, 15);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(94, 30);
+            this.button1.TabIndex = 64;
+            this.button1.Text = "Seat Table";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // frontOfHouseControl1
             // 
@@ -446,7 +425,7 @@ namespace GUI_Module
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frontOfHouseControl1";
             this.Size = new System.Drawing.Size(502, 445);
             this.Load += new System.EventHandler(this.frontOfHouseControl1_Load);
@@ -491,7 +470,7 @@ namespace GUI_Module
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
     }
 }
