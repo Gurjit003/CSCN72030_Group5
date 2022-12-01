@@ -26,13 +26,22 @@ namespace GUI_Module
 
         #region Component Designer generated code
 
+        public void loadComponents()
+        {
+            this.label12.Text = inventory.arrayOfItems[inventory.popIndex].getQuantity().ToString();
+            this.label11.Text = inventory.arrayOfItems[inventory.waterIndex].getQuantity().ToString();
+            this.label10.Text = inventory.arrayOfItems[inventory.saladIndex].getQuantity().ToString();
+            this.label9.Text = inventory.arrayOfItems[inventory.friesIndex].getQuantity().ToString();
+            this.label8.Text = inventory.arrayOfItems[inventory.chickenBurgerIndex].getQuantity().ToString();
+            this.label7.Text = inventory.arrayOfItems[inventory.burgerIndex].getQuantity().ToString();
+        }
 
 
         /// <summary> 
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-        private void InitializeComponent1()
+        public void InitializeComponent1()
         {
 
             for (int x = 0; x < inventory.numberOfItems; x++) 

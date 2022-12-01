@@ -174,7 +174,7 @@ namespace GUI_Module
             return numberOfOccupants;
         }
 
-        public bool setTable() // Method to assign randomly generated number of customers to an empty table
+        public int setTable() // Method to assign randomly generated number of customers to an empty table
         {
             // Get empty table
             int tableToOccupy = findEmptyTableNumber(this.arrayOfTables);
@@ -186,7 +186,10 @@ namespace GUI_Module
             // GUI: Show numberOfCustomers occupant icons on table ID
 
             // Send to Order Module
-            return sendOrder(this.arrayOfTables[tableToOccupy]);
+            sendOrder(this.arrayOfTables[tableToOccupy]);
+
+            // Return number of customers
+            return numberOfCustomers;
         }
 
         public bool sendOrder(table tableOrdering) // Method to send the number of occupants to the Order module 
