@@ -80,7 +80,7 @@ namespace GUI_Module
             for (int i = 0; i < numOforder; i++)
             {
                 Random rnd = new Random();
-                int random = rnd.Next(1, 2);
+                int random = rnd.Next(1, 3);
 
                 if (random == 1)
                 {
@@ -116,7 +116,7 @@ namespace GUI_Module
             for (int i = 0; i < numOfOrder; i++)
             {
                 Random rnd = new Random();
-                int random = rnd.Next(1, 2);
+                int random = rnd.Next(1, 3);
 
                 if(random == 1)
                 {
@@ -150,7 +150,7 @@ namespace GUI_Module
             for (int i = 0; i < numOfOrder; i++)
             {
                 Random rnd = new Random();
-                int random = rnd.Next(1, 2);
+                int random = rnd.Next(1, 3);
 
                 if(random == 1)
                 {
