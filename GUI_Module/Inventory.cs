@@ -86,12 +86,35 @@ namespace GUI_Module
 
             // Send item info to BOH
 
-            BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.popIndex].getItemName(), itemsToAdd[inventory.popIndex]);
-            BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.waterIndex].getItemName(), itemsToAdd[inventory.waterIndex]);
-            BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.saladIndex].getItemName(), itemsToAdd[inventory.saladIndex]);
-            BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.friesIndex].getItemName(), itemsToAdd[inventory.friesIndex]);
-            BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.chickenBurgerIndex].getItemName(), itemsToAdd[inventory.chickenBurgerIndex]);
-            BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.burgerIndex].getItemName(), itemsToAdd[inventory.burgerIndex]);
+            if (itemsToAdd[inventory.popIndex] != 0)
+            {
+                BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.popIndex].getItemName(), itemsToAdd[inventory.popIndex]);
+            }
+
+            if (itemsToAdd[inventory.waterIndex] != 0)
+            {
+                BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.waterIndex].getItemName(), itemsToAdd[inventory.waterIndex]);
+            }
+
+            if (itemsToAdd[inventory.saladIndex] != 0)
+            {
+                BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.saladIndex].getItemName(), itemsToAdd[inventory.saladIndex]);
+            }
+
+            if (itemsToAdd[inventory.friesIndex] != 0)
+            {
+                BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.friesIndex].getItemName(), itemsToAdd[inventory.friesIndex]);
+            }
+
+            if (itemsToAdd[inventory.chickenBurgerIndex] != 0)
+            {
+                BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.chickenBurgerIndex].getItemName(), itemsToAdd[inventory.chickenBurgerIndex]);
+            }
+
+            if (itemsToAdd[inventory.burgerIndex] != 0)
+            {
+                BackOfHouse.setExpenses(inventory.arrayOfItems[inventory.burgerIndex].getItemName(), itemsToAdd[inventory.burgerIndex]);
+            }
 
             Form formBackground = new Form();
             try
