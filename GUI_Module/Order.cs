@@ -239,12 +239,12 @@ namespace GUI_Module
                     product[3]++;
                 }
 
-                if (order[i].drink == wat)
+                if (order[i].drink == POP)
                 {
                     product[4]++;
                 }
 
-                if (order[i].drink == POP)
+                if (order[i].drink == wat)
                 {
                     product[5]++;
                 }
@@ -288,12 +288,12 @@ namespace GUI_Module
                     product[3]--;
                 }
 
-                if (order[i].drink == wat)
+                if (order[i].drink == POP)
                 {
                     product[4]--;
                 }
 
-                if (order[i].drink == POP)
+                if (order[i].drink == wat)
                 {
                     product[5]--;
                 }
@@ -386,9 +386,9 @@ namespace GUI_Module
                 fileLines[0] = ham;
                 fileLines[1] = chic;
                 fileLines[2] = fri;
-                fileLines[2] = sal;
-                fileLines[2] = POP;
-                fileLines[2] = wat;
+                fileLines[3] = sal;
+                fileLines[4] = POP;
+                fileLines[5] = wat;
 
                 File.WriteAllLines(productFilePath, fileLines);
 

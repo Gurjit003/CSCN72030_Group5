@@ -24,7 +24,7 @@ namespace GUI_Module
         }
         public bool reciveOrder(Order[] order)
         {
-            //array {Hamburger, Chicken, Fries, Salad, Pop, Water}
+            //array {Hamburger, Chicken, Salad, Fries,  Pop, Water}
             int[] brokenDownOrder = { 0, 0, 0, 0, 0, 0 };
             int numberOfMeals = order.Length;
             for (int i = 0; i < numberOfMeals; i++)
