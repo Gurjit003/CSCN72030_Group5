@@ -256,7 +256,10 @@ namespace GUI_Module
         public static void recieveNumOfDishes(int numOfDishes)
         {
             dishes d = new dishes();
-            d = getDishes();
+            //d = getDishes();
+            d.clean = getDishesClean();
+            d.dirty = getDishesDirty();
+            d.beenUsed = getDishesBeenUsed();
 
             bool isOkToContinue = checkNumOfDishes(d);
             bool ifNotEnough = true;
