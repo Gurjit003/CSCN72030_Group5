@@ -65,20 +65,25 @@ namespace GUI_Module
         }
         public void seatSendOrClear(table tableInteracted)
         {
-            if (tableInteracted.getOccupants() == 0) // If table is empty...
+            if (tableInteracted.getCompletionStatus() == 0) // If table is empty...
             {
                 int customersGenerated = frontOfHouse.generateNumberOfCustomers(); // Get random number of customers
                 tableInteracted.setOccupants(customersGenerated); // Set table occupants to generated number
+                tableInteracted.setCompletionStatus(1); // Set to waiting
                 updateTableStatus();
             }
-            else if (tableInteracted.getCompletionStatus() != true) // If table order is not complete...
+            else if (tableInteracted.getCompletionStatus() > 0 && tableInteracted.getCompletionStatus() < 3) // If table order is not complete...
             {
                 Kitchen k = new Kitchen();
                 k.UpdateTicketGeneratorFile(tableInteracted.getTableID());
+
+                tableInteracted.setCompletionStatus(2); // Set status to cooking
+                updateTableStatus();
+
                 frontOfHouse.sendOrder(tableInteracted.getOccupants()); // Send the order 
                 updateTableStatus();
 
-                tableInteracted.setCompletionStatus(true); // Set completion status to true
+                tableInteracted.setCompletionStatus(3); // Set status to complete
                 updateTableStatus();
             }
             else // If order is complete

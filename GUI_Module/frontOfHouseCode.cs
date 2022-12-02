@@ -14,7 +14,7 @@ namespace GUI_Module
         int seatsOccupied;
         int idIndex = 0;
         int occupantIndex = 1;
-        bool completionStatus;
+        int completionStatus; // 0 = empty, 1 = waiting, 2 = cooking, 3 = complete
 
         public string tableFileName = "tableData.txt";
 
@@ -51,7 +51,7 @@ namespace GUI_Module
             updateTableFile();
         }
 
-        public void setCompletionStatus(bool orderStatus)
+        public void setCompletionStatus(int orderStatus)
         {
             this.completionStatus = orderStatus;
             updateTableFile();
@@ -63,7 +63,7 @@ namespace GUI_Module
         public int getOccupants() // Return seatsOccupied
         { return seatsOccupied; }
 
-        public bool getCompletionStatus() // Return orderComplete
+        public int getCompletionStatus() // Return orderComplete
         { return completionStatus; }
 
         public void clearTable() // Set seatsOccupied to 0
@@ -71,7 +71,7 @@ namespace GUI_Module
             int leavingCust = this.getOccupants();
             dishes.recieveNumOfLeavingCus(leavingCust);
             this.seatsOccupied = 0;
-            this.completionStatus = false;
+            this.completionStatus = 0;
             updateTableFile();
         }
 
@@ -217,11 +217,15 @@ namespace GUI_Module
 
         public string getOrderStatus(table tableToGetStatus)
         {
-            if (tableToGetStatus.getCompletionStatus() == true) // If order is complete
+            if (tableToGetStatus.getCompletionStatus() == 3) // If order is complete
             {
                 return "Complete";
             }
-            else if (tableToGetStatus.getOccupants() != 0) // If there are occupants
+            else if (tableToGetStatus.getCompletionStatus() == 2) // If order is complete
+            {
+                return "Cooking...";
+            }
+            else if (tableToGetStatus.getCompletionStatus() == 1) // If there are occupants
             {
                 return "Waiting...";
             }
