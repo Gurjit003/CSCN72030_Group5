@@ -33,14 +33,6 @@ namespace GUI_Module
             {
                 using (AllTablesOccupiedPopUp uu = new AllTablesOccupiedPopUp())
                 {
-                    formBackground.StartPosition = FormStartPosition.CenterParent;
-                    formBackground.FormBorderStyle = FormBorderStyle.None;
-                    formBackground.Opacity = 0;
-                    formBackground.TopMost = true;
-                    //formBackground.Location = KitchenControl
-                    formBackground.ShowInTaskbar = false;
-                    formBackground.Show();
-                    uu.Owner = formBackground;
                     uu.ShowDialog();
 
                     formBackground.Dispose();
@@ -49,10 +41,6 @@ namespace GUI_Module
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                formBackground.Dispose();
             }
         }
 

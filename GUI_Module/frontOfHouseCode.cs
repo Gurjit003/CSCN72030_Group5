@@ -174,7 +174,7 @@ namespace GUI_Module
             // Choose random (1-4) occupants
             Random random = new Random();
             
-            int numberOfOccupants = random.Next(minimumTableOccupants, maximumTableOccupants);
+            int numberOfOccupants = random.Next(minimumTableOccupants, maximumTableOccupants+1);
             return numberOfOccupants;
         }
 

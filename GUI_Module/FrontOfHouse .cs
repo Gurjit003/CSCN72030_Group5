@@ -16,12 +16,7 @@ namespace GUI_Module
             updateTableStatus();
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void button2_Click(object sender, EventArgs e)
+        private void button2_Click(object sender, EventArgs e) // Clear all tables button
         {
             clearTables();
             updateTableStatus();
@@ -40,20 +35,17 @@ namespace GUI_Module
 
             if (tableCounter < frontOfHouse.numberOfTables) // If all tables are not occupied
             {
-                //for (int x = 0; x < (frontOfHouse.generateNumberOfCustomers() * 2); x++) // Set random number of tables
-                // {
                 frontOfHouse.setTable();
                 updateTableStatus();
-                // }
             }
             else
             {
                 // All dishes occupied popup
                 allTablesOccupiedPopUp();
             }
-
         }
 
+        // Clicking table icon or number to clear it
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             frontOfHouse.arrayOfTables[0].clearTable();
