@@ -15,9 +15,9 @@ namespace GUI_Module
         public LowTempPopUp()
         {
             InitializeComponent();
-            Fryer fryer = new Fryer();
+            Appliance.Fryer fryer = new Appliance.Fryer();
 
-            label2.Text = fryer.getTemperature().ToString();
+            label2.Text = fryer.getTemperature().ToString(); //set label to equal current temp
 
         }
 
@@ -38,9 +38,10 @@ namespace GUI_Module
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Fryer fryer = new Fryer();
+            Appliance.Fryer fryer = new Appliance.Fryer();
+            //set proper temp and update file
             fryer.setTemp(75);
-            fryer.updateFile();
+            fryer.updateFile(fryer.getFryerFile());
 
             this.Close();
         }
