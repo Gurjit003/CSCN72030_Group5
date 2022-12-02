@@ -72,7 +72,7 @@ namespace GUI_Module
                 tableInteracted.setCompletionStatus(1); // Set to waiting
                 updateTableStatus();
             }
-            else if (tableInteracted.getCompletionStatus() > 0 && tableInteracted.getCompletionStatus() < 3) // If table order is not complete...
+            else if (tableInteracted.getCompletionStatus() < 3) // If table order is not complete...
             {
                 Kitchen k = new Kitchen();
                 k.UpdateTicketGeneratorFile(tableInteracted.getTableID());
