@@ -74,7 +74,8 @@ namespace GUI_Module
             else if (tableInteracted.getCompletionStatus() != true) // If table order is not complete...
             {
                 Kitchen k = new Kitchen();
-                k.UpdateTicketGeneratorFile(tableInteracted.getTableID());
+                k.UpdateTicketGeneratorFile(tableInteracted.getTableID()); //send kitchen table number
+
                 frontOfHouse.sendOrder(tableInteracted.getOccupants()); // Send the order 
                 updateTableStatus();
 

@@ -20,12 +20,11 @@ namespace GUI_Module
             
             Kitchen k = new Kitchen();
             k.startupTicketReset();
-            
-            
+                        
             dishes.resetDishes();
             Order.resetOrder();
+
             Home main= new Home();
-            
             Application.Run(main);
         }
     }
