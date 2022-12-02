@@ -61,6 +61,12 @@
     <Compile Include="ContactUs.Designer.cs">
       <DependentUpon>ContactUs.cs</DependentUpon>
     </Compile>
+    <Compile Include="CookingProgression.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CookingProgression.Designer.cs">
+      <DependentUpon>CookingProgression.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dishes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -167,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="ContactUs.resx">
       <DependentUpon>ContactUs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CookingProgression.resx">
+      <DependentUpon>CookingProgression.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dishes.resx">
       <DependentUpon>Dishes.cs</DependentUpon>
