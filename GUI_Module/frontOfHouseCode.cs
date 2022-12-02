@@ -14,9 +14,10 @@ namespace GUI_Module
         int seatsOccupied;
         int idIndex = 0;
         int occupantIndex = 1;
+        bool completionStatus;
 
         public string tableFileName = "tableData.txt";
-        
+
         public table() // Base contructor
         {
             setTableID(0);
@@ -39,14 +40,20 @@ namespace GUI_Module
         }
 
         public void setTableID(int tableID) // Set tableID
-        { 
+        {
             this.tableID = tableID;
             updateTableFile();
         }
 
         public void setOccupants(int seatsOccupied) // Set seatsOccupied
-        { 
+        {
             this.seatsOccupied = seatsOccupied;
+            updateTableFile();
+        }
+
+        public void setCompletionStatus(bool orderStatus)
+        {
+            this.completionStatus = orderStatus;
             updateTableFile();
         }
 
@@ -56,12 +63,15 @@ namespace GUI_Module
         public int getOccupants() // Return seatsOccupied
         { return seatsOccupied; }
 
+        public bool getCompletionStatus() // Return orderComplete
+        { return completionStatus; }
+
         public void clearTable() // Set seatsOccupied to 0
         {
-            
-            int leavingCust  = this.getOccupants();
+            int leavingCust = this.getOccupants();
             dishes.recieveNumOfLeavingCus(leavingCust);
             this.seatsOccupied = 0;
+            this.completionStatus = false;
             updateTableFile();
         }
 
@@ -103,7 +113,6 @@ namespace GUI_Module
                 int occupants = int.Parse(fileItem.Split(',')[this.occupantIndex]); this.setOccupants(occupants);
             }
         }
-
     }
 
     public class frontOfHouseCode
@@ -178,7 +187,7 @@ namespace GUI_Module
             return numberOfOccupants;
         }
 
-        public int setTable() // Method to assign randomly generated number of customers to an empty table
+        public int[] setTable() // Method to assign randomly generated number of customers to an empty table
         {
             // Get empty table
             int tableToOccupy = findEmptyTableNumber(this.arrayOfTables);
@@ -187,30 +196,15 @@ namespace GUI_Module
             int numberOfCustomers = generateNumberOfCustomers();
             this.arrayOfTables[tableToOccupy].setOccupants(numberOfCustomers);
 
-            // GUI: Show numberOfCustomers occupant icons on table ID
-
-            // Send to Order Module
-            sendOrder(this.arrayOfTables[tableToOccupy]);
+            int[] arrayOfTableAndCustomers = { tableToOccupy, numberOfCustomers };
 
             // Return number of customers
-            return numberOfCustomers;
+            return arrayOfTableAndCustomers;
         }
 
-        public bool sendOrder(table tableOrdering) // Method to send the number of occupants to the Order module 
+        public void sendOrder(int customersAtTableOrdering) // Method to send the number of occupants to the Order module 
         {
-            bool orderConfirmation = false; // Order starts as incomplete
-
-            // Send to order module
-            //while (orderConfirmation != true)
-           // {
-                orderConfirmation = Order.getNumOfOrder(tableOrdering.getOccupants()); // Continue ordering until complete
-           // }
-
-            // After ordering is complete, empty the table 
-            //Thread.Sleep(1000);
-            //tableOrdering.setOccupants(emptyTable);
-
-            return orderConfirmation; // Temp return statement 
+            Order.getNumOfOrder(customersAtTableOrdering); // Continue ordering until complete
         }
 
         public void updateTables(table[] arrayOfTablesToUpdate) // Method to update the attributes of this object's item array
@@ -223,7 +217,11 @@ namespace GUI_Module
 
         public string getOrderStatus(table tableToGetStatus)
         {
-            if (tableToGetStatus.getOccupants() != 0)
+            if (tableToGetStatus.getCompletionStatus() == true) // If order is complete
+            {
+                return "Complete";
+            }
+            else if (tableToGetStatus.getOccupants() != 0) // If there are occupants
             {
                 return "In Progress";
             }

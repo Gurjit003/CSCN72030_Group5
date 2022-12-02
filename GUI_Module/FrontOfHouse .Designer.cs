@@ -46,14 +46,14 @@ namespace GUI_Module
 
         private void updateTableStatus()
         {
-            this.label9.Text = frontOfHouse.arrayOfTables[0].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[0]);
-            this.label10.Text = frontOfHouse.arrayOfTables[1].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[1]);
-            this.label11.Text = frontOfHouse.arrayOfTables[2].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[2]);
-            this.label12.Text = frontOfHouse.arrayOfTables[3].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[3]);
-            this.label14.Text = frontOfHouse.arrayOfTables[4].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[4]);
-            this.label15.Text = frontOfHouse.arrayOfTables[5].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[5]);
-            this.label16.Text = frontOfHouse.arrayOfTables[6].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[6]);
-            this.label17.Text = frontOfHouse.arrayOfTables[7].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[7]);
+            this.label9.Text = frontOfHouse.arrayOfTables[0].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[0]); // Table 1
+            this.label10.Text = frontOfHouse.arrayOfTables[1].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[1]); // Table 2
+            this.label11.Text = frontOfHouse.arrayOfTables[2].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[2]); // Table 3
+            this.label12.Text = frontOfHouse.arrayOfTables[3].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[3]); // Table 4
+            this.label14.Text = frontOfHouse.arrayOfTables[4].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[4]); // Table 5 
+            this.label15.Text = frontOfHouse.arrayOfTables[5].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[5]); // Table 6
+            this.label16.Text = frontOfHouse.arrayOfTables[6].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[6]); // Table 7
+            this.label17.Text = frontOfHouse.arrayOfTables[7].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[7]); // Table 8
         }
 
         public void clearTables()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace GUI_Module
 {
@@ -35,7 +36,16 @@ namespace GUI_Module
 
             if (tableCounter < frontOfHouse.numberOfTables) // If all tables are not occupied
             {
-                frontOfHouse.setTable();
+                int[] tableNumberAndCustomers = frontOfHouse.setTable(); // Assign customers to a table, get number of customers
+                updateTableStatus();
+
+                // Wait 2 seconds before sending order and updating status again 
+                Thread.Sleep(2000);
+                frontOfHouse.sendOrder(tableNumberAndCustomers[1]);
+                updateTableStatus();
+
+                // Update table status to complete
+                frontOfHouse.arrayOfTables[tableNumberAndCustomers[0]].setCompletionStatus(true);
                 updateTableStatus();
             }
             else
