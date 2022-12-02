@@ -12,7 +12,7 @@ namespace GUI_Module
 {
     public class Kitchen
     {
-        string fullOrder = "fullKitchenOrder";
+        string fullOrder = "fullKitchenOrder.txt";
         string kitchenOrderFIle = "kitchenOrderedItems.txt";
 
         Appliance.Grill grill;

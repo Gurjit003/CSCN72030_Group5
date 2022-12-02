@@ -46,7 +46,6 @@ namespace GUI_Module
         /// </summary>
         public void InitializeComponent1()
         {
-
             for (int x = 0; x < inventory.numberOfItems; x++) 
             {
                 inventory.updateInventoryItems();
