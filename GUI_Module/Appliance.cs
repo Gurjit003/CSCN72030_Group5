@@ -85,6 +85,7 @@ namespace GUI_Module
                 CallGrillLowTempPopUp();
             }
             setCookingSpace(this.getCookingSpace() - numOfBurgers);
+            updateFile();
             //update GUI visual grill area
 
         }
