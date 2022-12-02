@@ -14,6 +14,7 @@ namespace GUI_Module
     {
         string fullOrder = "fullKitchenOrder";
         string kitchenOrderFIle = "kitchenOrderedItems.txt";
+        string ticketGeneratorFile = "ticketGeneratorFile.txt";
 
         Appliance.Grill grill;
         Appliance.Fryer fryer;
@@ -99,7 +100,15 @@ namespace GUI_Module
             this.fryer.updateFile(fryer.getFryerFile());
             return true;
         }
-
+        public void startupTicketReset()
+        {
+            if (File.Exists(ticketGeneratorFile))
+            {
+                string[] line = File.ReadAllLines(ticketGeneratorFile);
+                line[1] = "0";
+                File.WriteAllLines(ticketGeneratorFile, line);
+            }
+        }
         public string[] LoadFile(string fileName)
         {
             string[] items = { "0", "0", "0", "0", "0", "0" }; //blank array to write to
@@ -110,6 +119,34 @@ namespace GUI_Module
             }
 
             return items;
+        }
+        public string[] LoadTicketGenoratorFile()
+        {
+            string[] lines = { "0", "0" };
+
+            if (File.Exists(ticketGeneratorFile))
+            {
+                lines = File.ReadAllLines(ticketGeneratorFile);
+            }
+            return lines;
+        }
+        public void UpdateTicketGeneratorFile(int tableNum)
+        {
+            if(File.Exists(ticketGeneratorFile))
+            {
+                string[]lines = File.ReadAllLines(ticketGeneratorFile);
+                lines[0] = tableNum.ToString();
+                int increment = Int32.Parse(lines[1]) + 1;
+                lines[1] = increment.ToString();
+
+                File.WriteAllLines(ticketGeneratorFile, lines);
+            }
+            else
+            {
+                string[] empty = {"0", "1"};
+                File.WriteAllLines(ticketGeneratorFile, empty);
+                UpdateTicketGeneratorFile(0);
+            }
         }
         public void UpdateFile(int[] items, string fileName)
         {

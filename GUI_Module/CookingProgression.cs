@@ -12,6 +12,7 @@ namespace GUI_Module
 {
     public partial class CookingProgression : Form
     {
+       
         public CookingProgression()
         {
             InitializeComponent();
@@ -25,7 +26,15 @@ namespace GUI_Module
             label13.Text = itemArray[4];
             label10.Text = itemArray[5];
 
+            makeTicketnum(k);
+
             
+        }
+        private void makeTicketnum(Kitchen k)
+        {
+            string[] ticket = k.LoadTicketGenoratorFile();
+            label17.Text = "0" + ticket[0];
+            label18.Text = "0" + ticket[1];
         }
 
         private void CookingProgression_Load(object sender, EventArgs e)
