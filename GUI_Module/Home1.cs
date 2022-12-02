@@ -88,7 +88,7 @@ namespace GUI_Module
             this.label1.Location = new System.Drawing.Point(208, 380);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 23);
+            this.label1.Size = new System.Drawing.Size(147, 24);
             this.label1.TabIndex = 43;
             this.label1.Text = "Welcome Back!";
             // 
@@ -97,15 +97,12 @@ namespace GUI_Module
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(206, 445);
+            this.label2.Location = new System.Drawing.Point(215, 445);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 23);
+            this.label2.Size = new System.Drawing.Size(140, 33);
             this.label2.TabIndex = 44;
-
-            var date = DateTime.Now.ToString("M-d-yyyy");
-            this.label2.Text = date;
-
+            this.label2.Text = "12-1-2022";
             // 
             // homeControl1
             // 
