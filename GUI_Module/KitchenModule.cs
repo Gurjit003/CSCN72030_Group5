@@ -14,13 +14,14 @@ namespace GUI_Module
     {
         string fullOrder = "fullKitchenOrder";
         string kitchenOrderFIle = "kitchenOrderedItems.txt";
-        Grill grill;
-        Fryer fryer;
+
+        Appliance.Grill grill;
+        Appliance.Fryer fryer;
         
         public Kitchen()
         {
-            grill = new Grill();
-            fryer = new Fryer();
+            grill = new Appliance.Grill();
+            fryer = new Appliance.Fryer();
         }
         public string getFullOrder() { return this.fullOrder; }
         public string getKitchenOrderFIle() { return this.kitchenOrderFIle; }
@@ -63,47 +64,49 @@ namespace GUI_Module
             //if enough inventory
             bool needToOrder = false;
             int[] itemsToOrder = { 0, 0, 0, 0, 0, 0 };
-            int[] currentStock = mainInventory.getAllItemStock(mainInventory.arrayOfItems);
+            int[] currentStock = mainInventory.getAllItemStock(mainInventory.arrayOfItems); // Get array of current inventory stock
             for (int i = 0; i < currentStock.Length; i++)
             {
-                if (currentStock[i] < brokenDownOrder[i])
+                if (currentStock[i] < brokenDownOrder[i]) // compare curent inventory stock with the needed items
                 {
                     itemsToOrder[i] = brokenDownOrder[i] - currentStock[i];
                     needToOrder = true;
                 }                           
 
             }
-            if (needToOrder == true)
+            if (needToOrder == true) //if there are less items in stock then needed
             {
-                this.UpdateFile(itemsToOrder, kitchenOrderFIle);
-                mainInventory.addItemToStock(itemsToOrder);
-                this.orderPopUp();
+                this.UpdateFile(itemsToOrder, kitchenOrderFIle); //write to file the extra items that were ordered
+                mainInventory.addItemToStock(itemsToOrder); 
+                this.orderPopUp(); //Calls a popup to show items ordered to make the meal
             }
 
-            this.UpdateFile(brokenDownOrder, fullOrder);
+            this.UpdateFile(brokenDownOrder, fullOrder); //update a file with the whole broken down order
 
             
             this.fryer.CookFood(brokenDownOrder[1]);
             this.grill.CookFood(brokenDownOrder[0]);
-            ProgressPopUp();
+            ProgressPopUp();//call the cooking progress popup
 
 
-            //Deduct inventory
+            //Deduct used inventory
             mainInventory.removeItemFromStock(brokenDownOrder);
             
-
+            //reset the used cooking space back to 0 and update the appliance file
             this.fryer.setCookingSpace(4);
             this.grill.setCookingSpace(4);
+            this.grill.updateFile(grill.getGrillFile());
+            this.fryer.updateFile(fryer.getFryerFile());
             return true;
         }
 
         public string[] LoadFile(string fileName)
         {
-            string[] items = { "0", "0", "0", "0", "0", "0" };
+            string[] items = { "0", "0", "0", "0", "0", "0" }; //blank array to write to
 
             if(File.Exists(fileName))
             {
-                items = File.ReadAllLines(fileName);
+                items = File.ReadAllLines(fileName); //read all lines into the array
             }
 
             return items;
@@ -112,16 +115,17 @@ namespace GUI_Module
         {
             if (File.Exists(fileName))
             {
-                string[] fileLines = File.ReadAllLines(fileName);
+                string[] fileLines = File.ReadAllLines(fileName); //write all items into an array
 
                 for(int i = 0; i < items.Length; i++)
                 {
-                    fileLines[i] = items[i].ToString();
+                    fileLines[i] = items[i].ToString(); //copy one line at a time into item array
                 }
                 File.WriteAllLines(fileName, fileLines);
             }
             else
             {
+                //Create File if it does not exist
                 string[] emptyFile = { "0", "0", "0", "0", "0", "0" };
 
                 File.WriteAllLines(fileName, emptyFile);
@@ -129,6 +133,7 @@ namespace GUI_Module
                this.UpdateFile(items, fileName);
             }
         }
+        //Call OrderedItems Popup
         public void orderPopUp()
         {
             Form formBackground = new Form();
@@ -136,28 +141,15 @@ namespace GUI_Module
             {
                 using (KitchenOrderLevelPopUp uu = new KitchenOrderLevelPopUp())
                 {
-                    formBackground.StartPosition = FormStartPosition.CenterParent;
-                    formBackground.FormBorderStyle = FormBorderStyle.None;
-                    formBackground.Opacity = 0;
-                    formBackground.TopMost = true;
-                    //formBackground.Location = KitchenControl
-                    formBackground.ShowInTaskbar = false;
-                    formBackground.Show();
-                    uu.Owner = formBackground;
                     uu.ShowDialog();
-
-                    formBackground.Dispose();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            finally
-            {
-                formBackground.Dispose();
-            }
         }
+        //Call cooking progress pop up
         public void ProgressPopUp()
         {
             Form formBackground = new Form();
@@ -165,28 +157,12 @@ namespace GUI_Module
             {
                 using (CookingProgression uu = new CookingProgression())
                 {
-                    
-                    //formBackground.FormBorderStyle = FormBorderStyle.None;
-                    //formBackground.Opacity = 0;
-                    //formBackground.TopMost = true;
-                    //formBackground.Location = KitchenControl
-                    //formBackground.ShowInTaskbar = false;
-                    //formBackground.Show();
-                    //uu.Owner = formBackground;
-                    
-                    
                     uu.ShowDialog();
-
-                    formBackground.Dispose();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                formBackground.Dispose();
             }
         }
     }
