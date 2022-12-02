@@ -17,139 +17,90 @@ namespace GUI_Module
             updateTableStatus();
         }
 
-        private void button2_Click(object sender, EventArgs e) // Clear all tables button
+        // Clicking table icon or number to clear it
+        private void pictureBox1_Click(object sender, EventArgs e) // Table 1
         {
-            clearTables();
-            updateTableStatus();
+            seatSendOrClear(frontOfHouse.arrayOfTables[0]);
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e) // Table 2
+        {
+            seatSendOrClear(frontOfHouse.arrayOfTables[1]);
+        }
+
+        private void pictureBox5_Click(object sender, EventArgs e) // Table 3
+        {
+            seatSendOrClear(frontOfHouse.arrayOfTables[2]);
+        }
+
+        private void pictureBox7_Click(object sender, EventArgs e) // Table 4
+        {
+            seatSendOrClear(frontOfHouse.arrayOfTables[3]);
+        }
+
+        private void pictureBox2_Click(object sender, EventArgs e) // Table 5
+        {
+            seatSendOrClear(frontOfHouse.arrayOfTables[4]);
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e) // Table 6
+        {
+            seatSendOrClear(frontOfHouse.arrayOfTables[5]);
+        }
+
+        private void pictureBox6_Click(object sender, EventArgs e) // Table 7
+        {
+            seatSendOrClear(frontOfHouse.arrayOfTables[6]);
+        }
+
+        private void pictureBox8_Click(object sender, EventArgs e) // Table 8
+        {
+            seatSendOrClear(frontOfHouse.arrayOfTables[7]);
+        }
+
+        private void label1_Click(object sender, EventArgs e) // Table 1
+        {
+            seatSendOrClear(frontOfHouse.arrayOfTables[0]);
+        }
+
+        private void label3_Click(object sender, EventArgs e) // Table 2
+        {
+            seatSendOrClear(frontOfHouse.arrayOfTables[1]);
+        }
+
+        private void label5_Click(object sender, EventArgs e) // Table 3
+        {
+            seatSendOrClear(frontOfHouse.arrayOfTables[2]);
+        }
+
+        private void label7_Click(object sender, EventArgs e) // Table 4
+        {
+            seatSendOrClear(frontOfHouse.arrayOfTables[3]);
+        }
+
+        private void label2_Click(object sender, EventArgs e) // Table 5
+        {
+            seatSendOrClear(frontOfHouse.arrayOfTables[4]);
+        }
+
+        private void label4_Click(object sender, EventArgs e) // Table 6
+        {
+            seatSendOrClear(frontOfHouse.arrayOfTables[5]);
+        }
+
+        private void label6_Click(object sender, EventArgs e) // Table 7
+        {
+            seatSendOrClear(frontOfHouse.arrayOfTables[6]);
+        }
+
+        private void label8_Click(object sender, EventArgs e) // Table 8
+        {
+            seatSendOrClear(frontOfHouse.arrayOfTables[7]);
         }
 
         private void button1_Click_1(object sender, EventArgs e)
         {
-            int tableCounter = 0;
-            for (int x = 0; x < frontOfHouse.numberOfTables; x++) // For all tables
-            {
-                if (frontOfHouse.arrayOfTables[x].getOccupants() != 0) // If the table is not empty
-                {
-                    tableCounter++;
-                }
-            }
-
-            if (tableCounter < frontOfHouse.numberOfTables) // If all tables are not occupied
-            {
-                int[] tableNumberAndCustomers = frontOfHouse.setTable(); // Assign customers to a table, get number of customers
-                updateTableStatus();
-
-                // Wait 2 seconds before sending order and updating status again 
-                Thread.Sleep(2000);
-                frontOfHouse.sendOrder(tableNumberAndCustomers[1]);
-                updateTableStatus();
-
-                // Update table status to complete
-                frontOfHouse.arrayOfTables[tableNumberAndCustomers[0]].setCompletionStatus(true);
-                updateTableStatus();
-            }
-            else
-            {
-                // All dishes occupied popup
-                allTablesOccupiedPopUp();
-            }
-        }
-
-        // Clicking table icon or number to clear it
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-            frontOfHouse.arrayOfTables[0].clearTable();
-            updateTableStatus();
-        }
-
-        private void pictureBox3_Click(object sender, EventArgs e)
-        {
-            frontOfHouse.arrayOfTables[1].clearTable();
-            updateTableStatus();
-        }
-
-        private void pictureBox5_Click(object sender, EventArgs e)
-        {
-            frontOfHouse.arrayOfTables[2].clearTable();
-            updateTableStatus();
-        }
-
-        private void pictureBox7_Click(object sender, EventArgs e)
-        {
-            frontOfHouse.arrayOfTables[3].clearTable();
-            updateTableStatus();
-        }
-
-        private void pictureBox2_Click(object sender, EventArgs e)
-        {
-            frontOfHouse.arrayOfTables[4].clearTable();
-            updateTableStatus();
-        }
-
-        private void pictureBox4_Click(object sender, EventArgs e)
-        {
-            frontOfHouse.arrayOfTables[5].clearTable();
-            updateTableStatus();
-        }
-
-        private void pictureBox6_Click(object sender, EventArgs e)
-        {
-            frontOfHouse.arrayOfTables[6].clearTable();
-            updateTableStatus();
-        }
-
-        private void pictureBox8_Click(object sender, EventArgs e)
-        {
-            frontOfHouse.arrayOfTables[7].clearTable();
-            updateTableStatus();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            frontOfHouse.arrayOfTables[0].clearTable();
-            updateTableStatus();
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-            frontOfHouse.arrayOfTables[1].clearTable();
-            updateTableStatus();
-        }
-
-        private void label5_Click(object sender, EventArgs e)
-        {
-            frontOfHouse.arrayOfTables[2].clearTable();
-            updateTableStatus();
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-            frontOfHouse.arrayOfTables[3].clearTable();
-            updateTableStatus();
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-            frontOfHouse.arrayOfTables[4].clearTable();
-            updateTableStatus();
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-            frontOfHouse.arrayOfTables[5].clearTable();
-            updateTableStatus();
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-            frontOfHouse.arrayOfTables[6].clearTable();
-            updateTableStatus();
-        }
-
-        private void label8_Click(object sender, EventArgs e)
-        {
-            frontOfHouse.arrayOfTables[7].clearTable();
-            updateTableStatus();
+            helpPopUpFOH();
         }
     }
 }

@@ -147,11 +147,11 @@
     <Compile Include="KitchenOrderLevelPopUp.Designer.cs">
       <DependentUpon>KitchenOrderLevelPopUp.cs</DependentUpon>
     </Compile>
-    <Compile Include="AllTablesOccupiedPopUp.cs">
+    <Compile Include="helpPopUpFOH.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="AllTablesOccupiedPopUp.Designer.cs">
-      <DependentUpon>AllTablesOccupiedPopUp.cs</DependentUpon>
+    <Compile Include="helpPopUpFOH.Designer.cs">
+      <DependentUpon>helpPopUpFOH.cs</DependentUpon>
     </Compile>
     <Compile Include="LowTempPopUp.cs">
       <SubType>Form</SubType>
@@ -217,8 +217,8 @@
     <EmbeddedResource Include="KitchenOrderLevelPopUp.resx">
       <DependentUpon>KitchenOrderLevelPopUp.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="AllTablesOccupiedPopUp.resx">
-      <DependentUpon>AllTablesOccupiedPopUp.cs</DependentUpon>
+    <EmbeddedResource Include="helpPopUpFOH.resx">
+      <DependentUpon>helpPopUpFOH.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LowTempPopUp.resx">
       <DependentUpon>LowTempPopUp.cs</DependentUpon>

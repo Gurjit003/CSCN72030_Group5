@@ -26,12 +26,12 @@ namespace GUI_Module
             base.Dispose(disposing);
         }
 
-        public void allTablesOccupiedPopUp()
+        public void helpPopUpFOH()
         {
             Form formBackground = new Form();
             try
             {
-                using (AllTablesOccupiedPopUp uu = new AllTablesOccupiedPopUp())
+                using (helpPopUpFOH uu = new helpPopUpFOH())
                 {
                     uu.ShowDialog();
 
@@ -61,6 +61,28 @@ namespace GUI_Module
             for (int x = 0; x < frontOfHouse.numberOfTables; x++) 
             {
                 frontOfHouse.arrayOfTables[x].clearTable();
+            }
+        }
+        public void seatSendOrClear(table tableInteracted)
+        {
+            if (tableInteracted.getOccupants() == 0) // If table is empty...
+            {
+                int customersGenerated = frontOfHouse.generateNumberOfCustomers(); // Get random number of customers
+                tableInteracted.setOccupants(customersGenerated); // Set table occupants to generated number
+                updateTableStatus();
+            }
+            else if (tableInteracted.getCompletionStatus() != true) // If table order is not complete...
+            {
+                frontOfHouse.sendOrder(tableInteracted.getOccupants()); // Send the order 
+                updateTableStatus();
+
+                tableInteracted.setCompletionStatus(true); // Set completion status to true
+                updateTableStatus();
+            }
+            else // If order is complete
+            {
+                tableInteracted.clearTable(); // Clear the table
+                updateTableStatus();
             }
         }
 
@@ -99,9 +121,7 @@ namespace GUI_Module
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.label18 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -408,48 +428,26 @@ namespace GUI_Module
             this.label17.Size = new System.Drawing.Size(0, 18);
             this.label17.TabIndex = 62;
             // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(391, 16);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(86, 27);
-            this.button2.TabIndex = 63;
-            this.button2.Text = "Clean All";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(33, 16);
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(458, 403);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 27);
-            this.button1.TabIndex = 64;
-            this.button1.Text = "Seat";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Size = new System.Drawing.Size(39, 41);
+            this.button1.TabIndex = 66;
+            this.button1.Text = "?";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(141, 417);
-            this.label18.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(214, 23);
-            this.label18.TabIndex = 65;
-            this.label18.Text = "Click A Table To Clean It";
             // 
             // frontOfHouseControl1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Pink;
-            this.Controls.Add(this.label18);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
@@ -521,8 +519,6 @@ namespace GUI_Module
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
-        private Label label18;
+        private Button button1;
     }
 }

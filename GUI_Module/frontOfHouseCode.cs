@@ -122,7 +122,7 @@ namespace GUI_Module
         int maximumTableOccupants = 4;
         int minimumTableIndex = 0;
         public int numberOfTables = 8;
-        int emptyTable = 0;
+        public int emptyTable = 0;
 
         public table[] arrayOfTables; // Front of house table array
 
@@ -223,7 +223,7 @@ namespace GUI_Module
             }
             else if (tableToGetStatus.getOccupants() != 0) // If there are occupants
             {
-                return "In Progress";
+                return "Waiting...";
             }
             else
                 return "Empty";
