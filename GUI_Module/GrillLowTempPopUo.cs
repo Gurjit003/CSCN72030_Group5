@@ -32,5 +32,10 @@ namespace GUI_Module
             grill.updateFile(grill.getGrillFile());
             this.Close();
         }
+
+        private void GrillLowTempPopUo_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

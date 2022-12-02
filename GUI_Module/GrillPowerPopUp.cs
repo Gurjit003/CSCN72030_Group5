@@ -27,5 +27,10 @@ namespace GUI_Module
             this.Close();
 
         }
+
+        private void GrillPowerPopUp_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
