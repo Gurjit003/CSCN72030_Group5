@@ -75,7 +75,7 @@ namespace GUI_Module
             else
             {
                 // Create empty data file
-                string[] emptyDishesFile = { "0", "0", "0" };
+                string[] emptyDishesFile = { "32", "0", "0" };
 
                 File.WriteAllLines(dishesFileName, emptyDishesFile);
             }
@@ -170,7 +170,7 @@ namespace GUI_Module
             else
             {
                 // Create empty data file
-                string[] emptyDishesFile = { "0", "0", "0" };
+                string[] emptyDishesFile = { "32", "0", "0" };
 
                 File.WriteAllLines(dishesFileName, emptyDishesFile);
             }
@@ -219,7 +219,7 @@ namespace GUI_Module
             else
             {
                 // Create empty data file
-                string[] emptyDishesFile = { "0", "0", "0" };
+                string[] emptyDishesFile = { "32", "0", "0" };
 
                 File.WriteAllLines(dishesFileName, emptyDishesFile);
             }
@@ -256,7 +256,7 @@ namespace GUI_Module
             }
             else
             {
-                string[] emptyFile = { "0", "0", "0" };
+                string[] emptyFile = { "32", "0", "0" };
 
                 File.WriteAllLines(filePath, emptyFile);
             }
