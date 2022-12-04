@@ -18,6 +18,8 @@ namespace GUI_Module
         private Label label2;
         private PictureBox pictureBox1;
 
+
+
         public homeControl1()
         {
             InitializeComponent();
@@ -102,7 +104,10 @@ namespace GUI_Module
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(140, 33);
             this.label2.TabIndex = 44;
-            this.label2.Text = "12-1-2022";
+
+            var date = DateTime.Now.ToString("M-d-yyyy"); // Date
+
+            this.label2.Text = date;
             // 
             // homeControl1
             // 
