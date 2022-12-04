@@ -25,6 +25,7 @@ namespace GUI_Module
             homeControl1.BringToFront();
             SidePanel.Height = 33;
             SidePanel.Top = 7;
+            //panel20.Height = 90; 
 
         }
 
@@ -163,7 +164,7 @@ namespace GUI_Module
             // homeControl12
             // 
             this.homeControl12.BackColor = System.Drawing.Color.Pink;
-            this.homeControl12.Location = new System.Drawing.Point(127, -5);
+            this.homeControl12.Location = new System.Drawing.Point(210, -5);
             this.homeControl12.Name = "homeControl12";
             this.homeControl12.Size = new System.Drawing.Size(502, 445);
             this.homeControl12.TabIndex = 1;
@@ -174,10 +175,10 @@ namespace GUI_Module
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.label13.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(342, 22);
+            this.label13.Location = new System.Drawing.Point(545, 51);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(88, 34);
+            this.label13.Size = new System.Drawing.Size(59, 23);
             this.label13.TabIndex = 42;
             this.label13.Text = "Home";
             // 
@@ -195,8 +196,8 @@ namespace GUI_Module
             this.ClientSize = new System.Drawing.Size(719, 452);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.homeControl12);
             this.Controls.Add(this.homeControl11);
+            this.Controls.Add(this.homeControl12);
             this.Name = "Home";
             this.Load += new System.EventHandler(this.Home_Load);
             this.ResumeLayout(false);
