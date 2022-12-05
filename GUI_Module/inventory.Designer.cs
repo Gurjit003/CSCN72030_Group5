@@ -521,11 +521,11 @@ namespace GUI_Module
             this.label26.AutoSize = true;
             this.label26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.label26.Font = new System.Drawing.Font("Tahoma", 13.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.Location = new System.Drawing.Point(275, 267);
+            this.label26.Location = new System.Drawing.Point(195, 267);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(91, 28);
             this.label26.TabIndex = 87;
-            this.label26.Text = "Reorder";
+            this.label26.Text = "Enter Values to Reorder:";
             // 
             // button1
             // 
