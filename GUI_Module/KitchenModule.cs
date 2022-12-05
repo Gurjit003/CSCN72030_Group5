@@ -26,7 +26,7 @@ namespace GUI_Module
         }
         public string getFullOrder() { return this.fullOrder; }
         public string getKitchenOrderFIle() { return this.kitchenOrderFIle; }
-        public bool reciveOrder(Order[] order)
+        public bool receiveOrder(Order[] order)
         {
             //array {Hamburger, Chicken, Salad, Fries,  Pop, Water}
             int[] brokenDownOrder = { 0, 0, 0, 0, 0, 0 };

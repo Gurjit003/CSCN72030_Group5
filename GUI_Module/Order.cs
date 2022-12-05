@@ -188,7 +188,7 @@ namespace GUI_Module
             bool orderRecievedAndMade = true;
             Kitchen k = new Kitchen();
 
-            orderRecievedAndMade = k.reciveOrder(order);  //this will send the orders to the kitchen class and will return a boolean when the order is ready 
+            orderRecievedAndMade = k.receiveOrder(order);  //this will send the orders to the kitchen class and will return a boolean when the order is ready 
 
             return orderRecievedAndMade;
         }
