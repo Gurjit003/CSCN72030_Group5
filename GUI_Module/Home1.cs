@@ -103,7 +103,7 @@ namespace GUI_Module
             this.label2.Size = new System.Drawing.Size(137, 23);
             this.label2.TabIndex = 44;
 
-            var date = DateTime.Now.ToString("M-d-yyyy");
+            var date = DateTime.Now.ToString("M-d-yyyy"); // Date
             this.label2.Text = date;
 
             // 
