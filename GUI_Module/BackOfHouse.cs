@@ -79,6 +79,14 @@ namespace GUI_Module
             string filePath = "IncomeFile.txt";
             double sum = 0;
 
+            if (!File.Exists(filePath)) // Check file exists - if not then create
+            {
+                // Create empty income file
+                string[] emptyDataFile = { };
+
+                File.WriteAllLines(filePath, emptyDataFile);
+            }
+
             using (StreamReader sr = new StreamReader(filePath, Encoding.Default))
             {
                 foreach (var line in sr.ReadLines('\n'))
@@ -94,7 +102,15 @@ namespace GUI_Module
         public static void setExpenses(string item, int quantity)
         {
             string filePath = "ExpensesFile.txt"; 
-            double expense, totalExpense = 0; 
+            double expense, totalExpense = 0;
+
+            if (!File.Exists(filePath)) // Check file exists - if not then create
+            {
+                // Create empty income file
+                string[] emptyDataFile = { };
+
+                File.WriteAllLines(filePath, emptyDataFile);
+            }
 
             if (String.Equals(item, "Hamburger"))
             {
@@ -133,6 +149,14 @@ namespace GUI_Module
         {
             string filePath = "ExpensesFile.txt";
             double sum = 0;
+
+            if (!File.Exists(filePath)) // Check file exists - if not then create
+            {
+                // Create empty income file
+                string[] emptyDataFile = { };
+
+                File.WriteAllLines(filePath, emptyDataFile);
+            }
 
             using (StreamReader sr = new StreamReader(filePath, Encoding.Default))
             {

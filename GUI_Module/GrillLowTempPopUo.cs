@@ -15,8 +15,8 @@ namespace GUI_Module
         public GrillLowTempPopUo()
         {
             InitializeComponent();
-            Grill grill = new Grill();
-            label2.Text = grill.getTemperature().ToString();
+            Appliance.Grill grill = new Appliance.Grill();
+            label2.Text = grill.getTemperature().ToString(); //display current temp
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -26,10 +26,16 @@ namespace GUI_Module
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Grill grill = new Grill();
+            Appliance.Grill grill = new Appliance.Grill();
+            //Update Temp and file
             grill.setTemp(75);
-            grill.updateFile();
+            grill.updateFile(grill.getGrillFile());
             this.Close();
+        }
+
+        private void GrillLowTempPopUo_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

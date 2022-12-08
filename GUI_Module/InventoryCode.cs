@@ -32,7 +32,7 @@ namespace GUI_Module
             this.itemName = "";
             this.itemPrice = 0.00;
             this.orderPrice = 0.00;
-            this.itemQuantity = 0;
+            this.itemQuantity = 10; // Default item count
         }
 
         public item(int itemID, string itemName, double itemPrice, double orderPrice, int quantity) // Base constructor

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GUI_Module
 {
-    public partial class AllTablesOccupiedPopUp : Form
+    public partial class helpPopUpFOH : Form
     {
-        public AllTablesOccupiedPopUp()
+        public helpPopUpFOH()
         {
             InitializeComponent();
         }

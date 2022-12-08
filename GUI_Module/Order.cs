@@ -12,6 +12,8 @@ namespace GUI_Module
 {
     public class Order
     {
+        public static Random rnd = new Random();
+
         //initilized the atrributes of an order
         public string main = "Nothing";
         public string side = "Nothing";
@@ -83,10 +85,9 @@ namespace GUI_Module
         {
             string[] gottenMain = new string[numOforder];
 
-            Random rnd = new Random();
+            
             for (int i = 0; i < numOforder; i++)
             {
-                
                 int random = rnd.Next(1, 3);
 
                 if (random == 1)
@@ -120,7 +121,6 @@ namespace GUI_Module
         {
             string[] gottenSide = new string[numOfOrder];
 
-            Random rnd = new Random();
             for (int i = 0; i < numOfOrder; i++)
             {
                 int random = rnd.Next(1, 3);
@@ -154,7 +154,6 @@ namespace GUI_Module
         {
             string[] gottenDrink = new string[numOfOrder];
 
-            Random rnd = new Random();
             for (int i = 0; i < numOfOrder; i++)
             {
                 int random = rnd.Next(1, 3);
@@ -189,7 +188,7 @@ namespace GUI_Module
             bool orderRecievedAndMade = true;
             Kitchen k = new Kitchen();
 
-            orderRecievedAndMade = k.reciveOrder(order);  //this will send the orders to the kitchen class and will return a boolean when the order is ready 
+            orderRecievedAndMade = k.receiveOrder(order);  //this will send the orders to the kitchen class and will return a boolean when the order is ready 
 
             return orderRecievedAndMade;
         }

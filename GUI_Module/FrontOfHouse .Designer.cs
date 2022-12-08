@@ -26,21 +26,13 @@ namespace GUI_Module
             base.Dispose(disposing);
         }
 
-        public void allTablesOccupiedPopUp()
+        public void helpPopUpFOH()
         {
             Form formBackground = new Form();
             try
             {
-                using (AllTablesOccupiedPopUp uu = new AllTablesOccupiedPopUp())
+                using (helpPopUpFOH uu = new helpPopUpFOH())
                 {
-                    formBackground.StartPosition = FormStartPosition.CenterParent;
-                    formBackground.FormBorderStyle = FormBorderStyle.None;
-                    formBackground.Opacity = 0;
-                    formBackground.TopMost = true;
-                    //formBackground.Location = KitchenControl
-                    formBackground.ShowInTaskbar = false;
-                    formBackground.Show();
-                    uu.Owner = formBackground;
                     uu.ShowDialog();
 
                     formBackground.Dispose();
@@ -50,22 +42,18 @@ namespace GUI_Module
             {
                 MessageBox.Show(ex.Message);
             }
-            finally
-            {
-                formBackground.Dispose();
-            }
         }
 
         private void updateTableStatus()
         {
-            this.label9.Text = frontOfHouse.arrayOfTables[0].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[0]);
-            this.label10.Text = frontOfHouse.arrayOfTables[1].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[1]);
-            this.label11.Text = frontOfHouse.arrayOfTables[2].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[2]);
-            this.label12.Text = frontOfHouse.arrayOfTables[3].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[3]);
-            this.label14.Text = frontOfHouse.arrayOfTables[4].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[4]);
-            this.label15.Text = frontOfHouse.arrayOfTables[5].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[5]);
-            this.label16.Text = frontOfHouse.arrayOfTables[6].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[6]);
-            this.label17.Text = frontOfHouse.arrayOfTables[7].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[7]);
+            this.label9.Text = frontOfHouse.arrayOfTables[0].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[0]); // Table 1
+            this.label10.Text = frontOfHouse.arrayOfTables[1].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[1]); // Table 2
+            this.label11.Text = frontOfHouse.arrayOfTables[2].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[2]); // Table 3
+            this.label12.Text = frontOfHouse.arrayOfTables[3].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[3]); // Table 4
+            this.label14.Text = frontOfHouse.arrayOfTables[4].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[4]); // Table 5 
+            this.label15.Text = frontOfHouse.arrayOfTables[5].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[5]); // Table 6
+            this.label16.Text = frontOfHouse.arrayOfTables[6].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[6]); // Table 7
+            this.label17.Text = frontOfHouse.arrayOfTables[7].getOccupants() + " - " + frontOfHouse.getOrderStatus(frontOfHouse.arrayOfTables[7]); // Table 8
         }
 
         public void clearTables()
@@ -73,6 +61,35 @@ namespace GUI_Module
             for (int x = 0; x < frontOfHouse.numberOfTables; x++) 
             {
                 frontOfHouse.arrayOfTables[x].clearTable();
+            }
+        }
+        public void seatSendOrClear(table tableInteracted)
+        {
+            if (tableInteracted.getCompletionStatus() == 0) // If table is empty...
+            {
+                int customersGenerated = frontOfHouse.generateNumberOfCustomers(); // Get random number of customers
+                tableInteracted.setOccupants(customersGenerated); // Set table occupants to generated number
+                tableInteracted.setCompletionStatus(1); // Set to waiting
+                updateTableStatus();
+            }
+            else if (tableInteracted.getCompletionStatus() < 3) // If table order is not complete...
+            {
+                Kitchen k = new Kitchen();
+                k.UpdateTicketGeneratorFile(tableInteracted.getTableID());
+
+                tableInteracted.setCompletionStatus(2); // Set status to cooking
+                updateTableStatus();
+
+                frontOfHouse.sendOrder(tableInteracted.getOccupants()); // Send the order 
+                updateTableStatus();
+
+                tableInteracted.setCompletionStatus(3); // Set status to complete
+                updateTableStatus();
+            }
+            else // If order is complete
+            {
+                tableInteracted.clearTable(); // Clear the table
+                updateTableStatus();
             }
         }
 
@@ -111,7 +128,6 @@ namespace GUI_Module
             this.label15 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -157,6 +173,7 @@ namespace GUI_Module
             this.label1.Size = new System.Drawing.Size(27, 18);
             this.label1.TabIndex = 40;
             this.label1.Text = "#1";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label2
             // 
@@ -168,6 +185,7 @@ namespace GUI_Module
             this.label2.Size = new System.Drawing.Size(27, 18);
             this.label2.TabIndex = 42;
             this.label2.Text = "#5";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // pictureBox2
             // 
@@ -179,6 +197,7 @@ namespace GUI_Module
             this.pictureBox2.Size = new System.Drawing.Size(77, 67);
             this.pictureBox2.TabIndex = 41;
             this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.pictureBox2_Click);
             // 
             // pictureBox1
             // 
@@ -190,6 +209,7 @@ namespace GUI_Module
             this.pictureBox1.Size = new System.Drawing.Size(77, 67);
             this.pictureBox1.TabIndex = 39;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // label3
             // 
@@ -201,6 +221,7 @@ namespace GUI_Module
             this.label3.Size = new System.Drawing.Size(27, 18);
             this.label3.TabIndex = 44;
             this.label3.Text = "#2";
+            this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
             // pictureBox3
             // 
@@ -212,6 +233,7 @@ namespace GUI_Module
             this.pictureBox3.Size = new System.Drawing.Size(77, 67);
             this.pictureBox3.TabIndex = 43;
             this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
             // 
             // label4
             // 
@@ -223,6 +245,7 @@ namespace GUI_Module
             this.label4.Size = new System.Drawing.Size(27, 18);
             this.label4.TabIndex = 46;
             this.label4.Text = "#6";
+            this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
             // pictureBox4
             // 
@@ -234,6 +257,7 @@ namespace GUI_Module
             this.pictureBox4.Size = new System.Drawing.Size(77, 67);
             this.pictureBox4.TabIndex = 45;
             this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // label5
             // 
@@ -245,6 +269,7 @@ namespace GUI_Module
             this.label5.Size = new System.Drawing.Size(27, 18);
             this.label5.TabIndex = 48;
             this.label5.Text = "#3";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // pictureBox5
             // 
@@ -256,6 +281,7 @@ namespace GUI_Module
             this.pictureBox5.Size = new System.Drawing.Size(77, 67);
             this.pictureBox5.TabIndex = 47;
             this.pictureBox5.TabStop = false;
+            this.pictureBox5.Click += new System.EventHandler(this.pictureBox5_Click);
             // 
             // label6
             // 
@@ -267,6 +293,7 @@ namespace GUI_Module
             this.label6.Size = new System.Drawing.Size(27, 18);
             this.label6.TabIndex = 50;
             this.label6.Text = "#7";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
             // 
             // pictureBox6
             // 
@@ -278,6 +305,7 @@ namespace GUI_Module
             this.pictureBox6.Size = new System.Drawing.Size(77, 67);
             this.pictureBox6.TabIndex = 49;
             this.pictureBox6.TabStop = false;
+            this.pictureBox6.Click += new System.EventHandler(this.pictureBox6_Click);
             // 
             // label7
             // 
@@ -289,6 +317,7 @@ namespace GUI_Module
             this.label7.Size = new System.Drawing.Size(27, 18);
             this.label7.TabIndex = 52;
             this.label7.Text = "#4";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // pictureBox7
             // 
@@ -300,6 +329,7 @@ namespace GUI_Module
             this.pictureBox7.Size = new System.Drawing.Size(77, 67);
             this.pictureBox7.TabIndex = 51;
             this.pictureBox7.TabStop = false;
+            this.pictureBox7.Click += new System.EventHandler(this.pictureBox7_Click);
             // 
             // label8
             // 
@@ -311,6 +341,7 @@ namespace GUI_Module
             this.label8.Size = new System.Drawing.Size(27, 18);
             this.label8.TabIndex = 54;
             this.label8.Text = "#8";
+            this.label8.Click += new System.EventHandler(this.label8_Click);
             // 
             // pictureBox8
             // 
@@ -322,6 +353,7 @@ namespace GUI_Module
             this.pictureBox8.Size = new System.Drawing.Size(77, 67);
             this.pictureBox8.TabIndex = 53;
             this.pictureBox8.TabStop = false;
+            this.pictureBox8.Click += new System.EventHandler(this.pictureBox8_Click);
             // 
             // label9
             // 
@@ -403,26 +435,18 @@ namespace GUI_Module
             this.label17.Size = new System.Drawing.Size(0, 18);
             this.label17.TabIndex = 62;
             // 
-            // button2
-            // 
-            this.button2.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.Location = new System.Drawing.Point(425, 17);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 27);
-            this.button2.TabIndex = 63;
-            this.button2.Text = "Clean";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // button1
             // 
-            this.button1.Font = new System.Drawing.Font("Tahoma", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(347, 17);
+            this.button1.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.button1.Font = new System.Drawing.Font("Tahoma", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.button1.Location = new System.Drawing.Point(458, 403);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 27);
-            this.button1.TabIndex = 64;
-            this.button1.Text = "Seat";
-            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Size = new System.Drawing.Size(39, 41);
+            this.button1.TabIndex = 66;
+            this.button1.Text = "?";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // frontOfHouseControl1
@@ -431,7 +455,6 @@ namespace GUI_Module
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Pink;
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.label15);
@@ -460,7 +483,7 @@ namespace GUI_Module
             this.Controls.Add(this.textBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frontOfHouseControl1";
-            this.Size = new System.Drawing.Size(502, 445);
+            this.Size = new System.Drawing.Size(502, 457);
             this.Load += new System.EventHandler(this.frontOfHouseControl1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -503,7 +526,6 @@ namespace GUI_Module
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private Button button1;
     }
 }

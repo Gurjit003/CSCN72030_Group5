@@ -18,7 +18,7 @@ namespace GUI_Module
             InitializeComponent();
             Kitchen kitchen = new Kitchen();
 
-            string[] itemsOrdered = kitchen.LoadFile();
+            string[] itemsOrdered = kitchen.LoadFile(kitchen.getKitchenOrderFIle());
             //array {Hamburger, Chicken, Salad, Fries, Pop, Water}
             label9.Text = itemsOrdered[0]; // Burger    
             label12.Text = itemsOrdered[1]; //Chicken

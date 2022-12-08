@@ -12,17 +12,21 @@ namespace GUI_Module
 {
     public class Kitchen
     {
-
+        string fullOrder = "fullKitchenOrder.txt";
         string kitchenOrderFIle = "kitchenOrderedItems.txt";
-        Grill grill;
-        Fryer fryer;
+        string ticketGeneratorFile = "ticketGeneratorFile.txt";
+
+        Appliance.Grill grill;
+        Appliance.Fryer fryer;
         
         public Kitchen()
         {
-            grill = new Grill();
-            fryer = new Fryer();
+            grill = new Appliance.Grill();
+            fryer = new Appliance.Fryer();
         }
-        public bool reciveOrder(Order[] order)
+        public string getFullOrder() { return this.fullOrder; }
+        public string getKitchenOrderFIle() { return this.kitchenOrderFIle; }
+        public bool receiveOrder(Order[] order)
         {
             //array {Hamburger, Chicken, Salad, Fries,  Pop, Water}
             int[] brokenDownOrder = { 0, 0, 0, 0, 0, 0 };
@@ -61,69 +65,112 @@ namespace GUI_Module
             //if enough inventory
             bool needToOrder = false;
             int[] itemsToOrder = { 0, 0, 0, 0, 0, 0 };
-            int[] currentStock = mainInventory.getAllItemStock(mainInventory.arrayOfItems);
+            int[] currentStock = mainInventory.getAllItemStock(mainInventory.arrayOfItems); // Get array of current inventory stock
             for (int i = 0; i < currentStock.Length; i++)
             {
-                if (currentStock[i] < brokenDownOrder[i])
+                if (currentStock[i] < brokenDownOrder[i]) // compare curent inventory stock with the needed items
                 {
                     itemsToOrder[i] = brokenDownOrder[i] - currentStock[i];
                     needToOrder = true;
                 }                           
 
             }
-            if (needToOrder == true)
+            if (needToOrder == true) //if there are less items in stock then needed
             {
-                this.UpdateOrderedItemsFile(itemsToOrder);
-                mainInventory.addItemToStock(itemsToOrder);
-                this.orderPopUp();
+                this.UpdateFile(itemsToOrder, kitchenOrderFIle); //write to file the extra items that were ordered
+                mainInventory.addItemToStock(itemsToOrder); 
+                this.orderPopUp(); //Calls a popup to show items ordered to make the meal
             }
-            
 
+            this.UpdateFile(brokenDownOrder, fullOrder); //update a file with the whole broken down order
+
+            
             this.fryer.CookFood(brokenDownOrder[1]);
             this.grill.CookFood(brokenDownOrder[0]);
+            ProgressPopUp();//call the cooking progress popup
 
 
-            //Deduct inventory
+            //Deduct used inventory
             mainInventory.removeItemFromStock(brokenDownOrder);
             
-
+            //reset the used cooking space back to 0 and update the appliance file
             this.fryer.setCookingSpace(4);
             this.grill.setCookingSpace(4);
+            this.grill.updateFile(grill.getGrillFile());
+            this.fryer.updateFile(fryer.getFryerFile());
             return true;
         }
-
-        public string[] LoadFile()
+        public void startupTicketReset()
         {
-            string[] orderedItems = { "0", "0", "0", "0", "0", "0" };
-
-            if(File.Exists(kitchenOrderFIle))
+            if (File.Exists(ticketGeneratorFile))
             {
-                orderedItems = File.ReadAllLines(kitchenOrderFIle);
+                string[] line = File.ReadAllLines(ticketGeneratorFile);
+                line[1] = "0";
+                File.WriteAllLines(ticketGeneratorFile, line);
+            }
+        }
+        public string[] LoadFile(string fileName)
+        {
+            string[] items = { "0", "0", "0", "0", "0", "0" }; //blank array to write to
+
+            if(File.Exists(fileName))
+            {
+                items = File.ReadAllLines(fileName); //read all lines into the array
             }
 
-            return orderedItems;
+            return items;
         }
-        public void UpdateOrderedItemsFile(int[] items)
+        public string[] LoadTicketGenoratorFile()
         {
-            if (File.Exists(kitchenOrderFIle))
-            {
-                string[] fileLines = File.ReadAllLines(kitchenOrderFIle);
+            string[] lines = { "0", "0" };
 
-                for(int i = 0; i < items.Length; i++)
-                {
-                    fileLines[i] = items[i].ToString();
-                }
-                File.WriteAllLines(kitchenOrderFIle, fileLines);
+            if (File.Exists(ticketGeneratorFile))
+            {
+                lines = File.ReadAllLines(ticketGeneratorFile);
+            }
+            return lines;
+        }
+        public void UpdateTicketGeneratorFile(int tableNum)
+        {
+            if(File.Exists(ticketGeneratorFile))
+            {
+                string[]lines = File.ReadAllLines(ticketGeneratorFile);
+                lines[0] = tableNum.ToString();
+                int increment = Int32.Parse(lines[1]) + 1;
+                lines[1] = increment.ToString();
+
+                File.WriteAllLines(ticketGeneratorFile, lines);
             }
             else
             {
-                string[] emptyFile = { "0", "0", "0", "0", "0", "0" };
-
-                File.WriteAllLines(kitchenOrderFIle, emptyFile);
-
-               // this.orderedItemsFile(items);
+                string[] empty = {"0", "1"};
+                File.WriteAllLines(ticketGeneratorFile, empty);
+                UpdateTicketGeneratorFile(0);
             }
         }
+        public void UpdateFile(int[] items, string fileName)
+        {
+            if (File.Exists(fileName))
+            {
+                string[] fileLines = File.ReadAllLines(fileName); //write all items into an array
+
+                for(int i = 0; i < items.Length; i++)
+                {
+                    fileLines[i] = items[i].ToString(); //copy one line at a time into item array
+                }
+                File.WriteAllLines(fileName, fileLines);
+            }
+            else
+            {
+                //Create File if it does not exist
+                string[] emptyFile = { "0", "0", "0", "0", "0", "0" };
+
+                File.WriteAllLines(fileName, emptyFile);
+
+               this.UpdateFile(items, fileName);
+            }
+        }
+        //Call OrderedItems Popup
         public void orderPopUp()
         {
             Form formBackground = new Form();
@@ -131,31 +178,29 @@ namespace GUI_Module
             {
                 using (KitchenOrderLevelPopUp uu = new KitchenOrderLevelPopUp())
                 {
-                    formBackground.StartPosition = FormStartPosition.CenterParent;
-                    formBackground.FormBorderStyle = FormBorderStyle.None;
-                    formBackground.Opacity = 0;
-                    formBackground.TopMost = true;
-                    //formBackground.Location = KitchenControl
-                    formBackground.ShowInTaskbar = false;
-                    formBackground.Show();
-                    uu.Owner = formBackground;
                     uu.ShowDialog();
-
-                    formBackground.Dispose();
                 }
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-            finally
+        }
+        //Call cooking progress pop up
+        public void ProgressPopUp()
+        {
+            Form formBackground = new Form();
+            try
             {
-                formBackground.Dispose();
+                using (CookingProgression uu = new CookingProgression())
+                {
+                    uu.ShowDialog();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }
-
-
-
-
 }

@@ -19,10 +19,10 @@ namespace GUI_Module
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Fryer fryer = new Fryer();
+            Appliance.Fryer fryer = new Appliance.Fryer();
+            //update power and file
             fryer.setPower(true);
-
-            fryer.updateFile();
+            fryer.updateFile(fryer.getFryerFile());
 
             this.Close();
         }

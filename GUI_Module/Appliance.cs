@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
 using System.Security.Cryptography.X509Certificates;
+using System.Drawing;
 
 namespace GUI_Module
 {
@@ -32,7 +33,6 @@ namespace GUI_Module
             this.powerStatus = set;
         }
 
-        //GUI calls as tempurature is increased
         public void setTemp(int temp)
         {
             this.temperature = temp;
@@ -41,7 +41,6 @@ namespace GUI_Module
         public bool getPowerStatus() { return this.powerStatus; }
         public int getTemperature() { return this.temperature; }
 
-        //GUI Calls this method when a power button is pressed
         public void PowerSwitch()
         {
             this.powerStatus = !powerStatus; //Flips the power switch bool to represent power on/off
@@ -52,71 +51,44 @@ namespace GUI_Module
             }
         }
 
-        void updateApplianceFileGrill(int temperature, bool powerStatus, int cookingSpace)
-        {
+        //void updateApplianceFileGrill(int temperature, bool powerStatus, int cookingSpace)
+        //{
 
-        }
+        //}
         public void CookFood(int num)
         {
 
         }
-
-
-    }
-
-    public class Grill : Appliance
-    {
-        public Grill()
+        public void updateFile(string fileName)
         {
-            this.LoadFromFile();
-        }
-
-        public string grillFile = "grillFile.txt";
-
-        new public void CookFood(int numOfBurgers)
-        {
-            
-            if (this.getPowerStatus() == false)
+            if (File.Exists(fileName))
             {
-                CallGrillPowerPopUp();
-            }
-            if (this.getTemperature() < 75)
-            {
-                CallGrillLowTempPopUp();
-            }
-            setCookingSpace(this.getCookingSpace() - numOfBurgers);
-            //update GUI visual grill area
-
-        }
-        public void updateFile()
-        {
-            if (File.Exists(grillFile))
-            {
-                string[] fileLines = File.ReadAllLines(grillFile);
+                string[] fileLines = File.ReadAllLines(fileName); //read all lines from file into an array
 
                 fileLines[0] = this.getPowerStatus().ToString();
-                fileLines[1] = this.getTemperature().ToString();
+                fileLines[1] = this.getTemperature().ToString(); //modify array with current values
                 fileLines[2] = this.getCookingSpace().ToString();
 
-                File.WriteAllLines(grillFile, fileLines);
+                File.WriteAllLines(fileName, fileLines); //write current data to the file
 
             }
             else
             {
+                //Create new file if one does not exist
                 string[] emptyFile = { "0", "0", "0" };
-
-                File.WriteAllLines(grillFile, emptyFile);
-
-                this.updateFile();
+                File.WriteAllLines(fileName, emptyFile);
+                this.updateFile(fileName);
             }
-        }
-        public void LoadFromFile()
-        {
-            if (File.Exists(grillFile))
-            {
-                string[] fileLines = File.ReadAllLines(grillFile);
 
-                if (fileLines[0] == "False")
+
+        }
+        public void LoadFromFile(string fileName)
+        {
+            if (File.Exists(fileName))
+            {
+                string[] fileLines = File.ReadAllLines(fileName); //read all files into array
+
+                if (fileLines[0] == "False") //check power status string and update power accordingly
                 {
                     this.setPower(false);
                 }
@@ -124,190 +96,133 @@ namespace GUI_Module
                 {
                     this.setPower(true);
                 }
+                //parse temp and cooking space into ints
                 this.setTemp(Int32.Parse(fileLines[1]));
                 this.setCookingSpace(Int32.Parse(fileLines[2]));
             }
         }
-        public void CallGrillLowTempPopUp()
-        {
-            Form formBackground = new Form();
-            try
-            {
-                using (GrillLowTempPopUo uu = new GrillLowTempPopUo())
-                {
-                    formBackground.StartPosition = FormStartPosition.CenterParent;
-                    formBackground.FormBorderStyle = FormBorderStyle.None;
-                    formBackground.Opacity = 0;
-                    formBackground.TopMost = true;
-                    //formBackground.Location = KitchenControl;
-                    formBackground.ShowInTaskbar = false;
-                    formBackground.Show();
-                    uu.Owner = formBackground;
-                    uu.ShowDialog();
 
-                    formBackground.Dispose();
+        public class Grill : Appliance
+        {
+            public Grill()
+            {
+                this.LoadFromFile("grillFile.txt"); //Default constructor to read from file
+            }
+
+            string grillFile = "grillFile.txt";
+            public string getGrillFile() { return this.grillFile; }
+
+
+            new public void CookFood(int numOfBurgers)
+            {
+
+                if (this.getPowerStatus() == false)
+                {
+                    this.CallGrillPowerPopUp(); // if powered off call popup to turn power on
+                }
+                if (this.getTemperature() < 75)
+                {
+                    CallGrillLowTempPopUp(); //if not hot enough call pop up to increase temp
+                }
+                this.LoadFromFile(this.getGrillFile());
+                setCookingSpace(this.getCookingSpace() - numOfBurgers); //set cooking to represent usedd spots for cooking
+                updateFile(this.getGrillFile());
+            }
+
+            //Call grill low temp popup
+            public void CallGrillLowTempPopUp()
+            {
+                Form formBackground = new Form();
+                try
+                {
+                    using (GrillLowTempPopUo uu = new GrillLowTempPopUo())
+                    {
+                        uu.ShowDialog();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
             }
-            catch (Exception ex)
+            //Call grill power popup
+            public void CallGrillPowerPopUp()
             {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                formBackground.Dispose();
+                Form formBackground = new Form();
+                try
+                {
+                    using (GrillPowerPopUp uu = new GrillPowerPopUp())
+                    {
+                        uu.ShowDialog();
+
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
-        public void CallGrillPowerPopUp()
-        {
-            Form formBackground = new Form();
-            try
-            {
-                using (GrillPowerPopUp uu = new GrillPowerPopUp())
-                {
-                    formBackground.StartPosition = FormStartPosition.CenterParent;
-                    formBackground.FormBorderStyle = FormBorderStyle.None;
-                    formBackground.Opacity = 0;
-                    formBackground.TopMost = true;
-                    //formBackground.Location = KitchenControl
-                    formBackground.ShowInTaskbar = false;
-                    formBackground.Show();
-                    uu.Owner = formBackground;
-                    uu.ShowDialog();
 
-                    //formBackground.Dispose();
+        public class Fryer : Appliance
+        {
+            public Fryer()
+            {
+                this.LoadFromFile("fryerFile.txt"); //initialize new instance with values from the file
+            }
+            string fryerFile = "fryerFile.txt";
+            public string getFryerFile() { return this.fryerFile; }
+
+            new public void CookFood(int numOfChicken)
+            {
+
+                if (this.getPowerStatus() == false)
+                {
+                    CallFryerPowerPopUp(); //if powered off call popup to power on
                 }
+                if (this.getTemperature() < 75)
+                {
+                    CallFryerLowTempPopUp(); //if low temp call pop up to increase temp
+                }
+                this.LoadFromFile(this.getFryerFile());
+                setCookingSpace(this.getCookingSpace() - numOfChicken);// set cooking space to represent cooking chicken
+                this.updateFile(this.getFryerFile());
             }
-            catch (Exception ex)
+
+
+            //Call fryer low temp popup
+            public void CallFryerLowTempPopUp()
             {
-                MessageBox.Show(ex.Message);
+                Form formBackground = new Form();
+                try
+                {
+                    using (LowTempPopUp uu = new LowTempPopUp())
+                    {
+                        uu.ShowDialog();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+
             }
-            finally
+            //Call fryer power popup
+            public void CallFryerPowerPopUp()
             {
-                formBackground.Dispose();
+                Form formBackground = new Form();
+                try
+                {
+                    using (FryerPowerPopUp uu = new FryerPowerPopUp())
+                    {
+                        uu.ShowDialog();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
             }
         }
     }
-
-    public class Fryer : Appliance
-    {
-        public Fryer()
-        {
-            this.LoadFromFile();
-        }
-        public string fryerFile = "fryerFile.txt";
-
-        new public void CookFood(int numOfChicken)
-        {
-            
-            if (this.getPowerStatus() == false)
-            {
-                CallFryerPowerPopUp();
-            }
-            if (this.getTemperature() < 75)
-            {
-                CallFryerLowTempPopUp();
-            }
-            setCookingSpace(this.getCookingSpace() - numOfChicken);
-            //update GUI visual grill area
-        }
-
-        public void updateFile()
-        {
-            if (File.Exists(fryerFile))
-            {
-                string[] fileLines = File.ReadAllLines(fryerFile);
-
-                fileLines[0] = this.getPowerStatus().ToString();
-                fileLines[1] = this.getTemperature().ToString();
-                fileLines[2] = this.getCookingSpace().ToString();
-
-                File.WriteAllLines(fryerFile, fileLines);
-            }
-            else
-            {
-                string[] emptyFile = { "0", "0", "0" };
-
-                File.WriteAllLines(fryerFile, emptyFile);
-
-                this.updateFile();
-            }
-        }
-        public void LoadFromFile()
-        {
-            if (File.Exists(fryerFile))
-            {
-                string[] fileLines = File.ReadAllLines(fryerFile);
-
-                if (fileLines[0] == "False")
-                {
-                    this.setPower(false);
-                }
-                else
-                {
-                    this.setPower(true);
-                }
-                this.setTemp(Int32.Parse(fileLines[1]));
-                this.setCookingSpace(Int32.Parse(fileLines[2]));
-            }
-        }
-        public void CallFryerLowTempPopUp()
-        {
-            Form formBackground = new Form();
-            try
-            {
-                using (LowTempPopUp uu = new LowTempPopUp())
-                {
-                    formBackground.StartPosition = FormStartPosition.CenterParent;
-                    formBackground.FormBorderStyle = FormBorderStyle.None;
-                    formBackground.Opacity = 0;
-                    formBackground.TopMost = true;
-                    //formBackground.Location = KitchenControl
-                    formBackground.ShowInTaskbar = false;
-                    formBackground.Show();
-                    uu.Owner = formBackground;
-                    uu.ShowDialog();
-
-                    formBackground.Dispose();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                formBackground.Dispose();
-            }
-            
-        }
-        public void CallFryerPowerPopUp()
-        {
-            Form formBackground = new Form();
-            try
-            {
-                using (FryerPowerPopUp uu = new FryerPowerPopUp())
-                {
-                    formBackground.StartPosition = FormStartPosition.CenterParent;
-                    formBackground.FormBorderStyle = FormBorderStyle.None;
-                    formBackground.Opacity = 0;
-                    formBackground.TopMost = true;
-                    //formBackground.Location = KitchenControl
-                    formBackground.ShowInTaskbar = false;
-                    formBackground.Show();
-                    uu.Owner = formBackground;
-                    uu.ShowDialog();
-
-                    formBackground.Dispose();
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                formBackground.Dispose();
-            }
-        }
-    } 
 }

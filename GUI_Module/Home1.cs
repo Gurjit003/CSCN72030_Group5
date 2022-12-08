@@ -18,6 +18,8 @@ namespace GUI_Module
         private Label label2;
         private PictureBox pictureBox1;
 
+
+
         public homeControl1()
         {
             InitializeComponent();
@@ -48,7 +50,7 @@ namespace GUI_Module
             // 
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.pictureBox1.Image = global::GUI_Module.Properties.Resources.openSignT;
-            this.pictureBox1.Location = new System.Drawing.Point(178, 107);
+            this.pictureBox1.Location = new System.Drawing.Point(198, 107);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(263, 222);
             this.pictureBox1.TabIndex = 0;
@@ -59,7 +61,7 @@ namespace GUI_Module
             // 
             this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.textBox1.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(-2, 24);
+            this.textBox1.Location = new System.Drawing.Point(1, 20);
             this.textBox1.Margin = new System.Windows.Forms.Padding(0);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(725, 30);
@@ -72,7 +74,7 @@ namespace GUI_Module
             this.label13.AutoSize = true;
             this.label13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.label13.Font = new System.Drawing.Font("Tahoma", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.Location = new System.Drawing.Point(276, 27);
+            this.label13.Location = new System.Drawing.Point(288, 23);
             this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(59, 23);
@@ -85,10 +87,10 @@ namespace GUI_Module
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.label1.Font = new System.Drawing.Font("Tahoma", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(208, 380);
+            this.label1.Location = new System.Drawing.Point(240, 380);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(137, 23);
+            this.label1.Size = new System.Drawing.Size(147, 24);
             this.label1.TabIndex = 43;
             this.label1.Text = "Welcome Back!";
             // 
@@ -97,10 +99,10 @@ namespace GUI_Module
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Tahoma", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(206, 445);
+            this.label2.Location = new System.Drawing.Point(246, 438);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(137, 23);
+            this.label2.Size = new System.Drawing.Size(140, 33);
             this.label2.TabIndex = 44;
 
             var date = DateTime.Now.ToString("M-d-yyyy"); // Date

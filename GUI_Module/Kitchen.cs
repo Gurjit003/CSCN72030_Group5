@@ -15,14 +15,16 @@ namespace GUI_Module
         public KitchenControl()
         {
             InitializeComponent();
-            Grill grill = new Grill();
-            Fryer fryer = new Fryer();
+            //initialize new appliances with values from the file
+            Appliance.Grill grill = new Appliance.Grill();
+            Appliance.Fryer fryer = new Appliance.Fryer();
 
+            //set GUI temp to values from the file
             numericUpDown1.Value = fryer.getTemperature();
             numericUpDown2.Value = grill.getTemperature();
 
             
-
+            //set power button to the correct colour
             if(fryer.getPowerStatus() == true)
             {
                 button1.BackColor = Color.Green;
@@ -63,8 +65,8 @@ namespace GUI_Module
             label11.Text = Order.sendWat().ToString();
             label12.Text = Order.sendPop().ToString();
 
-            Grill grill = new Grill();
-            Fryer fryer = new Fryer();
+            Appliance.Grill grill = new Appliance.Grill();
+            Appliance.Fryer fryer = new Appliance.Fryer();
 
             if (fryer.getPowerStatus() == true)
             {
@@ -80,27 +82,29 @@ namespace GUI_Module
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            Fryer fryer = new Fryer();
+            Appliance.Fryer fryer = new Appliance.Fryer();
+            //if fryer is on change temp with up down buttons
             if(fryer.getPowerStatus() == true)
             {
                 fryer.setTemp(((int)numericUpDown1.Value));
-                fryer.updateFile();
+                fryer.updateFile(fryer.getFryerFile());
             }
             else
             {
-                numericUpDown1.Value = 0;
+                numericUpDown1.Value = 0; //set to 0 if power is off
             }
             
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Fryer fryer = new Fryer();
+            Appliance.Fryer fryer = new Appliance.Fryer();
             Control ctrl = ((Control)sender);
+            //set button colour to match power status
             switch (ctrl.BackColor.Name)
             {
                 case "Green":
-                    fryer.setPower(false);
+                    fryer.setPower(false); 
                     ctrl.BackColor = Color.Red;
                     numericUpDown1.Value = 0;
                     fryer.setTemp((int)numericUpDown1.Value);
@@ -110,13 +114,14 @@ namespace GUI_Module
                     ctrl.BackColor = Color.Green;
                     break;
             }
-            fryer.updateFile();
+            fryer.updateFile(fryer.getFryerFile()); //update power status
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            Grill grill = new Grill();
+            Appliance.Grill grill = new Appliance.Grill();
             Control ctrl = ((Control)sender);
+            //set button colour to match power status
             switch (ctrl.BackColor.Name)
             {
                 case "Green":
@@ -130,7 +135,7 @@ namespace GUI_Module
                     ctrl.BackColor = Color.Green;
                     break;
             }
-            grill.updateFile();
+            grill.updateFile(grill.getGrillFile()); //update power status
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -140,15 +145,16 @@ namespace GUI_Module
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-            Grill grill = new Grill();
-            if(grill.getPowerStatus() == true)
+            Appliance.Grill grill = new Appliance.Grill();
+            //if fryer is on change temp with up down buttons
+            if (grill.getPowerStatus() == true)
             {
                 grill.setTemp(((int)numericUpDown2.Value));
-                grill.updateFile();
+                grill.updateFile(grill.getGrillFile());
             }
             else
             {
-                numericUpDown2.Value = 0;
+                numericUpDown2.Value = 0; //set to 0 if power is off
             }
             
         }
